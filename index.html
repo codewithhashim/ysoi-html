@@ -538,6 +538,7 @@ details[open] > summary .tog::before,details[open] > summary .tog::after{backgro
 .js-reveal .rv{opacity:0;transform:translateY(16px);
   transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:var(--rv-d,0ms)}
 .js-reveal .rv.is-in{opacity:1;transform:none}
+@media print{.js-reveal .rv{opacity:1;transform:none;transition:none}}   /* a printout shows every section, scrolled to or not */
 
 /* ---- editable-field inspector (review aid, does not ship) --- */
 .edit-toggle{position:fixed;right:18px;top:calc(var(--hdr-h) + 12px);z-index:55;background:var(--ink);color:#fff;
@@ -1596,23 +1597,24 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   var hdr = document.querySelector('.hdr'), hdrTick = false;
   function hdrSync(){ hdrTick = false; hdr.classList.toggle('is-scrolled', window.scrollY > 0 && hdr.getBoundingClientRect().top <= 0); }
   window.addEventListener('scroll', function(){ if (!hdrTick) { hdrTick = true; requestAnimationFrame(hdrSync); } }, {passive:true});
-  hdrSync();
+  window.addEventListener('resize', hdrSync); hdrSync();
 
   /* scroll reveal: headings and card rows fade up once as they arrive. Items that arrive
      together are staggered 70ms apart. The hero, intake table, timetable rows, prices and
      the form stay still. Afterwards the helper classes come off, so hover styles are untouched. */
   if ('IntersectionObserver' in window && !reduced) {
     var RV = '.shead, .paths > .path, .vcards__studios > .vcard, .vcard--online, .founders-full__text, ' +
-             '.founders-full__media > figure, .grads > .grad, .vid-grid > *, .gr, .ig-head, .ig > a, .faq, .faq-more';
+             '.founders-full__media > figure, .grads > .grad, .vid-grid > *, .gr, .ig-head, .ig, .faq, .faq-more';
     var rvEls = Array.prototype.slice.call(document.querySelectorAll(RV));
     document.documentElement.classList.add('js-reveal');
     var rvIO = new IntersectionObserver(function(entries){
-      var k = 0;
+      var k = 0, edge = hdr.getBoundingClientRect().bottom;
       entries.forEach(function(en){
         if (!en.isIntersecting) return;
         var el = en.target;
         rvIO.unobserve(el);
-        el.style.setProperty('--rv-d', Math.min(k++, 5) * 70 + 'ms');
+        /* anything peeking out from under the header shows at once; the section arrived at gets the stagger */
+        el.style.setProperty('--rv-d', (en.boundingClientRect.top < edge ? 0 : Math.min(k++, 5) * 70) + 'ms');
         el.classList.add('is-in');
         el.addEventListener('transitionend', function done(e){
           if (e.target !== el || e.propertyName !== 'transform') return;
@@ -1622,6 +1624,11 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       });
     }, {rootMargin: '0px 0px -6% 0px'});
     rvEls.forEach(function(el){ el.classList.add('rv'); rvIO.observe(el); });
+    /* an in-page link to a card that has not revealed yet: show it now, so the jump lands on its real position */
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a[href^="#"]'), t = a && a.hash && document.getElementById(a.hash.slice(1));
+      if (t && t.classList.contains('rv')) { rvIO.unobserve(t); t.classList.remove('rv', 'is-in'); }
+    }, true);
   }
 
   /* video lightbox: plays in the page; focus moves in, the page behind goes inert, focus returns on close */
