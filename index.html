@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yoga &amp; Meditation School of India: Design Preview</title>
+<meta name="description" content="Classical Ashtanga and Hatha yoga from a third-generation Indian yoga family. Yoga Australia accredited teacher training and weekly classes in Melbourne and Australia-wide since 2010.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="brand-assets/icons/favicon-32x32.png">
+<style>
+/* ============================================================
+   Yoga & Meditation School of India: homepage design, v5
+   Palette from the live site's CSS and logo (brand-assets/palette.css).
+   v5 takes its component language from yogaaustralia.org.au, the
+   industry's peak body: pill buttons, people in circles, centred
+   section headings, soft tinted bands and one brand-colour band.
+
+   SHAPES: buttons and chips are pills; people are circles; photos and
+   video use --r-img; containers use --r-box.
+   COLOUR: white page; --shade for tinted bands and soft containers;
+   --orange-deep for the offer bar and the enquiry band (white text on
+   it is 4.99:1); --orange fills primary pills only (white text on it
+   since 30 Sep 2026, 2.87:1; see the .btn--primary note); the footer is the one dark block.
+   ============================================================ */
+:root{
+  --orange:#E97B26; --amber:#ECA228; --amber-lt:#EBAA58;
+  --orange-deep:#AB5A1B;            /* 4.66:1 on paper, 4.99:1 on white */
+  --white:#fff; --paper:#FAF7F0; --shade:#F4F0E8; --paper-2:#EDE6D9;
+  --ink:#242424; --ink2:#444; --muted:#666; --hair:#E2DED6; --line:rgba(36,36,36,.26);
+  --max:1240px; --gut:24px; --hdr-h:78px;
+  /* vertical rhythm: 136 / 96 / 56 / 40 on a 1440 screen; 80 / 56 / 32 / 28 on a phone */
+  --gap-loose:clamp(80px,9.5vw,136px);   /* between sections */
+  --gap-tight:clamp(56px,6.6vw,96px);    /* between two sections that belong together */
+  --gap-head:clamp(32px,3.9vw,56px);     /* heading block to its content */
+  --gap-block:clamp(28px,2.8vw,40px);    /* between blocks inside a section */
+  --r:4px; --r-sm:14px; --r-img:24px; --r-box:32px; --pill:999px;
+  --shadow:0 18px 50px rgba(36,36,36,.10);
+  --display:'Marcellus',Georgia,serif;
+  --ui:'Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --slide-ms:8000ms; --cookie-h:0px;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+[id]{scroll-margin-top:calc(var(--hdr-h) + 16px)}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--ui);
+  font-size:17px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none;transition:color .18s,background-color .18s,border-color .18s,opacity .18s,text-decoration-color .18s}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;margin:0;letter-spacing:.005em}
+h1,.hero__title{font-size:clamp(2.4rem,5.4vw,4.1rem);line-height:1.12}
+h2{font-size:clamp(2rem,3.2vw,2.9rem);line-height:1.1}
+h3{font-size:1.4rem;line-height:1.2}
+p{margin:0 0 1.1em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font-family:var(--ui);font-size:.72rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--orange-deep);margin:0 0 14px}
+.lede{font-size:1.08rem;color:var(--ink2);max-width:62ch}
+.tlink{color:var(--orange-deep);text-decoration:underline;text-underline-offset:3px}
+.tlink:hover{color:var(--ink)}
+.note{font-size:.95rem;color:var(--muted);margin:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,
+summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
+/* orange #E97B26 only reaches 2.87:1 on white, under the 3:1 a focus ring needs; dark surfaces get a white ring */
+.announce :focus-visible,.hero :focus-visible,.band--brand :focus-visible,.ftr :focus-visible,.lb :focus-visible{outline-color:#fff}
+.skip{position:absolute;left:16px;top:-80px;z-index:200;background:var(--ink);color:#fff;
+  padding:12px 18px;border-radius:var(--pill);font-weight:600}
+.skip:focus{top:12px}
+
+/* ---- sections and bands ----------------------------------- */
+.sec{padding-top:var(--gap-loose)}
+.sec--tight{padding-top:var(--gap-tight)}
+/* a band is a full-width tinted block. Content sits --gap-tight from either
+   edge, so every colour change has the same breathing room on both sides. */
+.band{background:var(--shade);margin-top:var(--gap-tight);padding:var(--gap-tight) 0}
+.band + .sec{padding-top:var(--gap-tight)}
+.band--brand{background:var(--orange-deep);color:#fff;margin-bottom:0}
+/* orange-deep text drops below 4.5:1 on --shade, so links in a band go ink with an orange underline */
+.band .tlink{color:var(--ink);text-decoration-color:var(--orange-deep)}
+
+/* ---- section heading: centred title, one line under it --------- */
+.shead{margin-bottom:var(--gap-head);text-align:center}
+.shead h2{max-width:24ch;margin:0 auto;text-wrap:balance}
+.shead p:not(.eyebrow){margin:16px auto 0;color:var(--ink2);font-size:1.08rem;max-width:56ch}
+.band--brand .shead h2{color:#fff}
+.band--brand .shead p:not(.eyebrow){color:#fff}
+
+/* ---- buttons: pills --------------------------------------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--ui);font-size:.93rem;font-weight:600;letter-spacing:.01em;
+  padding:13px 28px;border-radius:var(--pill);border:1.5px solid transparent;min-height:46px;
+  cursor:pointer;white-space:nowrap;transition:color .18s,background-color .18s,border-color .18s}
+/* white on orange measures 2.87:1, under the 4.5:1 AA target for text this size (ink was 5.42:1).
+   White chosen by Lee on 30 Sep 2026 because dark text looked dull; #BA5C13 is the nearest orange that passes with white. */
+.btn--primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.btn--primary:hover{background:var(--orange-deep);border-color:var(--orange-deep)}   /* white on orange-deep 4.99:1; amber would drop to 2.15:1 */
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn--ghost:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+.btn--ink{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn--ink:hover{background:#000;border-color:#000}
+.btn--light{background:#fff;color:var(--ink);border-color:#fff}
+.btn--light:hover{background:var(--paper);border-color:var(--paper)}
+.btn--outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+.btn--outline-light:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn--sm{padding:9px 18px;font-size:.85rem;min-height:40px}
+.btn--full{width:100%}
+
+/* ---- announcement ----------------------------------------- */
+.announce{background:var(--orange-deep);color:#fff;font-size:.875rem;
+  display:flex;align-items:center;justify-content:center;gap:18px;
+  padding:11px 52px 11px 20px;position:relative;text-align:center}
+.announce a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.announce.is-hidden{display:none}
+.announce__x{position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;background:none;border:0;color:rgba(255,255,255,.85);font-size:1.4rem;
+  line-height:1;cursor:pointer;border-radius:50%}
+.announce__x:hover{color:#fff;background:rgba(255,255,255,.12)}
+
+/* ---- header ----------------------------------------------- */
+.hdr{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--hair);transition:box-shadow .25s ease}
+.hdr.is-scrolled{box-shadow:0 6px 24px rgba(36,36,36,.08)}   /* once the header is stuck, it lifts off the content */
+.hdr__in{max-width:var(--max);margin:0 auto;padding:0 var(--gut);
+  display:flex;align-items:center;gap:10px;min-height:var(--hdr-h)}
+.brand{display:flex;align-items:center;flex-shrink:0}
+.brand img{width:160px;height:auto}
+.nav{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav__item{position:relative}
+.nav__link{display:block;padding:8px 13px;font-size:.84rem;font-weight:500;
+  white-space:nowrap;color:var(--ink);border-radius:var(--pill);border:1px solid transparent;
+  background:none;font-family:var(--ui);cursor:pointer;line-height:1.5}
+.nav__link:hover,.nav__item.is-open .nav__link{border-color:var(--line)}
+.nav__link--has::after{content:'';display:inline-block;width:5px;height:5px;margin-left:7px;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:translateY(-2px) rotate(45deg)}
+.drop{position:absolute;top:calc(100% + 6px);left:0;min-width:266px;background:#fff;
+  border:1px solid var(--hair);border-radius:20px;box-shadow:var(--shadow);
+  padding:10px;opacity:0;visibility:hidden;transition:opacity .16s,visibility .16s}
+.nav__item.is-open .drop{opacity:1;visibility:visible}
+.nav__item:nth-last-child(-n+3) .drop{left:auto;right:0}
+.drop a{display:block;padding:10px 14px;font-size:.88rem;border-radius:12px;color:var(--ink2)}
+.drop a:hover{background:var(--shade);color:var(--ink)}
+.drop a span{display:block;font-size:.8rem;color:var(--muted);margin-top:2px}
+.drop__sep{height:1px;background:var(--hair);margin:8px 6px}
+.hdr__cta{display:flex;align-items:center;gap:10px;flex-shrink:0;margin-left:10px}
+.burger{display:none;background:none;border:0;padding:10px;cursor:pointer;min-width:44px;min-height:44px}
+.burger span{display:block;width:23px;height:2px;background:var(--ink);margin:5px 0}
+
+/* ---- mobile drawer ---------------------------------------- */
+.drawer{position:fixed;inset:0;z-index:100;background:#fff;padding:20px 24px 40px;overflow-y:auto;
+  transform:translateX(100%);visibility:hidden;
+  transition:transform .28s ease,visibility 0s linear .28s}
+.drawer.is-open{transform:none;visibility:visible;transition:transform .28s ease}
+@media (min-width:1201px){.drawer{display:none}}
+.drawer__x{position:absolute;top:12px;right:12px;width:44px;height:44px;background:none;border:0;
+  font-size:1.9rem;line-height:1;cursor:pointer;color:var(--ink);border-radius:50%}
+.drawer__cta{display:grid;gap:10px;margin:44px 0 8px}
+.drawer__h{font-family:var(--ui);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--orange-deep);margin:26px 0 8px}
+.drawer a:not(.btn){display:block;padding:11px 0;font-size:1rem;border-bottom:1px solid var(--hair)}
+.drawer a.drawer__sub{padding-left:18px;font-size:.93rem;color:var(--ink2)}
+.drawer__util{margin-top:26px;font-size:.9rem;color:var(--muted)}
+.drawer__util a{display:inline;border:0;padding:0;text-decoration:underline;text-underline-offset:3px}
+
+/* ---- hero ------------------------------------------------- */
+.hero{position:relative;min-height:clamp(560px,76vh,880px);display:flex;align-items:flex-end;
+  overflow:hidden;background:var(--ink);padding-top:96px}
+.hero__bg{position:absolute;inset:0;z-index:0;isolation:isolate}
+.hero__bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;z-index:0;transition:opacity 1.1s ease}
+.hero__bg img.is-prev{opacity:1;z-index:1;transition:none}
+.hero__bg img.is-on{opacity:1;z-index:2}
+.hero::after{content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(18,12,6,.80) 0%,rgba(18,12,6,.48) 50%,rgba(18,12,6,.12) 100%)}
+.hero__in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gut) 36px}
+.hero__slides{display:grid}
+.hero__slide{grid-area:1/1;visibility:hidden;opacity:0;transition:opacity .6s ease}
+.hero__slide.is-on{visibility:visible;opacity:1}
+.hero__eyebrow{color:rgba(255,255,255,.85);font-size:.74rem;font-weight:600;letter-spacing:.17em;
+  text-transform:uppercase;margin-bottom:18px}
+.hero__title{font-family:var(--display);color:#fff;max-width:17ch;margin:0 0 20px;text-wrap:balance}
+.hero__sub{color:rgba(255,255,255,.88);font-size:1.13rem;max-width:52ch;margin-bottom:24px}
+.hero__btns{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:26px}
+@media (prefers-reduced-motion:reduce){
+  /* if a visitor presses Play, the bar still has to take the full slide time */
+  .hero.is-playing .hero__dots button.is-on::after{animation-duration:var(--slide-ms)!important}
+}
+.hero__foot{display:flex;align-items:center;justify-content:flex-end}
+.hero__ctrl{display:flex;align-items:center;gap:4px}
+.hero__dots{display:flex;gap:2px}
+/* each dot is a progress bar: a faint track, and a white fill that runs for one slide */
+.hero__dots button{position:relative;width:52px;height:44px;border:0;padding:0;cursor:pointer;background:none}
+.hero__dots button::before,.hero__dots button::after{content:'';position:absolute;left:7px;top:50%;height:3px;margin-top:-1px;border-radius:3px}
+.hero__dots button::before{right:7px;background:rgba(255,255,255,.34)}
+.hero__dots button::after{width:0;background:#fff}
+.hero__dots button.is-on::after{width:calc(100% - 14px)}
+.hero.is-playing .hero__dots button.is-on::after{width:0;animation:heroProgress var(--slide-ms) linear forwards}
+.hero.is-held .hero__dots button.is-on::after,.hero.is-paused .hero__dots button.is-on::after{animation-play-state:paused}
+.hero__dots button:hover::before{background:rgba(255,255,255,.6)}
+@keyframes heroProgress{from{width:0}to{width:calc(100% - 14px)}}
+.hero__pause{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.5);
+  background:none;color:#fff;cursor:pointer;display:grid;place-items:center;margin-left:8px}
+.hero__pause:hover{background:#fff;color:var(--ink);border-color:#fff}
+.hero__pause svg{width:14px;height:14px}
+.hero__pause .ico-play{display:none}
+.hero__pause[aria-pressed="true"] .ico-pause{display:none}
+.hero__pause[aria-pressed="true"] .ico-play{display:block}
+
+/* ---- trust row -------------------------------------------- */
+.trust{background:#fff;color:var(--ink2);font-size:.875rem;padding:0}
+.trust__in{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 28px;
+  padding:14px var(--gut);position:relative;text-align:center}
+.trust__in::after{content:'';position:absolute;left:var(--gut);right:var(--gut);bottom:0;border-bottom:1px solid var(--hair)}
+.trust b{color:var(--ink);font-weight:600}
+.trust img{height:38px;width:auto}
+.trust__i{display:inline-flex;align-items:center;gap:10px;padding:4px 0}
+.trust__i:not(:last-child)::after{content:'·';margin-left:28px;color:var(--muted)}
+.trust__i:hover b{text-decoration:underline;text-underline-offset:3px}
+
+/* ---- path tiles: photo, then centred text and a pill ------- */
+#paths{padding-top:var(--gap-tight)}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px)}
+.path{display:flex;flex-direction:column;align-items:center;text-align:center}
+.path img{aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-img);width:100%}
+.path__in{display:flex;flex-direction:column;align-items:center;flex:1}
+.path h3{margin:22px 0 8px}
+.path p{color:var(--ink2);font-size:.95rem;margin:0 0 18px;max-width:34ch}
+.path__go{margin-top:auto}
+.path:hover .path__go{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ---- intakes: a white table card on the tinted band ---------- */
+.intakes{background:#fff;border-radius:var(--r-box);padding:6px clamp(18px,2.6vw,36px)}
+.intake{display:grid;grid-template-columns:1.4fr 1.1fr 1.1fr 11em 8em;gap:20px;align-items:center;
+  padding:20px 0;border-bottom:1px solid var(--hair)}
+.intake:last-child{border-bottom:0}
+.intake__loc{font-family:var(--display);font-size:1.3rem}
+.intake__loc span{display:block;font-family:var(--ui);font-size:.875rem;color:var(--muted);margin-top:3px}
+.intake__meta{font-size:.92rem;color:var(--ink2)}
+.intake__meta b{display:block;font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;margin-bottom:3px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:.84rem;font-weight:600;white-space:nowrap;
+  padding:6px 13px;border-radius:var(--pill);justify-self:start}
+.chip::before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor}
+.chip--open{color:#1F5C2E;background:#E6F1E7}
+.chip--soon{color:#8A5310;background:#FBEBD6}
+.intake__go{justify-self:end;display:inline-flex;align-items:center;min-height:40px;padding:8px 18px;font-size:.85rem;
+  font-weight:600;color:var(--ink);border:1.5px solid var(--line);border-radius:var(--pill);white-space:nowrap}
+.intake__go:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.intake--head{padding:14px 0 10px;font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:600}
+@media (min-width:861px){
+  .intake__meta b{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+}
+@media (max-width:860px){
+  .intake--head{display:none}
+  .intake{align-items:start}
+  .intake .chip,.intake .intake__go{align-self:center}
+}
+.tt-after{margin-top:var(--gap-block);display:grid;gap:10px;justify-items:center;text-align:center}
+.tt-after p{margin:0;font-size:.95rem;color:var(--ink2)}
+.tt-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:14px}
+
+/* ---- syllabus: an optional detail, same shape as the FAQ items ---- */
+.more{margin:var(--gap-block) auto 0;max-width:880px;background:#fff;border-radius:var(--r-img)}
+.more summary{list-style:none;cursor:pointer;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  font-family:var(--display);font-size:1.2rem}
+.more summary::-webkit-details-marker{display:none}
+.more__body{padding:0 28px 28px}
+.more__body img{aspect-ratio:3/2;object-fit:cover;border-radius:var(--r-sm);width:100%;margin-bottom:22px}
+.more__body p{font-size:.98rem;color:var(--ink2);margin:0 0 6px}
+.syl{margin:14px 0 0}
+.syl div{display:grid;grid-template-columns:9em 1fr;column-gap:20px;padding:13px 0;border-bottom:1px solid var(--hair)}
+.syl div:last-child{border-bottom:0}
+.syl dt{font-family:var(--display);font-size:1.12rem;color:var(--ink)}
+.syl dd{margin:0;font-size:.96rem;color:var(--ink2)}
+
+/* shared +/× toggle for the syllabus and the FAQ */
+.tog{flex-shrink:0;position:relative;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);transition:transform .25s ease,background-color .2s,border-color .2s}
+.tog::before,.tog::after{content:'';position:absolute;left:50%;top:50%;width:14px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
+.tog::after{transform:translate(-50%,-50%) rotate(90deg)}
+details[open] > summary .tog{transform:rotate(45deg);background:var(--ink);border-color:var(--ink)}
+details[open] > summary .tog::before,details[open] > summary .tog::after{background:#fff}
+
+/* ---- classes: venue cards, every class listed inside ---------- */
+/* Oakleigh and McKinnon sit side by side; Online takes a full-width card
+   with its three classes across. The two studio cards share subgrid rows
+   (heading, classes, directions) so their class panels and Directions
+   pills line up even when the Oakleigh address runs to two lines. */
+.vcards{--vgap:clamp(16px,1.8vw,24px);display:grid;gap:var(--vgap)}
+.vcards__studios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--vgap)}
+.vcard{display:grid;align-content:start;row-gap:22px;background:var(--shade);border-radius:var(--r-box);
+  padding:clamp(26px,2.6vw,34px) clamp(18px,2.2vw,28px) clamp(18px,2.2vw,28px)}
+.vcards__studios .vcard{grid-template-rows:subgrid;grid-row:span 3}
+.vcard__h{display:flex;flex-direction:column;align-items:center;text-align:center}
+.vcard__t{display:inline-flex;align-items:center;gap:12px}
+@media (min-width:861px){.vcard__t::after{content:'';flex:0 0 44px}}   /* balances the icon so the name sits on the card's centre */
+@media (max-width:860px){.vcard__t{flex-direction:column;gap:10px}}   /* narrower cards: icon above the name */
+.vcard__ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--orange-deep);
+  display:grid;place-items:center}
+.vcard__ic svg{width:22px;height:22px}
+.vcard h3{font-size:1.5rem;line-height:1.2}
+.vcard__addr{margin:10px 0 0;font-size:.92rem;line-height:1.5;color:var(--ink2);max-width:44ch;text-wrap:balance}
+.vslots{list-style:none;margin:0;padding:4px 24px;background:#fff;border-radius:var(--r-img);
+  display:grid;align-content:center}
+.vslot{padding:18px 0;border-top:1px solid var(--hair);display:grid;gap:2px;justify-items:center;text-align:center}
+.vslot:first-child{border-top:0}
+.vslot__day{font-family:var(--display);font-size:1.22rem;line-height:1.25;color:var(--ink)}
+.vslot__time{font-size:1.08rem;font-weight:600;line-height:1.45;color:var(--ink);font-variant-numeric:tabular-nums}
+.vslot__what{font-size:.9rem;line-height:1.45;color:var(--ink2);text-wrap:balance}
+/* Online: three classes across, split by hairlines inset from the panel edge */
+.vcard--online .vslots{grid-template-columns:repeat(3,minmax(0,1fr));padding:20px 0}
+.vcard--online .vslot{border-top:0;padding:2px clamp(12px,1.6vw,22px)}
+.vcard--online .vslot + .vslot{border-left:1px solid var(--hair)}
+.vcard__foot{display:flex;justify-content:center;align-items:end}
+.vcard__dir{min-height:44px;gap:7px}
+.vcard__dir svg{width:14px;height:14px}
+.classes__after{margin-top:var(--gap-block);display:flex;flex-wrap:wrap;justify-content:center;gap:14px 22px}
+.book-note{font-size:.875rem;color:var(--muted);margin:16px auto 0;text-align:center;max-width:60ch;text-wrap:balance}
+
+/* ---- passes: centred columns ------------------------------ */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.price{padding:8px 32px 0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.price+.price{border-left:1px solid var(--hair)}
+.price__amt{font-family:var(--display);font-size:3.4rem;line-height:1;margin:10px 0 6px}
+.price__amt sup{font-size:1.1rem;top:-.85em;position:relative}
+.price__per{font-size:.9rem;color:var(--muted);margin-bottom:22px;flex:1}
+.price .btn{width:100%;max-width:260px}
+
+/* ---- founders: one full screen, text on top, portraits edge to edge ---- */
+.founders-full{margin-top:var(--gap-loose);min-height:calc(100svh - var(--hdr-h));display:flex;flex-direction:column}
+.founders-full__text{width:100%;padding-bottom:var(--gap-head);text-align:center}
+.founders-full__text h2{margin-bottom:18px}
+.founders-full__text .lede{max-width:64ch;margin:0 auto}
+.founders-full__media{flex:1;min-height:420px;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.founders-full__media figure{position:relative;margin:0;overflow:hidden;background:var(--shade)}
+.founders-full__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.founders-full__media figure:nth-child(1) img{object-position:center 16%}
+.founders-full__media figure:nth-child(2) img{object-position:center top}
+.founders-full__media figcaption{position:absolute;left:0;right:0;bottom:0;padding:64px clamp(18px,2.5vw,36px) clamp(20px,2.6vw,36px);
+  color:rgba(255,255,255,.9);font-size:.95rem;line-height:1.45;
+  background:linear-gradient(to top,rgba(18,12,6,.72) 0%,rgba(18,12,6,0) 100%)}
+.founders-full__media figure:first-child figcaption{padding-left:calc(max((100vw - var(--max)) / 2, 0px) + var(--gut))}
+.founders-full__media figcaption b{display:block;font-family:var(--display);font-size:clamp(1.15rem,1.8vw,1.6rem);font-weight:400;color:#fff;margin-bottom:2px}
+
+/* ---- graduates: a tinted container, people in circles ------- */
+.grads-box{background:var(--shade);border-radius:var(--r-box);padding:clamp(36px,5vw,64px) clamp(20px,4vw,56px)}
+.grads{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(32px,4vw,48px) 24px}
+.grad{display:flex;flex-direction:column;align-items:center;text-align:center}
+.grad__av{width:124px;height:124px;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 0 0 5px #fff,0 12px 30px rgba(36,36,36,.10);margin-bottom:18px}
+.grad__av img{width:100%;height:100%;object-fit:cover}
+.grad__nm{font-family:var(--display);font-size:1.22rem;margin:0 0 4px;color:var(--ink)}
+.grad__at{margin:0;font-size:.92rem;color:var(--ink2);max-width:26ch}
+
+/* ---- videos ----------------------------------------------- */
+.vid-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:22px}
+.vid{display:block}
+.vid__media{position:relative;display:block;border-radius:var(--r-img);overflow:hidden;background:var(--ink)}
+.vid__media img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.vid--lg .vid__media img{aspect-ratio:16/10}
+.vid__play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;
+  width:64px;height:64px;border-radius:50%;background:rgba(233,123,38,.95);
+  display:grid;place-items:center;transition:background-color .2s}
+.vid:hover .vid__play{background:var(--amber)}
+.vid__play::after{content:'';border-left:17px solid var(--ink);border-top:10px solid transparent;
+  border-bottom:10px solid transparent;margin-left:4px}
+.vid__cap{display:block;padding:14px 4px 0;color:var(--ink)}
+.vid__cap b{display:block;font-family:var(--display);font-size:1.15rem;font-weight:400}
+.vid__cap span{display:block;font-size:.875rem;color:var(--muted);margin-top:2px}
+.vid:hover .vid__cap b{text-decoration:underline;text-underline-offset:4px}
+.vid__badge{position:absolute;top:16px;left:16px;z-index:3;background:rgba(36,36,36,.92);color:#fff;border-radius:var(--pill);
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px}
+.vid-side{display:grid;gap:22px;grid-template-rows:auto auto}
+@media (min-width:1041px){
+  .vid--lg{display:flex;flex-direction:column}
+  .vid--lg .vid__media{flex:1;min-height:0}
+  .vid--lg .vid__media img{height:100%;aspect-ratio:auto;object-fit:cover}
+}
+
+/* ---- video lightbox ---------------------------------------- */
+.lb{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;
+  background:rgba(12,8,4,.93);padding:24px}
+.lb.is-open{display:flex}
+.lb__box{width:min(1100px,100%);aspect-ratio:16/9;position:relative}
+.lb__box iframe{width:100%;height:100%;border:0;border-radius:var(--r-img);background:#000}
+.lb__x{position:absolute;top:-52px;right:0;width:44px;height:44px;background:none;border:0;color:#fff;
+  font-size:2rem;line-height:1;cursor:pointer;border-radius:50%}
+.lb__x:hover{color:var(--amber)}
+/* preview aid: shown only when the page is opened from disk, where YouTube refuses to embed */
+.lb__file{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;
+  padding:24px;text-align:center;color:#fff;background:#000;border-radius:var(--r-img)}
+.lb__file p{margin:0;max-width:44ch;color:rgba(255,255,255,.85)}
+.lb__file[hidden]{display:none!important}
+
+/* ---- Google reviews (preview of the embed) ------------------ */
+.gr-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;margin:0 auto var(--gap-block);
+  background:#fff;border-radius:var(--pill);padding:12px 14px 12px 22px;width:max-content;max-width:100%}
+.gr-g{width:26px;height:26px;flex-shrink:0}
+.gr-score{display:flex;align-items:center;gap:10px;font-size:.95rem;color:var(--ink2)}
+.gr-score b{font-family:var(--display);font-size:1.6rem;font-weight:400;color:var(--ink);line-height:1}
+.gr-stars{color:#F4B400;letter-spacing:2px;font-size:1.05rem;line-height:1}
+.gr-wrap{position:relative}
+.gr-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px) / 3);gap:24px;overflow-x:auto;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 8px;scrollbar-width:none}
+.gr-track::-webkit-scrollbar{display:none}
+.gr-card{scroll-snap-align:start;background:#fff;border-radius:var(--r-img);padding:26px 26px 24px;display:flex;flex-direction:column;margin:0}
+.gr-card__h{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.gr-av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:600;font-size:1.05rem;flex-shrink:0}
+.gr-who{flex:1;min-width:0;line-height:1.3}
+.gr-who b{display:block;font-weight:600;font-size:.95rem;color:var(--ink)}
+.gr-who span{font-size:.82rem;color:var(--muted)}
+.gr-card .gr-g{width:20px;height:20px}
+.gr-card .gr-stars{font-size:.95rem;margin-bottom:12px}
+.gr-card blockquote{margin:0}
+.gr-card p{margin:0;font-size:.96rem;color:var(--ink2);line-height:1.6;display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden}
+.gr-nav{display:flex;justify-content:center;gap:10px;margin-top:var(--gap-block)}
+.gr-btn{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.gr-btn:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink)}
+.gr-btn:disabled{opacity:.35;cursor:default}
+.gr-btn svg{width:16px;height:16px}
+
+/* ---- instagram --------------------------------------------- */
+.ig-head{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:var(--gap-block);text-align:center}
+.ig-head svg{width:30px;height:30px;color:var(--orange-deep);margin-bottom:4px}
+.ig-head b{font-family:var(--display);font-size:1.5rem;font-weight:400}
+.ig-head span{font-size:.9rem;color:var(--muted)}
+.ig-head .btn{margin-top:12px}
+.ig{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.ig a{position:relative;display:block;min-width:0;aspect-ratio:1;border-radius:18px;overflow:hidden;background:var(--shade)}
+.ig img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.ig a:hover img{opacity:.85}
+.ig__reel{position:absolute;top:9px;right:9px;z-index:2;width:19px;height:19px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.6))}
+
+/* ---- FAQ: rounded accordion items -------------------------- */
+.faq{max-width:880px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:var(--shade);border-radius:22px;transition:background-color .2s}
+.faq details[open]{background:var(--paper-2)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 24px 22px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  font-family:var(--display);font-size:1.18rem;line-height:1.35}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover .tog{border-color:var(--ink)}
+.faq p{font-size:1rem;color:var(--ink2);padding:0 80px 26px 28px;margin:0;max-width:70ch}
+.faq details[open] p{animation:faqIn .28s ease}
+@keyframes faqIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.faq-more{text-align:center;margin-top:var(--gap-block)}
+.faq-more p{margin:0 0 14px;color:var(--ink2)}
+
+/* ---- enquiry: the brand band -------------------------------- */
+#contact{padding-bottom:var(--gap-loose)}
+.contact{max-width:820px;margin:0 auto}
+.contact .shead{margin-bottom:var(--gap-block)}
+.contact .shead a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.form{color:#fff}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form label{display:block;font-size:.875rem;font-weight:600;letter-spacing:.02em;color:#fff;margin:0 0 8px 18px}
+.form .f{margin-bottom:18px}
+.form input,.form select,.form textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);
+  padding:13px 20px;border:2px solid #fff;border-radius:var(--pill);background:#fff;min-height:52px}
+.form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);
+  background-position:calc(100% - 26px) 52%,calc(100% - 20px) 52%;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:48px}
+.form textarea{min-height:130px;resize:vertical;border-radius:var(--r-img)}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(255,255,255,.45)}
+.form input[aria-invalid="true"]{border-color:var(--ink);box-shadow:0 0 0 3px rgba(36,36,36,.35)}
+.form__err{margin:6px 0 0 18px;font-size:.875rem;font-weight:600;color:#fff}
+.form__err:empty{margin:0}
+.form__foot{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:10px;text-align:center}
+.form__foot small{font-size:.875rem;color:#fff}
+.form__foot a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.form__sent{display:none;padding:12px 0;text-align:center}
+.form.is-sent form{display:none}
+.form.is-sent .form__sent{display:block}
+.form__sent b{display:block;font-family:var(--display);font-size:1.6rem;font-weight:400}
+.form__sent p{margin:8px 0 0;font-size:.95rem;color:#fff}
+
+/* ---- footer ----------------------------------------------- */
+.ftr{background:#1A1206;color:rgba(255,255,255,.72);padding:66px 0 0;font-size:.9rem}
+.ftr__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:38px;padding-bottom:46px}
+.ftr img.ftr__logo{width:186px;background:#fff;padding:10px 14px;border-radius:var(--r-sm);margin-bottom:20px}
+.ftr__h{color:#fff;font-family:var(--ui);font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin:0 0 16px}
+.ftr ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.ftr a:hover{color:var(--amber)}
+.ftr__addr{margin-top:14px;line-height:1.6}
+.ftr__addr b{color:#fff;font-weight:600;display:block;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.ftr__addr a{text-decoration:underline;text-underline-offset:3px}
+.ftr__soc{display:flex;gap:12px;margin-top:20px}
+.ftr__soc a{width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center}
+.ftr__soc a:hover{background:#fff;border-color:#fff}
+.ftr__soc a:hover img{filter:none}
+.ftr__soc img{width:15px;filter:brightness(0) invert(1)}
+.ftr__btm{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.875rem;color:rgba(255,255,255,.55)}
+.ftr__btm a{text-decoration:underline;text-underline-offset:3px}
+
+/* ---- class pass popup: a small pill, then an elegant card ------ */
+.pass-fab{position:fixed;right:20px;bottom:calc(var(--cookie-h) + 20px);z-index:85;display:inline-flex;align-items:center;gap:10px;
+  padding:8px 20px 8px 8px;border-radius:var(--pill);background:#fff;color:var(--ink);border:1px solid var(--hair);
+  font:600 .9rem var(--ui);cursor:pointer;box-shadow:0 12px 34px rgba(36,36,36,.18);
+  opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease,visibility 0s linear .25s,bottom .3s ease}
+.pass-fab.is-shown{opacity:1;visibility:visible;transform:none;transition:opacity .25s ease,transform .25s ease,bottom .3s ease}
+.pass-fab__i{width:34px;height:34px;border-radius:50%;background:var(--orange);display:grid;place-items:center}
+.pass-fab__i svg{width:17px;height:17px}
+.pass-fab:hover{border-color:var(--ink)}
+.pass-pop{position:fixed;right:20px;bottom:calc(var(--cookie-h) + 84px);z-index:110;width:min(390px,calc(100vw - 32px));
+  background:#fff;border-radius:var(--r-img);box-shadow:0 30px 80px rgba(36,36,36,.24);padding:26px 24px 22px;
+  opacity:0;visibility:hidden;transform:translateY(10px) scale(.98);transform-origin:bottom right;
+  transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s}
+.pass-pop.is-open{opacity:1;visibility:visible;transform:none;transition:opacity .22s ease,transform .22s ease}
+.pass-pop__x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:0;background:var(--shade);
+  font-size:1.3rem;line-height:1;cursor:pointer;color:var(--ink)}
+.pass-pop__x:hover{background:var(--ink);color:#fff}
+.pass-pop h3{font-size:1.5rem;margin:0 0 16px;outline:none}
+.pass-pop .eyebrow{margin-bottom:8px}
+.pass-pop__list{list-style:none;margin:0;padding:0}
+.pass-pop__list li{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:12px;padding:13px 0;border-top:1px solid var(--hair)}
+.pass-pop__list b{display:block;font-weight:600;font-size:.95rem}
+.pass-pop__list small{display:block;font-size:.8rem;color:var(--muted);line-height:1.35}
+.pass-pop__price{font-family:var(--display);font-size:1.45rem}
+.pass-pop__foot{border-top:1px solid var(--hair);padding-top:14px;margin-top:2px;font-size:.84rem;color:var(--muted)}
+.pass-pop__foot p{margin:0 0 6px}
+
+.pass-scrim{position:fixed;inset:0;z-index:105;background:rgba(18,12,6,.38);opacity:0;visibility:hidden;transition:opacity .22s,visibility 0s linear .22s}
+.pass-scrim.is-open{opacity:1;visibility:visible;transition:opacity .22s}
+@media (min-width:721px){.pass-scrim{display:none}}
+
+/* ---- privacy bar ------------------------------------------ */
+.cookie{position:fixed;left:0;right:0;bottom:0;z-index:90;background:#fff;border-top:1px solid var(--hair);
+  box-shadow:0 -6px 30px rgba(36,36,36,.13);padding:14px 0;transition:transform .35s ease,visibility 0s linear .35s}
+.cookie.is-gone{transform:translateY(120%);visibility:hidden}
+.cookie__in{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.cookie p{margin:0;font-size:.875rem;color:var(--ink2);flex:1;min-width:240px}
+.cookie a{color:var(--orange-deep);text-decoration:underline;text-underline-offset:3px}
+.cookie__btns{display:flex;gap:10px;margin-left:auto}
+
+/* ---- scroll reveal: one quiet fade-up, once --------------------
+   The script adds .js-reveal to <html> only when it can run the effect, so
+   without JavaScript, or with reduced motion, everything is simply visible. */
+.js-reveal .rv{opacity:0;transform:translateY(16px);
+  transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:var(--rv-d,0ms)}
+.js-reveal .rv.is-in{opacity:1;transform:none}
+
+/* ---- editable-field inspector (review aid, does not ship) --- */
+.edit-toggle{position:fixed;right:18px;top:calc(var(--hdr-h) + 12px);z-index:55;background:var(--ink);color:#fff;
+  border:1px solid rgba(255,255,255,.35);border-radius:40px;padding:12px 20px;font-family:var(--ui);font-size:.82rem;font-weight:600;cursor:pointer}
+.edit-toggle:hover{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+body.show-edit [data-edit]{outline:2px dashed var(--orange);outline-offset:4px;scroll-margin-top:calc(var(--hdr-h) + 40px)}
+body.show-edit [data-edit]:not(.hero__bg):not(.cookie){position:relative}
+body.show-edit [data-edit]::before{content:attr(data-edit);position:absolute;top:-20px;left:0;z-index:40;background:var(--orange);color:var(--ink);
+  font-family:var(--ui);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;white-space:nowrap}
+body.show-edit .announce[data-edit]::before{top:2px}
+body.show-edit .hero__slide[data-edit]::before{top:-22px}
+body.show-edit .hero__bg[data-edit]{outline-offset:-4px}
+body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
+
+/* ---- responsive ------------------------------------------- */
+@media (max-width:1200px){
+  .nav{display:none}
+  .burger{display:block}
+  .hdr__cta{margin-left:auto}
+}
+@media (max-width:1040px){
+  .trust__i::after{content:none;margin:0}
+  .vid-grid{grid-template-columns:1fr}
+  .vid-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .ftr__grid{grid-template-columns:1fr 1fr}
+  .gr-track{grid-auto-columns:calc((100% - 24px) / 2)}
+}
+@media (max-width:860px){
+  .paths{grid-template-columns:1fr 1fr}
+  .paths>:nth-child(3){grid-column:1/-1}
+  .intake{grid-template-columns:1.4fr 1fr 1fr;gap:12px 16px}
+  .intake__loc{grid-column:1/-1}
+  .prices{grid-template-columns:1fr 1fr;row-gap:36px}
+  .prices>:nth-child(3){grid-column:1/-1;border-left:0}
+  .grads{grid-template-columns:1fr 1fr}
+  /* classes: Online's three classes go back to rows below 861px */
+  .vcard--online .vslots{grid-template-columns:1fr;padding:4px 24px}
+  .vcard--online .vslot{padding:18px 0}
+  .vcard--online .vslot + .vslot{border-left:0;border-top:1px solid var(--hair)}
+}
+@media (max-width:720px){
+  :root{--gut:18px;--hdr-h:66px}
+  body{font-size:16px}
+  .paths,.prices,.form__row{grid-template-columns:1fr}
+  .paths>:nth-child(3){grid-column:auto}
+  .ftr__grid{grid-template-columns:1fr 1fr;gap:26px}
+  .ftr__grid > :first-child{grid-column:1/-1}
+  .intakes{padding:2px 18px}
+  .intake{grid-template-columns:1fr auto;gap:6px 16px;padding:18px 0}
+  .intake__loc{grid-column:1/-1}
+  .intake__meta{grid-column:1/-1}
+  .intake__meta b{display:inline;margin:0 6px 0 0}
+  .intake .chip{justify-self:start}
+  .tt-actions .btn{width:100%}
+  .syl div{grid-template-columns:6em 1fr}
+  .more summary{padding:18px 20px}
+  .more__body{padding:0 20px 22px}
+  .price{padding:0}
+  .price+.price{border-left:0;border-top:1px solid var(--hair);padding-top:36px}
+  .founders-full__media figcaption{padding:48px 14px 16px;font-size:.84rem}
+  .founders-full__media figure:first-child figcaption{padding-left:var(--gut)}
+  .founders-full__media figcaption b{font-size:1.02rem}
+  .grads{gap:30px 14px}
+  .grad__av{width:92px;height:92px}
+  .grad__nm{font-size:1.08rem}
+  .grad__at{font-size:.86rem}
+  .gr-top{border-radius:var(--r-img);padding:18px;width:100%;flex-direction:column;gap:10px}
+  .gr-score{flex-wrap:wrap;justify-content:center;row-gap:4px}
+  .gr-score > span:last-child{flex-basis:100%;text-align:center}
+  .gr-track{grid-auto-columns:86%;gap:14px}
+  .ig{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .ig a{border-radius:12px}
+  .faq summary{padding:18px 16px 18px 20px;font-size:1.06rem}
+  .faq p{padding:0 20px 22px}
+  .trust__in{gap:8px 18px}
+  .trust__i::after{content:none;margin:0}
+
+  .hdr__in{gap:8px}
+  .brand img{width:132px}
+  .hdr__cta{display:none}
+  .burger{padding:8px;margin-left:auto;flex-shrink:0}
+
+  .hero{min-height:min(78vh,720px);padding-top:74px}
+  .hero__bg img{object-position:center 55%}
+  .hero::after{background:linear-gradient(to top,rgba(18,12,6,.90) 0%,rgba(18,12,6,.60) 56%,rgba(18,12,6,.25) 100%)}
+  .hero__sub{font-size:1.02rem}
+  .hero__btns .btn{width:100%}
+  .hero__foot{justify-content:flex-start}
+  .vid-side{grid-template-columns:1fr}
+  .vid__play{width:52px;height:52px}
+  .vid__badge{top:10px;left:10px}
+  .lb{padding:16px}.lb__x{top:-48px}
+
+  .pass-fab{right:14px;bottom:calc(var(--cookie-h) + 14px)}
+  .pass-pop{left:0;right:0;bottom:0;width:100%;border-radius:var(--r-img) var(--r-img) 0 0;padding:24px 20px calc(20px + env(safe-area-inset-bottom));transform-origin:bottom center}
+
+  .cookie{padding:10px 0}
+  .cookie__in{gap:10px}
+  .cookie p{font-size:.875rem;line-height:1.45;min-width:0;flex-basis:100%}
+  .cookie__btns{margin-left:0}
+  .cookie__btns .btn{padding:8px 18px;min-height:44px}
+  .edit-toggle{display:none}   /* review aid; Sam reviews the editable fields on desktop */
+  .drawer{padding:16px 18px calc(40px + env(safe-area-inset-bottom))}
+  /* classes: one card per row, tighter padding */
+  .vcards__studios{grid-template-columns:1fr}
+  .vcard{row-gap:18px;padding:24px 16px 16px}
+  .vcard h3{font-size:1.3rem}
+  .vcard__t{flex-direction:column;gap:10px}
+  .vcard__ic{width:40px;height:40px}
+  .vcard__ic svg{width:20px;height:20px}
+  .vcard__addr{margin-top:8px}
+  .vslots,.vcard--online .vslots{padding:2px 18px}
+  .vslot,.vcard--online .vslot{padding:15px 0}
+  .classes__after .btn{width:100%}
+}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ ANNOUNCEMENT (editable text + dismissible; dismissal is keyed to the text) ============ -->
+<div class="announce" id="announce" data-edit="Offer bar: text + link + on/off">
+  <span id="announceText">2027 teacher training intakes are open in Melbourne, Sydney and online. <a href="#training">Dates and formats</a></span>
+  <button class="announce__x" id="announceX" aria-label="Hide this message">&times;</button>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr">
+  <div class="hdr__in">
+    <div class="brand">
+      <a href="#top" aria-label="Yoga &amp; Meditation School of India, home"><img src="brand-assets/logos/logo.png" width="524" height="161" alt="Yoga &amp; Meditation School of India"></a>
+    </div>
+
+    <nav class="nav" aria-label="Main">
+      <div class="nav__item">
+        <a href="#training" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">Teacher Training</a>
+        <div class="drop">
+          <a href="#training">200 Hour Level 1 <span>2027 intakes, Australia-wide</span></a>
+          <a href="#" data-soon>350 Hour Level 2 <span>For Level 1 graduates</span></a>
+          <a href="#training">Online, Australia-wide <span>Fully live-streamed</span></a>
+          <a href="#training">Teacher Training in India <span>Residential, South India</span></a>
+          <div class="drop__sep"></div>
+          <a href="#" data-soon>Where we train <span>Eight cities and 22 regional programs</span></a>
+          <a href="#graduates">Graduate stories</a>
+          <a href="#faq">Fees &amp; FAQ</a>
+        </div>
+      </div>
+      <div class="nav__item">
+        <a href="#classes" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">Classes</a>
+        <div class="drop">
+          <a href="#classes">Timetable <span>Times and booking</span></a>
+          <a href="#oakleigh">Oakleigh Studio</a>
+          <a href="#mckinnon">McKinnon Studio</a>
+          <a href="#online">Online live classes</a>
+          <div class="drop__sep"></div>
+          <a href="#tradition">How we teach</a>
+        </div>
+      </div>
+      <div class="nav__item"><a href="#passes" class="nav__link">Class Passes</a></div>
+      <div class="nav__item">
+        <a href="#" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">Private &amp; Corporate</a>
+        <div class="drop">
+          <a href="#" data-soon>Private yoga therapy</a>
+          <a href="#" data-soon>Corporate yoga</a>
+          <a href="#" data-soon>Kids &amp; school programs</a>
+          <a href="#" data-soon>Yoga for Autism &amp; ADHD</a>
+        </div>
+      </div>
+      <div class="nav__item">
+        <a href="#" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">Wellness</a>
+        <div class="drop">
+          <a href="#" data-soon>Meditation</a>
+          <a href="#" data-soon>Ayurveda lifestyle</a>
+          <a href="#" data-soon>Vedic astrology</a>
+        </div>
+      </div>
+      <div class="nav__item"><a href="#" data-soon class="nav__link">Retreats</a></div>
+      <div class="nav__item">
+        <a href="#tradition" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">About</a>
+        <div class="drop">
+          <a href="#tradition">School tradition</a>
+          <a href="#founders">Samir &amp; Shilpa</a>
+          <a href="#reviews">Google reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hdr__cta">
+      <a href="#contact" class="btn btn--primary btn--sm">Enquire</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ MOBILE DRAWER ============ -->
+<nav class="drawer" id="drawer" aria-label="Menu" aria-hidden="true">
+  <button class="drawer__x" id="drawerX" aria-label="Close menu">&times;</button>
+  <div class="drawer__cta">
+    <a href="#contact" class="btn btn--primary">Enquire</a>
+    <button type="button" class="btn btn--ghost" data-pass-open aria-haspopup="dialog" aria-controls="passPop">Buy a Class Pass</button>
+  </div>
+  <p class="drawer__h">Teacher Training</p>
+  <a href="#training">200 Hour Level 1 (2027 intakes)</a>
+  <a href="#" data-soon>350 Hour Level 2</a>
+  <a href="#training">Online, Australia-wide</a>
+  <a href="#training">Teacher Training in India</a>
+  <a href="#" data-soon>Where we train</a>
+  <a href="#graduates">Graduate stories</a>
+  <a href="#faq">Fees &amp; FAQ</a>
+  <p class="drawer__h">Classes</p>
+  <a href="#classes">Timetable</a>
+  <a href="#oakleigh">Oakleigh Studio</a>
+  <a href="#mckinnon">McKinnon Studio</a>
+  <a href="#online">Online live classes</a>
+  <a href="#passes">Class Passes</a>
+  <p class="drawer__h">Private &amp; Corporate</p>
+  <a href="#" data-soon class="drawer__sub">Private yoga therapy</a>
+  <a href="#" data-soon class="drawer__sub">Corporate yoga</a>
+  <a href="#" data-soon class="drawer__sub">Kids &amp; school programs</a>
+  <a href="#" data-soon class="drawer__sub">Yoga for Autism &amp; ADHD</a>
+  <p class="drawer__h">Wellness</p>
+  <a href="#" data-soon class="drawer__sub">Meditation</a>
+  <a href="#" data-soon class="drawer__sub">Ayurveda lifestyle</a>
+  <a href="#" data-soon class="drawer__sub">Vedic astrology</a>
+  <p class="drawer__h">School</p>
+  <a href="#" data-soon>Retreats</a>
+  <a href="#tradition">About the school</a>
+  <a href="#founders">Samir &amp; Shilpa</a>
+  <a href="#contact">Contact</a>
+  <p class="drawer__util">Already a student? <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Log in to book</a></p>
+</nav>
+
+<main id="main">
+<!-- ============ HERO (three slides in the markup, each editable) ============ -->
+<section class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true" data-edit="Slide photos, one per slide">
+    <img class="is-on" src="brand-assets/photos/slide-image-1.webp"
+         srcset="brand-assets/web/slide-1-800.webp 800w, brand-assets/photos/slide-image-1.webp 1448w"
+         sizes="100vw" width="1448" height="1086" fetchpriority="high" decoding="async" alt="">
+    <img data-src="brand-assets/photos/slider-image-2.webp"
+         data-srcset="brand-assets/web/slide-2-800.webp 800w, brand-assets/photos/slider-image-2.webp 1448w"
+         sizes="100vw" width="1448" height="1086" decoding="async" alt="">
+    <img data-src="brand-assets/photos/slider-image-3.webp"
+         data-srcset="brand-assets/web/slide-3-800.webp 800w, brand-assets/photos/slider-image-3.webp 1672w"
+         sizes="100vw" width="1672" height="941" decoding="async" alt="">
+  </div>
+  <div class="hero__in">
+    <h1 class="sr-only">Yoga teacher training and classes, Melbourne and Australia-wide</h1>
+    <div class="hero__slides" id="slides">
+      <div class="hero__slide is-on" data-edit="Slide 1: eyebrow, heading, text, buttons">
+        <p class="hero__eyebrow">Ashtanga &amp; Hatha · Melbourne &amp; Australia-wide</p>
+        <p class="hero__title">Yoga as it is taught in India.</p>
+        <p class="hero__sub">Yoga Australia accredited 200-hour teacher training and weekly classes since 2010.</p>
+        <div class="hero__btns">
+          <a href="#training" class="btn btn--primary">See the 2027 intakes</a>
+          <a href="#classes" class="btn btn--outline-light">See the class timetable</a>
+        </div>
+      </div>
+      <div class="hero__slide" data-edit="Slide 2: eyebrow, heading, text, buttons">
+        <p class="hero__eyebrow">200 hours · Yoga Australia accredited</p>
+        <p class="hero__title">Teacher training in Melbourne, Sydney and live online.</p>
+        <div class="hero__btns">
+          <a href="#training" class="btn btn--primary">See the 2027 intakes</a>
+          <a href="#tradition" class="btn btn--outline-light">See what the 200 hours cover</a>
+        </div>
+      </div>
+      <div class="hero__slide" data-edit="Slide 3: eyebrow, heading, text, buttons">
+        <p class="hero__eyebrow">Since 2010 · Graduates</p>
+        <p class="hero__title">Graduates now teach across Australia and overseas.</p>
+        <div class="hero__btns">
+          <a href="#graduates" class="btn btn--primary">Meet the graduates</a>
+          <a href="#classes" class="btn btn--outline-light">See the class timetable</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__foot">
+      <div class="hero__ctrl" role="group" aria-label="Slideshow controls">
+        <div class="hero__dots" id="dots">
+          <button class="is-on" aria-label="Slide 1 of 3" aria-current="true"></button>
+          <button aria-label="Slide 2 of 3"></button>
+          <button aria-label="Slide 3 of 3"></button>
+        </div>
+        <button class="hero__pause" id="heroPause" aria-pressed="false" aria-label="Pause slideshow" title="Pause slideshow">
+          <svg class="ico-pause" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/></svg>
+          <svg class="ico-play" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M3 1.5v11l9-5.5z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ROW (every item links to its proof) ============ -->
+<div class="trust">
+  <div class="wrap trust__in" data-edit="Trust row: four items, each with a link">
+    <a class="trust__i" href="https://yogaaustralia.org.au/venue/yoga-and-meditation-school-of-india-melbourne-sydney/" target="_blank" rel="noopener"><img src="brand-assets/logos/yoga-australia-logo-1.png" width="111" height="140" alt=""><span><b>Yoga Australia</b> registered school</span></a>
+    <a class="trust__i" href="#founders"><span><b>Senior Level 3</b> principal teacher</span></a>
+    <a class="trust__i" href="#tradition"><span>Teaching in Australia since <b>2010</b></span></a>
+    <a class="trust__i" href="#explore"><span>Featured on <b>ABC</b> television</span></a>
+  </div>
+</div>
+
+<!-- ============ CHOOSE YOUR PATH ============ -->
+<section class="sec" id="paths">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading + intro">
+      <h2>Choose your path</h2>
+    </div>
+    <div class="paths" data-edit="Path tiles: image, title, text, button">
+
+      <a href="#training" class="path">
+        <img src="brand-assets/web/hd/path-training.jpg" width="960" height="567" loading="lazy" decoding="async" alt="">
+        <div class="path__in">
+          <h3>Train to teach</h3>
+          <p>200 hours over six months, accredited by Yoga Australia.</p>
+          <span class="path__go btn btn--ghost btn--sm">2027 intakes</span>
+        </div>
+      </a>
+
+      <a href="#classes" class="path">
+        <img src="brand-assets/web/path-class.jpg" width="900" height="1121" loading="lazy" decoding="async" alt="">
+        <div class="path__in">
+          <h3>Come to class</h3>
+          <p>In the room at Oakleigh or McKinnon, or live on Zoom. One pass covers both.</p>
+          <span class="path__go btn btn--ghost btn--sm">Times and prices</span>
+        </div>
+      </a>
+
+      <a href="#training" class="path">
+        <img src="brand-assets/web/path-retreat.jpg" width="900" height="668" loading="lazy" decoding="async" alt="">
+        <div class="path__in">
+          <h3>Study in India</h3>
+          <p>The 200-hour training as a residential program at an eco shala in South India.</p>
+          <span class="path__go btn btn--ghost btn--sm">January 2027</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEACHER TRAINING ============ -->
+<section class="band" id="training">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading + intro">
+      <h2>2027 teacher training intakes</h2>
+    </div>
+
+    <div class="intakes" data-edit="Course intakes: one entry per intake with location, format, start, status, link">
+      <div class="intake intake--head" aria-hidden="true"><span>Location</span><span>Format</span><span>Starts</span><span>Status</span><span></span></div>
+
+      <div class="intake">
+        <div class="intake__loc">Melbourne <span>In person</span></div>
+        <div class="intake__meta"><b>Format</b>Sundays</div>
+        <div class="intake__meta"><b>Starts</b>Sunday 7 February 2027</div>
+        <span class="chip chip--open">Applications open</span>
+        <a class="intake__go" href="#contact" data-about="melbourne">Enquire →<span class="sr-only"> about Melbourne</span></a>
+      </div>
+
+      <div class="intake">
+        <div class="intake__loc">Sydney <span>In person · Redfern</span></div>
+        <div class="intake__meta"><b>Format</b>Saturday &amp; Sunday intensive</div>
+        <div class="intake__meta"><b>Starts</b>Saturday 20 February 2027</div>
+        <span class="chip chip--open">Applications open</span>
+        <a class="intake__go" href="#contact" data-about="sydney">Enquire →<span class="sr-only"> about Sydney</span></a>
+      </div>
+
+      <div class="intake">
+        <div class="intake__loc">Online <span>Live-streamed, Australia-wide</span></div>
+        <div class="intake__meta"><b>Format</b>Tuesdays</div>
+        <div class="intake__meta"><b>Starts</b>Tuesday 9 February 2027</div>
+        <span class="chip chip--open">Applications open</span>
+        <a class="intake__go" href="#contact" data-about="online">Enquire →<span class="sr-only"> about the online intake</span></a>
+      </div>
+
+      <div class="intake">
+        <div class="intake__loc">South India</div>
+        <div class="intake__meta"><b>Format</b>Residential</div>
+        <div class="intake__meta"><b>Starts</b>Monday 11 January 2027</div>
+        <span class="chip chip--open">Applications open</span>
+        <a class="intake__go" href="#contact" data-about="india">Enquire →<span class="sr-only"> about South India</span></a>
+      </div>
+
+    </div>
+
+    <div class="tt-after" data-edit="Fees line, teachers line, button">
+      <p><b>Fees</b> are quoted when you enquire.</p>
+      <p>Taught by <a class="tlink" href="#founders">Yogacharya Samir Rane</a> and Shilpa Rane.</p>
+      <div class="tt-actions">
+        <a href="#contact" class="btn btn--primary">Enquire about a 2027 intake</a>
+      </div>
+    </div>
+    <details class="more" id="tradition" data-edit="Syllabus: photo, one line, six rows (optional detail)">
+      <summary>What the 200 hours cover <span class="tog" aria-hidden="true"></span></summary>
+      <div class="more__body">
+        <img src="brand-assets/web/hd/tradition.jpg" width="1650" height="1650" loading="lazy" decoding="async" alt="Students in a training session with course manuals open on the floor">
+        <p>Classical Ashtanga and Hatha, taught from the source texts. We do not use props.</p>
+        <dl class="syl">
+          <div><dt>Philosophy</dt><dd>Patanjali's 196 sutras, the Hatha Yoga Pradipika, the Bhagavad Gita</dd></div>
+          <div><dt>Asana</dt><dd>50+ postures across eight categories, with Suryanamaskar</dd></div>
+          <div><dt>Anatomy</dt><dd>Nervous, endocrine, respiratory and musculoskeletal systems</dd></div>
+          <div><dt>Pranayama</dt><dd>Ujjayi, nadi shodhana, kapalabhati and sitali</dd></div>
+          <div><dt>Teaching</dt><dd>Mock teaching with feedback</dd></div>
+          <div><dt>Business</dt><dd>Starting your own classes and finding work</dd></div>
+        </dl>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ CLASSES / TIMETABLE ============ -->
+<section class="sec" id="classes">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading + intro">
+      <h2>Weekly classes in Melbourne and online</h2>
+      <p>Every class is taught to mixed levels.</p>
+    </div>
+    <div class="vcards" data-edit="Class times and venues: one entry per class in the admin; booking embeds here at build">
+
+      <div class="vcards__studios" id="studios">
+        <section class="vcard" id="oakleigh">
+          <div class="vcard__h">
+            <div class="vcard__t">
+              <span class="vcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.4a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.6"/></svg></span>
+              <h3 id="oakleigh-h">Oakleigh Studio</h3>
+            </div>
+            <p class="vcard__addr">Huntingdale Community Hall, Germain St, Oakleigh South VIC 3167</p>
+          </div>
+          <ul class="vslots" role="list">
+            <li class="vslot"><span class="vslot__day">Sunday</span><span class="vslot__time"><time datetime="09:00">9:00</time> to <time datetime="10:00">10:00am</time></span><span class="vslot__what">Ashtanga and 30&nbsp;minutes of meditation</span></li>
+          </ul>
+          <div class="vcard__foot">
+            <a class="btn btn--ghost btn--sm vcard__dir" href="https://www.google.com/maps/search/?api=1&amp;query=Huntingdale+Community+Hall%2C+Germain+St%2C+Oakleigh+South+VIC+3167" target="_blank" rel="noopener">Directions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="sr-only"> to Oakleigh Studio</span></a>
+          </div>
+        </section>
+
+        <section class="vcard" id="mckinnon">
+          <div class="vcard__h">
+            <div class="vcard__t">
+              <span class="vcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.4a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.6"/></svg></span>
+              <h3 id="mckinnon-h">McKinnon Studio</h3>
+            </div>
+            <p class="vcard__addr">118 McKinnon Rd, McKinnon VIC 3204</p>
+          </div>
+          <ul class="vslots" role="list">
+            <li class="vslot"><span class="vslot__day">Tuesday</span><span class="vslot__time"><time datetime="18:30">6:30</time> to <time datetime="19:30">7:30pm</time></span><span class="vslot__what">Evening class</span></li>
+          </ul>
+          <div class="vcard__foot">
+            <a class="btn btn--ghost btn--sm vcard__dir" href="https://www.google.com/maps/search/?api=1&amp;query=118+McKinnon+Rd%2C+McKinnon+VIC+3204" target="_blank" rel="noopener">Directions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="sr-only"> to McKinnon Studio</span></a>
+          </div>
+        </section>
+      </div>
+
+      <section class="vcard vcard--online" id="online">
+        <div class="vcard__h">
+          <div class="vcard__t">
+            <span class="vcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8.5 20h7M12 16.5V20"/><path d="M10.5 8.3v4.4l3.8-2.2z"/></svg></span>
+            <h3 id="online-h">Online, Australia-wide</h3>
+          </div>
+          <p class="vcard__addr">Live over Zoom, Melbourne time.</p>
+        </div>
+        <ul class="vslots" role="list">
+          <li class="vslot"><span class="vslot__day">Sunday</span><span class="vslot__time"><time datetime="09:00">9:00</time> to <time datetime="10:00">10:00am</time></span><span class="vslot__what">Ashtanga and meditation</span></li>
+          <li class="vslot"><span class="vslot__day">Monday to Wednesday</span><span class="vslot__time"><time datetime="18:30">6:30</time> to <time datetime="19:30">7:30pm</time></span><span class="vslot__what">Asana, pranayama, meditation</span></li>
+          <li class="vslot"><span class="vslot__day">Saturday</span><span class="vslot__time"><time datetime="08:00">8:00</time> to <time datetime="09:00">9:00am</time></span><span class="vslot__what">Morning practice</span></li>
+        </ul>
+      </section>
+
+    </div>
+    <div class="classes__after">
+      <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" class="btn btn--primary" target="_blank" rel="noopener">Book a class</a>
+    </div>
+    <p class="book-note">Booking opens our booking site, where you set up an account and choose a class.</p>
+  </div>
+</section>
+
+<!-- ============ CLASS PASSES ============ -->
+<section class="sec sec--tight" id="passes">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading + intro">
+      <h2>Class pass prices</h2>
+      <p>Kids 12 and under join free with a paying parent on the monthly pass.</p>
+    </div>
+    <div class="prices" data-edit="Pass prices and inclusions">
+      <div class="price">
+        <h3>Monthly pass</h3>
+        <div class="price__amt"><sup>$</sup>55</div>
+        <div class="price__per">One month, every live and recorded class</div>
+        <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener" class="btn btn--primary btn--full">Buy monthly pass</a>
+      </div>
+      <div class="price">
+        <h3>Casual studio</h3>
+        <div class="price__amt"><sup>$</sup>25</div>
+        <div class="price__per">One class at Oakleigh or McKinnon</div>
+        <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener" class="btn btn--ghost btn--full">Buy casual pass</a>
+      </div>
+      <div class="price">
+        <h3>Casual online</h3>
+        <div class="price__amt"><sup>$</sup>20</div>
+        <div class="price__per">One live Zoom class</div>
+        <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener" class="btn btn--ghost btn--full">Buy online pass</a>
+      </div>
+    </div>
+    <p class="book-note">Each button opens our booking site, where you choose the pass and pay. <a class="tlink" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Log in to book with an existing pass</a></p>
+  </div>
+</section>
+
+<!-- ============ FOUNDERS (full screen) ============ -->
+<section class="founders-full" id="founders">
+  <div class="wrap founders-full__text" data-edit="Founders: heading, paragraph, button">
+    <h2>Who teaches you</h2>
+    <p class="lede">Samir Rane is the third generation of a yogic family; his grandfather, Yogacharya
+      Arjun, taught in India. Samir is a Senior Level 3 registered teacher with Yoga Australia and
+      has taught for over three decades. Shilpa Rane's background is in medical microbiology,
+      human anatomy and genetics.</p>
+    <!-- restore when the founders page exists -->
+    <a href="#" class="btn btn--ghost" style="margin-top:12px" hidden>Read about Samir and Shilpa</a>
+  </div>
+  <div class="founders-full__media" data-edit="Founder portraits: photo, name, role">
+    <figure>
+      <img src="brand-assets/web/founder-samir-1166.jpg"
+           srcset="brand-assets/web/founder-samir.jpg 800w, brand-assets/web/founder-samir-1166.jpg 1166w"
+           sizes="50vw" width="1166" height="1349" loading="lazy" decoding="async" alt="Yogacharya Samir Rane seated in padmasana">
+      <figcaption><b>Yogacharya Samir Rane</b>Principal Yoga Teacher</figcaption>
+    </figure>
+    <figure>
+      <img src="brand-assets/web/founder-shilpa-1076.jpg"
+           srcset="brand-assets/web/founder-shilpa-800.jpg 800w, brand-assets/web/founder-shilpa-1076.jpg 1076w"
+           sizes="50vw" width="1076" height="1462" loading="lazy" decoding="async" alt="Shilpa Rane demonstrating nadi shodhana pranayama">
+      <figcaption><b>Shilpa Rane</b>Director of Yoga Education</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ GRADUATES ============ -->
+<section class="sec" id="graduates">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading + intro">
+      <h2>Where our graduates teach now</h2>
+    </div>
+    <div class="grads-box">
+    <ul class="grads" data-edit="Graduates: photo (circle), name, school or place">
+      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-placeholder-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Lisa Sommerlad</p><p class="grad__at">Bindu Creative Dance &amp; Yoga, Footscray</p></li>
+      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-placeholder-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Julien Orriols</p><p class="grad__at">Yoga Essence Institute, France</p></li>
+      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-tameeka-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Tameeka Vera</p><p class="grad__at">Thank You Yoga, Heyfield</p></li>
+      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-placeholder-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Jo Wallis</p><p class="grad__at">Mortlake Yoga and Wellness</p></li>
+      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-kym-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Kym Wilson</p><p class="grad__at">Kym Yoga and Music, Melbourne</p></li>
+      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-emma-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Emma Parker</p><p class="grad__at">Taught in Dili, now in New South Wales</p></li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEOS: 'Explore our Yoga School' ============ -->
+<section class="sec" id="explore">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading + intro">
+      <h2>Explore our Yoga School</h2>
+    </div>
+    <div class="vid-grid" data-edit="Video tiles: YouTube link, thumbnail, caption (swap any tile in the admin)">
+
+      <a class="vid vid--lg" href="https://www.youtube.com/watch?v=yW29p5tg9D4" data-yt="yW29p5tg9D4" data-title="Has yoga lost its soul? India Now, ABC News">
+        <span class="vid__media">
+          <span class="vid__badge">Featured on ABC</span>
+          <img src="brand-assets/web/hd/vid-abc.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="The ABC India Now episode Has Yoga Lost Its Soul, featuring Samir Rane">
+          <span class="vid__play" aria-hidden="true"></span>
+        </span>
+        <span class="vid__cap">
+          <b>The origins of yoga</b>
+          <span>ABC News, India Now</span>
+        </span>
+      </a>
+
+      <div class="vid-side">
+        <a class="vid" href="https://www.youtube.com/watch?v=i-rdvr49t9Y" data-yt="i-rdvr49t9Y" data-title="Inside the school">
+          <span class="vid__media">
+            <img src="brand-assets/web/hd/vid-school.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Inside the Yoga and Meditation School of India">
+            <span class="vid__play" aria-hidden="true"></span>
+          </span>
+          <span class="vid__cap"><b>Inside the school</b></span>
+        </a>
+        <a class="vid" href="https://www.youtube.com/watch?v=bj_VE5K-oIY" data-yt="bj_VE5K-oIY" data-title="The teacher training program">
+          <span class="vid__media">
+            <img src="brand-assets/web/vid-ttc.jpg" width="480" height="360" loading="lazy" decoding="async" alt="The teacher training program explained">
+            <span class="vid__play" aria-hidden="true"></span>
+          </span>
+          <span class="vid__cap"><b>The teacher training program</b></span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ GOOGLE REVIEWS (preview of the live embed) ============ -->
+<section class="band" id="reviews">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading">
+      <h2>What students say on Google</h2>
+    </div>
+    <div class="gr" data-edit="Google reviews: live from the five Business Profiles via a reviews plugin at build">
+      <div class="gr-top">
+        <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        <span class="gr-score"><b>5.0</b><span class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span><span>38 reviews across five locations</span></span>
+        <a class="btn btn--ghost btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=Yoga+and+Meditation+School+of+India+Melbourne" target="_blank" rel="noopener">See all on Google</a>
+      </div>
+      <div class="gr-wrap">
+        <div class="gr-track" id="grTrack" tabindex="0" role="region" aria-label="Google reviews, scroll sideways for more">
+        <figure class="gr-card">
+          <div class="gr-card__h">
+            <span class="gr-av" style="background:#AB5A1B" aria-hidden="true">V</span>
+            <figcaption class="gr-who"><b>Vidura Wijesekara</b><span>4 weeks ago · Oakleigh</span></figcaption>
+            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote><p>As a Personal Trainer, I wanted to learn yoga to better understand movement and the connection between the mind and body, so I decided to take the 200-hour Yoga Teacher Training Course. … Samir Rane and Shilpa Rane were fantastic teachers. They shared their knowledge and experience with so much patience and genuine care.</p></blockquote>
+        </figure>
+        <figure class="gr-card">
+          <div class="gr-card__h">
+            <span class="gr-av" style="background:#444444" aria-hidden="true">A</span>
+            <figcaption class="gr-who"><b>Ava Senaratne</b><span>3 months ago · McKinnon</span></figcaption>
+            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote><p>I really enjoy my yoga classes here. I appreciated the traditional approach and found it both energising and a great workout. … I left feeling stronger, refreshed, and well cared for throughout the session.</p></blockquote>
+        </figure>
+        <figure class="gr-card">
+          <div class="gr-card__h">
+            <span class="gr-av" style="background:#7C5A3C" aria-hidden="true">S</span>
+            <figcaption class="gr-who"><b>Shasta Rianne</b><span>3 months ago · Cheltenham</span></figcaption>
+            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote><p>I studied Level 1 Yoga Teacher Training online with Samir 4 years ago and have attended his traditional Ashtanga &amp; Hatha style classes via zoom ever since. The zoom classes are great as I can still attend no matter where I am in the world and they help me stay disciplined in my practise.</p></blockquote>
+        </figure>
+        <figure class="gr-card">
+          <div class="gr-card__h">
+            <span class="gr-av" style="background:#AB5A1B" aria-hidden="true">S</span>
+            <figcaption class="gr-who"><b>Shaheen Bal</b><span>3 months ago · Oakleigh</span></figcaption>
+            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote><p>I cannot recommend this school enough. Their depth in both Ashtanga and Hatha philosophy is exceptional, taught with so much care for alignment, breath and the meaning behind every practice. Samir is a truly gifted teacher whose guidance and wisdom stay with you long after class ends.</p></blockquote>
+        </figure>
+        <figure class="gr-card">
+          <div class="gr-card__h">
+            <span class="gr-av" style="background:#444444" aria-hidden="true">E</span>
+            <figcaption class="gr-who"><b>Emma Pryce-Baxter</b><span>3 months ago · Oakleigh</span></figcaption>
+            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote><p>I was searching for a Traditional Hatha and Ashtanga Yoga school in Melbourne, Australia, to undertake my Yoga Teacher Training. I found this and so much more with Samir and Shilpa. … Samir and Shilpa teach with great depth, wisdom, and compassion, creating a learning environment that is both supportive and inspiring.</p></blockquote>
+        </figure>
+        </div>
+        <div class="gr-nav">
+          <button class="gr-btn" id="grPrev" type="button" aria-label="Previous reviews"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+          <button class="gr-btn" id="grNext" type="button" aria-label="More reviews"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="sec" id="instagram">
+  <div class="wrap">
+    <h2 class="sr-only">On Instagram</h2>
+    <div class="igw" data-edit="Instagram feed: live from @yoga_schoolofindia at build">
+      <div class="ig-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5.5"/>
+          <circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/>
+        </svg>
+        <b>@yoga_schoolofindia</b>
+        <span>26.8K followers</span>
+        <a href="https://www.instagram.com/yoga_schoolofindia/" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Follow on Instagram</a>
+      </div>
+      <div class="ig">
+        <a href="https://www.instagram.com/reel/DcSBhLZTGik/" target="_blank" rel="noopener" aria-label="Reel posted August 2026"><svg class="ig__reel" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6"/><path d="m10 8.5 6 3.5-6 3.5z" fill="#fff" stroke="none"/></svg><img src="brand-assets/web/hd/ig-01-DcSBhLZTGik.jpg" width="720" height="405" alt="" loading="lazy" decoding="async"></a>
+        <a href="https://www.instagram.com/p/DWk-YBYEQs6/" target="_blank" rel="noopener" aria-label="Photo posted March 2026"><img src="brand-assets/instagram/02-DWk-YBYEQs6.jpg" alt="" loading="lazy" decoding="async"></a>
+        <a href="https://www.instagram.com/reel/DVkY9x1kSz3/" target="_blank" rel="noopener" aria-label="Reel posted March 2026"><svg class="ig__reel" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6"/><path d="m10 8.5 6 3.5-6 3.5z" fill="#fff" stroke="none"/></svg><img src="brand-assets/instagram/03-DVkY9x1kSz3.jpg" alt="" loading="lazy" decoding="async"></a>
+        <a href="https://www.instagram.com/reel/DPSIL2GE_i3/" target="_blank" rel="noopener" aria-label="Reel posted October 2025"><svg class="ig__reel" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6"/><path d="m10 8.5 6 3.5-6 3.5z" fill="#fff" stroke="none"/></svg><img src="brand-assets/instagram/04-DPSIL2GE_i3.jpg" alt="" loading="lazy" decoding="async"></a>
+        <a href="https://www.instagram.com/reel/DNAkzRYTidH/" target="_blank" rel="noopener" aria-label="Reel posted August 2025"><svg class="ig__reel" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6"/><path d="m10 8.5 6 3.5-6 3.5z" fill="#fff" stroke="none"/></svg><img src="brand-assets/web/hd/ig-05-DNAkzRYTidH.jpg" width="400" height="711" alt="" loading="lazy" decoding="async"></a>
+        <a href="https://www.instagram.com/reel/DI5htbmTwpb/" target="_blank" rel="noopener" aria-label="Reel posted April 2025"><svg class="ig__reel" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6"/><path d="m10 8.5 6 3.5-6 3.5z" fill="#fff" stroke="none"/></svg><img src="brand-assets/web/hd/ig-06-DI5htbmTwpb.jpg" width="400" height="711" alt="" loading="lazy" decoding="async"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading">
+      <h2>Questions about the training</h2>
+      <p>Fees, accreditation, entry and online study.</p>
+    </div>
+    <div class="faq" data-edit="FAQ: add, remove or reorder">
+      <details name="faq" open>
+        <summary>What does the teacher training cost? <span class="tog" aria-hidden="true"></span></summary>
+        <p>Fees vary by intake and format, and there is no early-bird price. Choose the intake you want in the enquiry form and we quote it.</p>
+      </details>
+      <details name="faq">
+        <summary>Is the teacher training accredited? <span class="tog" aria-hidden="true"></span></summary>
+        <p>Yes, by Yoga Australia. Graduates are eligible for professional indemnity and public liability insurance.</p>
+      </details>
+      <details name="faq">
+        <summary>Do I need experience to start the training? <span class="tog" aria-hidden="true"></span></summary>
+        <p>Entry is by application and an interview with the course director. Use the enquiry form and say how long you have practised.</p>
+      </details>
+      <details name="faq">
+        <summary>Can I do the whole training online? <span class="tog" aria-hidden="true"></span></summary>
+        <p>Yes. The online intake follows the in-person syllabus, with the same teachers.</p>
+      </details>
+    </div>
+    <div class="faq-more">
+      <p>Still have a question?</p>
+      <a href="#contact" class="btn btn--ink">Ask us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENQUIRY ============ -->
+<section class="band band--brand" id="contact">
+  <div class="wrap contact">
+    <div class="shead" data-edit="Enquiry: heading, line, email">
+      <h2>Ask us about a course or a class</h2>
+      <p>Email <a href="mailto:info@yogaschoolofindia.com.au?subject=Enquiry%20from%20the%20website">info@yogaschoolofindia.com.au</a>.</p>
+    </div>
+    <div class="form" id="enquiry" data-edit="Enquiry form: connects to a form plugin at build">
+      <form id="enquiryForm" novalidate>
+        <div class="form__row">
+          <div class="f"><label for="fName">Name</label><input id="fName" name="name" type="text" autocomplete="name" required aria-describedby="fNameErr"><p class="form__err" id="fNameErr"></p></div>
+          <div class="f"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required aria-describedby="fEmailErr"><p class="form__err" id="fEmailErr"></p></div>
+        </div>
+        <div class="f">
+          <label for="fAbout">I'm asking about</label>
+          <select id="fAbout" name="about">
+            <option value="" selected disabled>Choose a topic</option>
+            <optgroup label="200 Hour teacher training">
+              <option value="melbourne">Melbourne · in person</option>
+              <option value="sydney">Sydney · in person</option>
+              <option value="online">Online · live-streamed</option>
+              <option value="india">South India · residential</option>
+            </optgroup>
+            <option value="level2">350 Hour Level 2</option>
+            <option value="classes">Weekly classes</option>
+            <option value="private">Private, corporate or school yoga</option>
+            <option value="retreats">Retreats</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div class="f">
+          <label for="fMsg">Message (optional)</label>
+          <textarea id="fMsg" name="message"></textarea>
+        </div>
+        <div class="form__foot">
+          <button type="submit" class="btn btn--ink">Send enquiry</button>
+          <small>We reply to the address you give. <a href="#" data-soon>Privacy Policy</a>.</small>
+        </div>
+      </form>
+      <div class="form__sent" role="status" aria-live="polite">
+        <b tabindex="-1" id="sentHeading">Demo only: nothing was sent.</b>
+        <p>On the live site this reaches info@yogaschoolofindia.com.au and the reply comes to the address you gave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid" data-edit="Footer: blurb, addresses, email, link columns">
+      <div>
+        <img class="ftr__logo" src="brand-assets/logos/logo.png" width="524" height="161" loading="lazy" alt="Yoga &amp; Meditation School of India">
+        <p style="max-width:34ch">Classical Ashtanga and Hatha yoga from a third-generation
+          Indian yoga family. Teaching in Australia since 2010.</p>
+        <p class="ftr__addr"><b>Studios</b><a href="#oakleigh">Oakleigh</a> · <a href="#mckinnon">McKinnon</a> · <a href="#online">Online, Australia-wide</a></p>
+        <p class="ftr__addr"><b>Private yoga therapy clinic</b>241 Warrigal Road, Cheltenham VIC 3192</p>
+        <p class="ftr__addr"><a href="mailto:info@yogaschoolofindia.com.au?subject=Enquiry%20from%20the%20website">info@yogaschoolofindia.com.au</a></p>
+        <div class="ftr__soc">
+          <a href="https://www.instagram.com/yoga_schoolofindia/" target="_blank" rel="noopener" aria-label="Instagram"><img src="brand-assets/icons/ig.svg" width="15" height="15" alt="" loading="lazy"></a>
+          <a href="https://www.youtube.com/@samirrane7163" target="_blank" rel="noopener" aria-label="YouTube"><img src="brand-assets/icons/yt.svg" width="15" height="15" alt="" loading="lazy"></a>
+          <a href="https://www.facebook.com/pages/Yoga-and-Meditation-School-of-India/138376429550090" target="_blank" rel="noopener" aria-label="Facebook"><img src="brand-assets/icons/fb.svg" width="15" height="15" alt="" loading="lazy"></a>
+        </div>
+      </div>
+      <div>
+        <p class="ftr__h">Teacher Training</p>
+        <ul>
+          <li><a href="#training">200 Hour Level 1</a></li>
+          <li><a href="#" data-soon>350 Hour Level 2</a></li>
+          <li><a href="#training">Online, Australia-wide</a></li>
+          <li><a href="#training">Training in India</a></li>
+          <li><a href="#" data-soon>Where we train</a></li>
+          <li><a href="#graduates">Graduate stories</a></li>
+          <li><a href="#faq">Fees &amp; FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ftr__h">Classes</p>
+        <ul>
+          <li><a href="#classes">Timetable</a></li>
+          <li><a href="#oakleigh">Oakleigh Studio</a></li>
+          <li><a href="#mckinnon">McKinnon Studio</a></li>
+          <li><a href="#online">Online live classes</a></li>
+          <li><a href="#passes">Class Passes</a></li>
+          <li><a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Student log in</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ftr__h">School</p>
+        <ul>
+          <li><a href="#tradition">School tradition</a></li>
+          <li><a href="#founders">Samir &amp; Shilpa</a></li>
+          <li><a href="#reviews">Google reviews</a></li>
+          <li><a href="#" data-soon>Retreats</a></li>
+          <li><a href="#" data-soon>Private &amp; corporate</a></li>
+          <li><a href="#" data-soon>Wellness</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr__btm">
+      <span>© 2026 Yoga &amp; Meditation School of India in Australia. All rights reserved.</span>
+      <span><a href="#" data-soon>Privacy Policy</a> · <a href="#" data-soon>Terms &amp; Conditions</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ PRIVACY BAR ============ -->
+<div class="cookie" id="cookie" data-edit="Privacy bar: text, link, buttons">
+  <div class="cookie__in">
+    <p>We use cookies to keep the site working and to see how it is used. <a href="#" data-soon>Privacy Policy</a>.</p>
+    <div class="cookie__btns">
+      <button class="btn btn--ghost btn--sm" id="cookieNo">Decline</button>
+      <button class="btn btn--ink btn--sm" id="cookieOk">Accept</button>
+    </div>
+  </div>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="lb__box">
+    <button class="lb__x" id="lbX" aria-label="Close video">&times;</button>
+    <iframe id="lbFrame" src="" title="Video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="lb__file" id="lbFile" hidden>
+      <p>YouTube only plays embedded videos on a page with a web address. This preview was opened as a file, so it cannot play here.</p>
+      <a class="btn btn--light" id="lbFileLink" href="#" target="_blank" rel="noopener">Watch on YouTube</a>
+    </div>
+  </div>
+</div>
+
+<button class="edit-toggle" id="editToggle" aria-pressed="false">Show editable fields</button>
+
+<!-- ============ CLASS PASS POPUP (replaces the header button) ============ -->
+<button class="pass-fab" id="passFab" type="button" data-pass-open aria-haspopup="dialog" aria-controls="passPop" aria-expanded="false">
+  <span class="pass-fab__i"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5V5a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1v1.5a2 2 0 0 0 0 4V12a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1v-1.5a2 2 0 0 0 0-4z" transform="translate(0 1.5)"/><path d="M12.5 5.5v9" stroke-dasharray="1.6 1.8" /></svg></span>Buy a Class Pass
+</button>
+<div class="pass-scrim" id="passScrim"></div>
+<div class="pass-pop" id="passPop" role="dialog" aria-labelledby="passPopH" data-edit="Class pass popup: passes, prices, links">
+  <button class="pass-pop__x" id="passX" type="button" aria-label="Close">&times;</button>
+  <p class="eyebrow">Class passes</p>
+  <h3 id="passPopH" tabindex="-1">Buy a class pass</h3>
+  <ul class="pass-pop__list">
+    <li><span><b>Monthly pass</b><small>Every live and recorded class for a month</small></span><span class="pass-pop__price">$55</span><a class="btn btn--primary btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> the monthly pass</span></a></li>
+    <li><span><b>Casual studio</b><small>One class at Oakleigh or McKinnon</small></span><span class="pass-pop__price">$25</span><a class="btn btn--ghost btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> a casual studio pass</span></a></li>
+    <li><span><b>Casual online</b><small>One live Zoom class</small></span><span class="pass-pop__price">$20</span><a class="btn btn--ghost btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> a casual online pass</span></a></li>
+  </ul>
+  <div class="pass-pop__foot">
+    <p>Kids 12 and under join free with a paying parent on the monthly pass.</p>
+    <p>Payment opens our booking site. <a class="tlink" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Log in with an existing pass</a></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var store = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+  };
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hoverable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var phone = window.matchMedia('(max-width:720px)');
+
+  /* announcement bar: dismissal is keyed to the message, so a new offer shows again */
+  var ann = document.getElementById('announce'), annX = document.getElementById('announceX');
+  var annKey = 'ysi-ann:' + document.getElementById('announceText').textContent.trim();
+  if (store.get('ysi-ann') === annKey) ann.classList.add('is-hidden');
+  annX.addEventListener('click', function(){ ann.classList.add('is-hidden'); store.set('ysi-ann', annKey); });
+
+  /* while a layer is open, everything behind it is inert so Tab and screen readers stay inside */
+  var LAYERS = '.skip, .announce, .hdr, #drawer, main, .ftr, #cookie, #editToggle, #lb, #passFab, #passPop, #passScrim';
+  function inertExcept(keep){
+    document.querySelectorAll(LAYERS).forEach(function(el){
+      if (keep && el.matches(keep)) el.removeAttribute('inert'); else el.setAttribute('inert','');
+    });
+  }
+  function inertNone(){ document.querySelectorAll(LAYERS).forEach(function(el){ el.removeAttribute('inert'); }); }
+
+  /* mobile drawer */
+  var drawer = document.getElementById('drawer'), burger = document.getElementById('burger'),
+      drawerX = document.getElementById('drawerX');
+  function openDrawer(){
+    drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden','false');
+    burger.setAttribute('aria-expanded','true'); document.body.style.overflow = 'hidden';
+    inertExcept('#drawer'); drawerX.focus();
+  }
+  function closeDrawer(){
+    if (!drawer.classList.contains('is-open')) return;
+    drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden','true');
+    burger.setAttribute('aria-expanded','false'); document.body.style.overflow = '';
+    inertNone(); burger.focus();
+  }
+  burger.addEventListener('click', openDrawer);
+  /* widening past the desktop breakpoint must close the drawer, or the page stays inert */
+  window.matchMedia('(min-width:1201px)').addEventListener('change', function(e){ if (e.matches) closeDrawer(); });
+  drawerX.addEventListener('click', closeDrawer);
+  drawer.addEventListener('click', function(e){ if (e.target.closest('a')) { closeDrawer(); } });
+
+  /* desktop dropdowns: hover where hover exists; click, tap and keyboard everywhere; CSS and ARIA agree */
+  var items = document.querySelectorAll('.nav__item');
+  function setOpen(item, open){
+    item.classList.toggle('is-open', open);
+    var l = item.querySelector('.nav__link--has'); if (l) l.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function closeMenus(except){ items.forEach(function(it){ if (it !== except) setOpen(it, false); }); }
+  document.querySelectorAll('.nav__link--has').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var item = link.parentNode, placeholder = link.getAttribute('href') === '#';
+      if (!hoverable || placeholder) {
+        e.preventDefault();
+        var open = !item.classList.contains('is-open');
+        closeMenus(null); setOpen(item, open);
+      }
+    });
+  });
+  items.forEach(function(item){
+    item.addEventListener('focusin', function(){ closeMenus(item); setOpen(item, true); });
+    item.addEventListener('focusout', function(e){ if (!item.contains(e.relatedTarget)) setOpen(item, false); });
+    /* hover is driven here too, so the announced state always matches what is on screen */
+    if (hoverable) {
+      item.addEventListener('mouseenter', function(){ closeMenus(item); setOpen(item, true); });
+      item.addEventListener('mouseleave', function(){ setOpen(item, false); });
+    }
+  });
+  document.addEventListener('click', function(e){ if (!e.target.closest('.nav__item')) closeMenus(null); });
+
+  /* hero slider. The bar under the active dot fills over one slide; when it
+     finishes, the next slide shows. Pause freezes the bar where it is. */
+  var bgs    = document.querySelectorAll('.hero__bg img'),
+      slides = document.querySelectorAll('.hero__slide'),
+      dots   = document.querySelectorAll('#dots button'),
+      pauseB = document.getElementById('heroPause'),
+      hero   = document.querySelector('.hero'),
+      i = 0, userPaused = false;
+  function loadBg(n){
+    var img = bgs[n]; if (!img || !img.dataset.src) return;
+    img.srcset = img.dataset.srcset; img.src = img.dataset.src;
+    delete img.dataset.src; delete img.dataset.srcset;
+  }
+  function restartBar(){ hero.classList.remove('is-playing'); void hero.offsetWidth; hero.classList.add('is-playing'); }
+  function go(n){
+    var prev = i; i = n;
+    loadBg(n); loadBg((n + 1) % bgs.length);
+    bgs.forEach(function(s,k){ s.classList.toggle('is-prev', k === prev && k !== n); s.classList.toggle('is-on', k === n); });
+    slides.forEach(function(s,k){ s.classList.toggle('is-on', k === n); });
+    dots.forEach(function(d,k){ d.classList.toggle('is-on', k === n); if (k === n) d.setAttribute('aria-current','true'); else d.removeAttribute('aria-current'); });
+    if (userPaused) hero.classList.remove('is-playing'); else restartBar();
+  }
+  function setPaused(p){
+    userPaused = p;
+    hero.classList.toggle('is-paused', p);
+    pauseB.setAttribute('aria-pressed', p ? 'true' : 'false');
+    pauseB.setAttribute('aria-label', p ? 'Play slideshow' : 'Pause slideshow');
+    pauseB.title = p ? 'Play slideshow' : 'Pause slideshow';
+    if (!p && !hero.classList.contains('is-playing')) restartBar();
+  }
+  dots.forEach(function(d,k){
+    d.addEventListener('click', function(){ go(k); });
+    d.addEventListener('animationend', function(e){
+      if (e.animationName === 'heroProgress' && k === i && !userPaused) go((i + 1) % slides.length);
+    });
+  });
+  pauseB.addEventListener('click', function(){ setPaused(!userPaused); });
+  /* keyboard users inside the hero get time to read; the mouse no longer stops it */
+  hero.addEventListener('focusin', function(e){ if (e.target.matches(':focus-visible')) hero.classList.add('is-held'); });
+  hero.addEventListener('focusout', function(e){ if (!hero.contains(e.relatedTarget)) hero.classList.remove('is-held'); });
+  if (reduced) setPaused(true); else restartBar();
+  window.addEventListener('load', function(){ if (!userPaused) setTimeout(function(){ loadBg(1); }, 2500); });
+
+  /* privacy bar pads the page while it is showing, and lifts the pass button above it */
+  var cookie = document.getElementById('cookie');
+  function padForBar(){
+    var h = cookie.classList.contains('is-gone') ? 0 : cookie.offsetHeight;
+    document.body.style.paddingBottom = h ? h + 'px' : '';
+    document.documentElement.style.setProperty('--cookie-h', h + 'px');
+  }
+  if (store.get('ysi-cookie')) cookie.classList.add('is-gone');
+  function dismiss(v){ return function(){ cookie.classList.add('is-gone'); store.set('ysi-cookie', v); padForBar(); }; }
+  document.getElementById('cookieOk').addEventListener('click', dismiss('ok'));
+  document.getElementById('cookieNo').addEventListener('click', dismiss('no'));
+  padForBar(); window.addEventListener('resize', padForBar);
+
+  /* class pass popup. The pill appears once the hero is scrolled past and hides
+     while the price section or the enquiry form is on screen. Desktop: a small card above the
+     pill. Phone: a bottom sheet, modal, with the page behind it inert. */
+  var fab = document.getElementById('passFab'), pop = document.getElementById('passPop'),
+      scrim = document.getElementById('passScrim'), passX = document.getElementById('passX'),
+      passH = document.getElementById('passPopH'), passReturn = null, passModal = false;
+  function openPass(from){
+    passReturn = from || fab;
+    pop.classList.add('is-open'); scrim.classList.add('is-open');
+    fab.setAttribute('aria-expanded','true');
+    if (phone.matches) {
+      passModal = true; pop.setAttribute('aria-modal','true');
+      document.body.style.overflow = 'hidden'; inertExcept('#passPop, #passScrim');
+    }
+    passH.focus();
+  }
+  function closePass(refocus){
+    if (!pop.classList.contains('is-open')) return;
+    pop.classList.remove('is-open'); scrim.classList.remove('is-open');
+    fab.setAttribute('aria-expanded','false');
+    if (passModal) { passModal = false; pop.removeAttribute('aria-modal'); document.body.style.overflow = ''; inertNone(); }
+    if (refocus !== false && passReturn && passReturn.focus) passReturn.focus();
+  }
+  document.querySelectorAll('[data-pass-open]').forEach(function(b){
+    b.addEventListener('click', function(){
+      if (b === fab && pop.classList.contains('is-open')) { closePass(); return; }
+      var inDrawer = !!b.closest('#drawer');
+      if (inDrawer) closeDrawer();
+      openPass(inDrawer ? burger : b);
+    });
+  });
+  passX.addEventListener('click', function(){ closePass(); });
+  scrim.addEventListener('click', function(){ closePass(); });
+  document.addEventListener('click', function(e){
+    if (pop.classList.contains('is-open') && !pop.contains(e.target) && !e.target.closest('[data-pass-open]')) closePass(false);
+  });
+  pop.addEventListener('focusout', function(e){
+    if (!passModal && e.relatedTarget && !pop.contains(e.relatedTarget) && e.relatedTarget !== fab) closePass(false);
+  });
+  if ('IntersectionObserver' in window) {
+    var heroGone = false, inView = {};
+    var passIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.target === hero) heroGone = !en.isIntersecting; else inView[en.target.id] = en.isIntersecting;
+      });
+      fab.classList.toggle('is-shown', heroGone && !inView.passes && !inView.contact);
+    }, {rootMargin:'0px 0px 120px 0px'});
+    passIO.observe(hero); passIO.observe(document.getElementById('passes')); passIO.observe(document.getElementById('contact'));
+  } else { fab.classList.add('is-shown'); }
+
+  /* header shadow: shows only while the header is stuck to the top */
+  var hdr = document.querySelector('.hdr'), hdrTick = false;
+  function hdrSync(){ hdrTick = false; hdr.classList.toggle('is-scrolled', window.scrollY > 0 && hdr.getBoundingClientRect().top <= 0); }
+  window.addEventListener('scroll', function(){ if (!hdrTick) { hdrTick = true; requestAnimationFrame(hdrSync); } }, {passive:true});
+  hdrSync();
+
+  /* scroll reveal: headings and card rows fade up once as they arrive. Items that arrive
+     together are staggered 70ms apart. The hero, intake table, timetable rows, prices and
+     the form stay still. Afterwards the helper classes come off, so hover styles are untouched. */
+  if ('IntersectionObserver' in window && !reduced) {
+    var RV = '.shead, .paths > .path, .vcards__studios > .vcard, .vcard--online, .founders-full__text, ' +
+             '.founders-full__media > figure, .grads > .grad, .vid-grid > *, .gr, .ig-head, .ig > a, .faq, .faq-more';
+    var rvEls = Array.prototype.slice.call(document.querySelectorAll(RV));
+    document.documentElement.classList.add('js-reveal');
+    var rvIO = new IntersectionObserver(function(entries){
+      var k = 0;
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        rvIO.unobserve(el);
+        el.style.setProperty('--rv-d', Math.min(k++, 5) * 70 + 'ms');
+        el.classList.add('is-in');
+        el.addEventListener('transitionend', function done(e){
+          if (e.target !== el || e.propertyName !== 'transform') return;
+          el.removeEventListener('transitionend', done);
+          el.classList.remove('rv', 'is-in'); el.style.removeProperty('--rv-d');
+        });
+      });
+    }, {rootMargin: '0px 0px -6% 0px'});
+    rvEls.forEach(function(el){ el.classList.add('rv'); rvIO.observe(el); });
+  }
+
+  /* video lightbox: plays in the page; focus moves in, the page behind goes inert, focus returns on close */
+  var lb = document.getElementById('lb'), lbFrame = document.getElementById('lbFrame'),
+      lbX = document.getElementById('lbX'), lbReturn = null;
+  var lbFile = document.getElementById('lbFile'), lbFileLink = document.getElementById('lbFileLink'),
+      fromDisk = location.protocol === 'file:';
+  function openVid(id, title){
+    lbReturn = document.activeElement;
+    lbFrame.title = title || 'Video';
+    if (fromDisk) {
+      /* no web address means no referrer, and YouTube answers with error 153; say so instead */
+      lbFrame.hidden = true; lbFile.hidden = false;
+      lbFileLink.href = 'https://www.youtube.com/watch?v=' + id;
+    } else {
+      lbFrame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
+    }
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    inertExcept('#lb'); lbX.focus();
+  }
+  function closeVid(){
+    if (!lb.classList.contains('is-open')) return;
+    lb.classList.remove('is-open');
+    lbFrame.src = '';               /* clearing the src is what stops playback */
+    document.body.style.overflow = '';
+    inertNone();
+    if (lbReturn && lbReturn.focus) lbReturn.focus();
+  }
+  document.querySelectorAll('.vid[data-yt]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); openVid(a.getAttribute('data-yt'), a.getAttribute('data-title')); });
+  });
+  lbX.addEventListener('click', closeVid);
+  lb.addEventListener('click', function(e){ if (e.target === lb) closeVid(); });
+  lb.addEventListener('keydown', function(e){
+    if (e.key !== 'Tab') return;
+    var f = [lbX, fromDisk ? lbFileLink : lbFrame];
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[1]) { e.preventDefault(); f[0].focus(); }
+  });
+
+  /* one Escape handler for everything that opens */
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Escape') return;
+    var openItem = document.activeElement && document.activeElement.closest('.nav__item.is-open');
+    if (openItem) { openItem.querySelector('.nav__link--has').focus(); }
+    closePass(); closeVid(); closeDrawer(); closeMenus(null);
+  });
+
+  /* Google reviews: arrows step one card; they dim at either end */
+  var grT = document.getElementById('grTrack'), grP = document.getElementById('grPrev'), grN = document.getElementById('grNext');
+  function grStep(){
+    var c = grT.querySelector('.gr-card');
+    return c ? c.getBoundingClientRect().width + (parseFloat(getComputedStyle(grT).columnGap) || 24) : 320;
+  }
+  function grSync(){
+    grP.disabled = grT.scrollLeft <= 2;
+    grN.disabled = grT.scrollLeft + grT.clientWidth >= grT.scrollWidth - 2;
+  }
+  grP.addEventListener('click', function(){ grT.scrollBy({left:-grStep(), behavior: reduced ? 'auto' : 'smooth'}); });
+  grN.addEventListener('click', function(){ grT.scrollBy({left:grStep(), behavior: reduced ? 'auto' : 'smooth'}); });
+  grT.addEventListener('scroll', grSync, {passive:true});
+  window.addEventListener('resize', grSync); grSync();
+
+  /* FAQ: one answer open at a time (details[name] does this natively; this covers older browsers) */
+  var faqs = document.querySelectorAll('.faq details');
+  faqs.forEach(function(d){
+    d.addEventListener('toggle', function(){ if (d.open) faqs.forEach(function(o){ if (o !== d && o.open) o.open = false; }); });
+  });
+
+  /* enquiry form: an intake row's Enquire link preselects the course; the mock shows the sent state */
+  var form = document.getElementById('enquiryForm');
+  document.querySelectorAll('[data-about]').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('fAbout').value = a.getAttribute('data-about'); });
+  });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var first = null;
+    [['fName','Enter your name.'],['fEmail','Enter an email address we can reply to.']].forEach(function(pair){
+      var el = document.getElementById(pair[0]), err = document.getElementById(pair[0] + 'Err');
+      var bad = !el.value.trim() || (el.type === 'email' && !el.validity.valid);
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false'); err.textContent = bad ? pair[1] : '';
+      if (bad && !first) first = el;
+    });
+    if (first) { first.focus(); return; }
+    document.getElementById('enquiry').classList.add('is-sent');
+    document.getElementById('sentHeading').focus();
+  });
+
+  /* links to pages that do not exist yet: no silent jump to the top */
+  document.querySelectorAll('a[data-soon]').forEach(function(a){ a.addEventListener('click', function(e){ e.preventDefault(); }); });
+
+  /* editable-field inspector (review aid) */
+  var t = document.getElementById('editToggle');
+  t.addEventListener('click', function(){
+    var on = document.body.classList.toggle('show-edit');
+    t.setAttribute('aria-pressed', on ? 'true' : 'false');
+    t.textContent = on ? 'Hide editable fields' : 'Show editable fields';
+  });
+})();
+</script>
+
+
+</body>
+</html>
