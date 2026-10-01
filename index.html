@@ -29,7 +29,7 @@
   --orange-deep:#AB5A1B;            /* 4.66:1 on paper, 4.99:1 on white */
   --white:#fff; --paper:#FAF7F0; --shade:#F4F0E8; --paper-2:#EDE6D9;
   --ink:#242424; --ink2:#444; --muted:#666; --hair:#E2DED6; --line:rgba(36,36,36,.26);
-  --max:1240px; --gut:24px; --hdr-h:78px;
+  --max:1240px; --gut:24px; --hdr-h:108px;
   /* vertical rhythm: 136 / 96 / 56 / 40 on a 1440 screen; 80 / 56 / 32 / 28 on a phone */
   --gap-loose:clamp(80px,9.5vw,136px);   /* between sections */
   --gap-tight:clamp(56px,6.6vw,96px);    /* between two sections that belong together */
@@ -68,7 +68,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
 /* orange #E97B26 only reaches 2.87:1 on white, under the 3:1 a focus ring needs; dark surfaces get a white ring */
 .announce :focus-visible,.hero :focus-visible,.band--brand :focus-visible,.ftr :focus-visible,.lb :focus-visible{outline-color:#fff}
-.hero.hero--light :focus-visible{outline-color:var(--ink)}
 .skip{position:absolute;left:16px;top:-80px;z-index:200;background:var(--ink);color:#fff;
   padding:12px 18px;border-radius:var(--pill);font-weight:600}
 .skip:focus{top:12px}
@@ -128,10 +127,10 @@ summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
 .hdr__in{max-width:var(--max);margin:0 auto;padding:0 var(--gut);
   display:flex;align-items:center;gap:10px;min-height:var(--hdr-h)}
 .brand{display:flex;align-items:center;flex-shrink:0}
-.brand img{width:160px;height:auto}
+.brand img{width:clamp(228px,18.5vw,270px);height:auto}   /* 270px from 1460px wide; the 2x file keeps it sharp on retina */
 .nav{display:flex;align-items:center;gap:2px;margin-left:auto}
 .nav__item{position:relative}
-.nav__link{display:block;padding:8px 13px;font-size:.84rem;font-weight:500;
+.nav__link{display:block;padding:8px 11px;font-size:.84rem;font-weight:500;
   white-space:nowrap;color:var(--ink);border-radius:var(--pill);border:1px solid transparent;
   background:none;font-family:var(--ui);cursor:pointer;line-height:1.5}
 .nav__link:hover,.nav__item.is-open .nav__link{border-color:var(--line)}
@@ -181,17 +180,17 @@ summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
    white wash at the top carries dark text over the sky and the dome */
 .hero::before{content:'';position:absolute;inset:0;z-index:1;opacity:0;transition:opacity .8s ease;pointer-events:none;
   background:linear-gradient(to bottom,rgba(255,255,255,.66) 0%,rgba(255,255,255,.38) 32%,rgba(255,255,255,0) 58%)}
-.hero.hero--light::before{opacity:1}
-.hero.hero--light::after{opacity:0}
+
 .hero__in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gut) 36px;display:flex;flex-direction:column}
 .hero__slides{display:grid;flex:1;align-items:end}
-.hero__slide--top{align-self:start}
-.hero__slide--light .hero__eyebrow{color:var(--ink2)}
-.hero__slide--light .hero__title{color:var(--ink)}
-.hero__slide--light .hero__sub{color:var(--ink2)}
-.hero__slide--light .btn--outline-light{color:var(--ink);border-color:rgba(36,36,36,.45);background:rgba(255,255,255,.8)}
-.hero__slide--light .btn--outline-light:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 .hero__bg img.hero__bg--dancers{object-position:center 35%}
+/* slide 1 lead: Ashtanga & Hatha as the main words, the saffron ampersand as the one accent */
+.hero__title--lead{font-size:clamp(3rem,5.6vw,5.4rem);line-height:1.02;letter-spacing:-.005em;max-width:none;margin:0 0 16px}
+.hero__title--lead > span{display:block}
+.hero__title--lead .amp{color:var(--orange)}
+.hero__tagline{font-family:var(--display);font-size:clamp(1.25rem,2vw,1.75rem);line-height:1.3;color:rgba(255,255,255,.9);
+  margin:0 0 28px;display:flex;align-items:center;gap:14px}
+.hero__tagline::before{content:'';width:44px;height:2px;background:var(--orange);flex-shrink:0}
 .hero__slide{grid-area:1/1;visibility:hidden;opacity:0;transition:opacity .6s ease}
 .hero__slide.is-on{visibility:visible;opacity:1}
 .hero__eyebrow{color:rgba(255,255,255,.85);font-size:.74rem;font-weight:600;letter-spacing:.17em;
@@ -223,11 +222,27 @@ summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
 .hero__pause .ico-play{display:none}
 .hero__pause[aria-pressed="true"] .ico-pause{display:none}
 .hero__pause[aria-pressed="true"] .ico-play{display:block}
-.hero--light .hero__dots button::before{background:rgba(36,36,36,.28)}
-.hero--light .hero__dots button::after{background:var(--ink)}
-.hero--light .hero__dots button:hover::before{background:rgba(36,36,36,.5)}
-.hero--light .hero__pause{color:var(--ink);border-color:rgba(36,36,36,.45)}
-.hero--light .hero__pause:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+
+/* light slide, larger screens only: words at the top in dark text over a white wash.
+   Phones keep the same dark shading and bottom text as the other slides. */
+@media (min-width:721px){
+  .hero.hero--light::before{opacity:1}
+  .hero.hero--light::after{opacity:0}
+  .hero.hero--light :focus-visible{outline-color:var(--ink)}
+  .hero__slide--top{align-self:start}
+  .hero__slide--light .hero__eyebrow{color:var(--ink2)}
+  .hero__slide--light .hero__title{color:var(--ink)}
+  .hero__slide--light .hero__sub,.hero__slide--light .hero__tagline{color:var(--ink2)}
+  .hero__slide--light .hero__title--lead .amp{color:var(--orange-deep)}
+  .hero__slide--light .btn--outline-light{color:var(--ink);border-color:rgba(36,36,36,.45);background:rgba(255,255,255,.8)}
+  .hero__slide--light .btn--outline-light:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .hero--light .hero__dots button::before{background:rgba(36,36,36,.28)}
+  .hero--light .hero__dots button::after{background:var(--ink)}
+  .hero--light .hero__dots button:hover::before{background:rgba(36,36,36,.5)}
+  .hero--light .hero__pause{color:var(--ink);border-color:rgba(36,36,36,.45)}
+  .hero--light .hero__pause:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+}
 
 /* ---- trust row -------------------------------------------- */
 .trust{background:#fff;color:var(--ink2);font-size:.875rem;padding:0}
@@ -574,6 +589,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 
 /* ---- responsive ------------------------------------------- */
 @media (max-width:1200px){
+  .brand img{width:260px}
   .nav{display:none}
   .burger{display:block}
   .hdr__cta{margin-left:auto}
@@ -599,7 +615,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   .vcard--online .vslot + .vslot{border-left:0;border-top:1px solid var(--hair)}
 }
 @media (max-width:720px){
-  :root{--gut:18px;--hdr-h:66px}
+  :root{--gut:18px;--hdr-h:84px}
   body{font-size:16px}
   .paths,.prices,.form__row{grid-template-columns:1fr}
   .paths>:nth-child(3){grid-column:auto}
@@ -636,13 +652,12 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   .trust__i::after{content:none;margin:0}
 
   .hdr__in{gap:8px}
-  .brand img{width:132px}
+  .brand img{width:210px}
   .hdr__cta{display:none}
   .burger{padding:8px;margin-left:auto;flex-shrink:0}
 
   .hero{min-height:min(177.78vw,760px);padding-top:74px}   /* 9:16, the shape of the phone hero photo */
   .hero__bg img{object-position:center 55%}
-  .hero__slide--top{margin-top:-46px}   /* slide 1 sits higher on phones so the dancers stay clear */
   .hero::after{background:linear-gradient(to top,rgba(18,12,6,.90) 0%,rgba(18,12,6,.60) 56%,rgba(18,12,6,.25) 100%)}
   .hero__sub{font-size:1.02rem}
   .hero__btns .btn{width:100%}
@@ -690,7 +705,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 <header class="hdr">
   <div class="hdr__in">
     <div class="brand">
-      <a href="#top" aria-label="Yoga &amp; Meditation School of India, home"><img src="brand-assets/logos/logo.png" width="524" height="161" alt="Yoga &amp; Meditation School of India"></a>
+      <a href="#top" aria-label="Yoga &amp; Meditation School of India, home"><img src="brand-assets/logos/logo.png" srcset="brand-assets/logos/logo.png 524w, brand-assets/logos/logo-2x.webp 1048w" sizes="(max-width:720px) 210px, (max-width:1200px) 260px, 270px" width="524" height="161" alt="Yoga &amp; Meditation School of India"></a>
     </div>
 
     <nav class="nav" aria-label="Main">
@@ -799,7 +814,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   <div class="hero__bg" aria-hidden="true" data-edit="Slide photos, one per slide">
     <picture>
       <!-- phones get the portrait version of the same scene -->
-      <source media="(max-width:720px)" srcset="brand-assets/web/bgimage-mobile-600.webp 600w, brand-assets/photos/bgimage-mobile.webp 941w" sizes="100vw">
+      <source media="(max-width:720px)" srcset="brand-assets/web/bgslider1-correct-mobile-600.webp 600w, brand-assets/photos/bgslider1-correct-mobile.webp 941w" sizes="100vw">
       <img class="is-on hero__bg--dancers" src="brand-assets/photos/bgslider1.webp"
            srcset="brand-assets/web/bgslider1-800.webp 800w, brand-assets/photos/bgslider1.webp 1672w"
            sizes="100vw" width="1672" height="941" fetchpriority="high" decoding="async" alt="">
@@ -812,12 +827,11 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
          sizes="100vw" width="1672" height="941" decoding="async" alt="">
   </div>
   <div class="hero__in">
-    <h1 class="sr-only">Yoga teacher training and classes, Melbourne and Australia-wide</h1>
+    <h1 class="sr-only">Ashtanga and Hatha yoga teacher training and classes, Melbourne and Australia-wide</h1>
     <div class="hero__slides" id="slides">
-      <div class="hero__slide hero__slide--light hero__slide--top is-on" data-edit="Slide 1: eyebrow, heading, text, buttons (slide options: text at top, dark text)">
-        <p class="hero__eyebrow">Ashtanga &amp; Hatha · Melbourne &amp; Australia-wide</p>
-        <p class="hero__title">Yoga as it is taught in India.</p>
-        <p class="hero__sub">Yoga Australia accredited 200-hour teacher training and weekly classes since 2010.</p>
+      <div class="hero__slide hero__slide--light hero__slide--top is-on" data-edit="Slide 1: heading, line, buttons (slide options: text at top, dark text)">
+        <p class="hero__title hero__title--lead"><span>Ashtanga</span> <span><span class="amp">&amp;</span> Hatha Yoga</span></p>
+        <p class="hero__tagline">as it is taught in India</p>
         <div class="hero__btns">
           <a href="#training" class="btn btn--primary">See the 2027 intakes</a>
           <a href="#classes" class="btn btn--outline-light">See the class timetable</a>
