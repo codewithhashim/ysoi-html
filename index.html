@@ -127,7 +127,7 @@ summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
 .hdr__in{max-width:var(--max);margin:0 auto;padding:0 var(--gut);
   display:flex;align-items:center;gap:10px;min-height:var(--hdr-h)}
 .brand{display:flex;align-items:center;flex-shrink:0}
-.brand img{width:160px;height:auto}
+.brand img{width:230px;height:auto}
 .nav{display:flex;align-items:center;gap:2px;margin-left:auto}
 .nav__item{position:relative}
 .nav__link{display:block;padding:8px 13px;font-size:.84rem;font-weight:500;
@@ -167,22 +167,20 @@ summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
 .drawer__util a{display:inline;border:0;padding:0;text-decoration:underline;text-underline-offset:3px}
 
 /* ---- hero ------------------------------------------------- */
-.hero{position:relative;min-height:clamp(560px,76vh,880px);display:flex;align-items:flex-end;
-  overflow:hidden;background:var(--ink);padding-top:96px}
-.hero__bg{position:absolute;inset:0;z-index:0;isolation:isolate}
-.hero__bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+/* Photo sits above the words, not under them, so the dancers stay in frame. */
+.hero{position:relative;display:block;overflow:hidden;background:#120c06}
+.hero__bg{position:relative;height:clamp(340px,58vh,640px);isolation:isolate}
+.hero__bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;
   opacity:0;z-index:0;transition:opacity 1.1s ease}
 .hero__bg img.is-prev{opacity:1;z-index:1;transition:none}
 .hero__bg img.is-on{opacity:1;z-index:2}
-.hero::after{content:'';position:absolute;inset:0;z-index:1;
-  background:linear-gradient(to top,rgba(18,12,6,.80) 0%,rgba(18,12,6,.48) 50%,rgba(18,12,6,.12) 100%)}
-.hero__in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gut) 36px}
+.hero__in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:28px var(--gut) 32px}
 .hero__slides{display:grid}
 .hero__slide{grid-area:1/1;visibility:hidden;opacity:0;transition:opacity .6s ease}
 .hero__slide.is-on{visibility:visible;opacity:1}
 .hero__eyebrow{color:rgba(255,255,255,.85);font-size:.74rem;font-weight:600;letter-spacing:.17em;
   text-transform:uppercase;margin-bottom:18px}
-.hero__title{font-family:var(--display);color:#fff;max-width:17ch;margin:0 0 20px;text-wrap:balance}
+.hero__title{font-family:var(--display);color:#fff;max-width:18ch;margin:0 0 14px;text-wrap:balance}
 .hero__sub{color:rgba(255,255,255,.88);font-size:1.13rem;max-width:52ch;margin-bottom:24px}
 .hero__btns{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:26px}
 @media (prefers-reduced-motion:reduce){
@@ -617,13 +615,12 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   .trust__i::after{content:none;margin:0}
 
   .hdr__in{gap:8px}
-  .brand img{width:132px}
+  .brand img{width:188px}
   .hdr__cta{display:none}
   .burger{padding:8px;margin-left:auto;flex-shrink:0}
 
-  .hero{min-height:min(78vh,720px);padding-top:74px}
-  .hero__bg img{object-position:center 55%}
-  .hero::after{background:linear-gradient(to top,rgba(18,12,6,.90) 0%,rgba(18,12,6,.60) 56%,rgba(18,12,6,.25) 100%)}
+  .hero__bg{height:52vh}
+  .hero__in{padding:22px var(--gut) 24px}
   .hero__sub{font-size:1.02rem}
   .hero__btns .btn{width:100%}
   .hero__foot{justify-content:flex-start}
@@ -791,8 +788,8 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
     <h1 class="sr-only">Yoga teacher training and classes, Melbourne and Australia-wide</h1>
     <div class="hero__slides" id="slides">
       <div class="hero__slide is-on" data-edit="Slide 1: eyebrow, heading, text, buttons">
-        <p class="hero__eyebrow">Ashtanga &amp; Hatha · Melbourne &amp; Australia-wide</p>
-        <p class="hero__title">Yoga as it is taught in India.</p>
+        <p class="hero__eyebrow">Melbourne · Sydney · Australia-wide</p>
+        <p class="hero__title">Ashtanga &amp; Hatha yoga, taught as it is in India.</p>
         <p class="hero__sub">Yoga Australia accredited 200-hour teacher training and weekly classes since 2010.</p>
         <div class="hero__btns">
           <a href="#training" class="btn btn--primary">See the 2027 intakes</a>
