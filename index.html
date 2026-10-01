@@ -176,10 +176,6 @@ summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
 .hero__bg img.is-on{opacity:1;z-index:2}
 .hero::after{content:'';position:absolute;inset:0;z-index:1;transition:opacity .8s ease;
   background:linear-gradient(to top,rgba(18,12,6,.80) 0%,rgba(18,12,6,.48) 50%,rgba(18,12,6,.12) 100%)}
-/* light slide (slide 1): no dark shading over the photo, so the dancers stay bright; a soft
-   white wash at the top carries dark text over the sky and the dome */
-.hero::before{content:'';position:absolute;inset:0;z-index:1;opacity:0;transition:opacity .8s ease;pointer-events:none;
-  background:linear-gradient(to bottom,rgba(255,255,255,.66) 0%,rgba(255,255,255,.38) 32%,rgba(255,255,255,0) 58%)}
 
 .hero__in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gut) 36px;display:flex;flex-direction:column}
 .hero__slides{display:grid;flex:1;align-items:end}
@@ -224,25 +220,6 @@ summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
 .hero__pause[aria-pressed="true"] .ico-play{display:block}
 
 
-/* light slide, larger screens only: words at the top in dark text over a white wash.
-   Phones keep the same dark shading and bottom text as the other slides. */
-@media (min-width:721px){
-  .hero.hero--light::before{opacity:1}
-  .hero.hero--light::after{opacity:0}
-  .hero.hero--light :focus-visible{outline-color:var(--ink)}
-  .hero__slide--top{align-self:start}
-  .hero__slide--light .hero__eyebrow{color:var(--ink2)}
-  .hero__slide--light .hero__title{color:var(--ink)}
-  .hero__slide--light .hero__sub,.hero__slide--light .hero__tagline{color:var(--ink2)}
-  .hero__slide--light .hero__title--lead .amp{color:var(--orange-deep)}
-  .hero__slide--light .btn--outline-light{color:var(--ink);border-color:rgba(36,36,36,.45);background:rgba(255,255,255,.8)}
-  .hero__slide--light .btn--outline-light:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-  .hero--light .hero__dots button::before{background:rgba(36,36,36,.28)}
-  .hero--light .hero__dots button::after{background:var(--ink)}
-  .hero--light .hero__dots button:hover::before{background:rgba(36,36,36,.5)}
-  .hero--light .hero__pause{color:var(--ink);border-color:rgba(36,36,36,.45)}
-  .hero--light .hero__pause:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-}
 
 /* ---- trust row -------------------------------------------- */
 .trust{background:#fff;color:var(--ink2);font-size:.875rem;padding:0}
@@ -810,7 +787,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 
 <main id="main">
 <!-- ============ HERO (three slides in the markup, each editable) ============ -->
-<section class="hero hero--light" id="top">
+<section class="hero" id="top">
   <div class="hero__bg" aria-hidden="true" data-edit="Slide photos, one per slide">
     <picture>
       <!-- phones get the portrait version of the same scene -->
@@ -829,7 +806,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   <div class="hero__in">
     <h1 class="sr-only">Ashtanga and Hatha yoga teacher training and classes, Melbourne and Australia-wide</h1>
     <div class="hero__slides" id="slides">
-      <div class="hero__slide hero__slide--light hero__slide--top is-on" data-edit="Slide 1: heading, line, buttons (slide options: text at top, dark text)">
+      <div class="hero__slide is-on" data-edit="Slide 1: heading, line, buttons">
         <p class="hero__title hero__title--lead"><span>Ashtanga</span> <span><span class="amp">&amp;</span> Hatha Yoga</span></p>
         <p class="hero__tagline">as it is taught in India</p>
         <div class="hero__btns">
@@ -1544,7 +1521,6 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
     loadBg(n); loadBg((n + 1) % bgs.length);
     bgs.forEach(function(s,k){ s.classList.toggle('is-prev', k === prev && k !== n); s.classList.toggle('is-on', k === n); });
     slides.forEach(function(s,k){ s.classList.toggle('is-on', k === n); });
-    hero.classList.toggle('hero--light', slides[n].classList.contains('hero__slide--light'));
     dots.forEach(function(d,k){ d.classList.toggle('is-on', k === n); if (k === n) d.setAttribute('aria-current','true'); else d.removeAttribute('aria-current'); });
     if (userPaused) hero.classList.remove('is-playing'); else restartBar();
   }
