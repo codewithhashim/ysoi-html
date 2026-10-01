@@ -183,7 +183,6 @@ summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
 .hero__eyebrow{color:rgba(255,255,255,.85);font-size:.74rem;font-weight:600;letter-spacing:.17em;
   text-transform:uppercase;margin-bottom:18px}
 .hero__title{font-family:var(--display);color:#fff;max-width:17ch;margin:0 0 20px;text-wrap:balance}
-.hero__title--m,.hero__eyebrow--m{display:none}
 .hero__sub{color:rgba(255,255,255,.88);font-size:1.13rem;max-width:52ch;margin-bottom:24px}
 .hero__btns{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:26px}
 @media (prefers-reduced-motion:reduce){
@@ -618,20 +617,13 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   .trust__i::after{content:none;margin:0}
 
   .hdr__in{gap:8px}
-  .brand img{width:188px}
+  .brand img{width:132px}
   .hdr__cta{display:none}
   .burger{padding:8px;margin-left:auto;flex-shrink:0}
 
-  /* phone only: photo above the words so the dancers stay in frame */
-  .hero{display:block;min-height:0;padding-top:0;background:#120c06}
-  .hero__bg{position:relative;inset:auto;height:52vh}
-  .hero__bg img{object-position:center 62%}
-  .hero::after{content:none}
-  .hero__in{padding:22px var(--gut) 24px}
-  .hero__slide:first-child > .hero__eyebrow:not(.hero__eyebrow--m){display:none}
-  .hero__eyebrow--m{display:block}
-  .hero__title{display:none}
-  .hero__title--m{display:block;max-width:16ch;margin-bottom:12px}
+  .hero{min-height:min(78vh,720px);padding-top:74px}
+  .hero__bg img{object-position:center 55%}
+  .hero::after{background:linear-gradient(to top,rgba(18,12,6,.90) 0%,rgba(18,12,6,.60) 56%,rgba(18,12,6,.25) 100%)}
   .hero__sub{font-size:1.02rem}
   .hero__btns .btn{width:100%}
   .hero__foot{justify-content:flex-start}
@@ -800,9 +792,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
     <div class="hero__slides" id="slides">
       <div class="hero__slide is-on" data-edit="Slide 1: eyebrow, heading, text, buttons">
         <p class="hero__eyebrow">Ashtanga &amp; Hatha · Melbourne &amp; Australia-wide</p>
-        <p class="hero__eyebrow hero__eyebrow--m">Melbourne · Sydney · Australia-wide</p>
         <p class="hero__title">Yoga as it is taught in India.</p>
-        <p class="hero__title hero__title--m">Ashtanga &amp; Hatha yoga, taught as it is in India.</p>
         <p class="hero__sub">Yoga Australia accredited 200-hour teacher training and weekly classes since 2010.</p>
         <div class="hero__btns">
           <a href="#training" class="btn btn--primary">See the 2027 intakes</a>
