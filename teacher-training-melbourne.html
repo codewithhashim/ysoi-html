@@ -3,12 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Yoga &amp; Meditation School of India: Design Preview</title>
-<meta name="description" content="Classical Ashtanga and Hatha yoga from a third-generation Indian yoga family. Yoga Australia registered teacher training and weekly classes in Melbourne and Australia-wide since 2010.">
+<title>Yoga Teacher Training Melbourne 2027 | 200 Hour Course</title>
+<meta name="description" content="200-hour yoga teacher training in Melbourne, on Sundays over six months. A Yoga Australia registered course in classical Ashtanga and Hatha. Starts March 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="brand-assets/icons/favicon-32x32.png">
+<link rel="canonical" href="https://www.yogaschoolofindia.com.au/yoga-teacher-training-melbourne/">
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "200 Hour Yoga Teacher Training, Melbourne",
+  "description": "A 200-hour teacher training in classical Ashtanga and Hatha yoga, taught in person in Melbourne on Sundays over six months.",
+  "provider": {
+   "@type": "Organization",
+   "name": "Yoga & Meditation School of India",
+   "url": "https://www.yogaschoolofindia.com.au/"
+  },
+  "hasCourseInstance": {
+   "@type": "CourseInstance",
+   "courseMode": "Onsite",
+   "location": {
+    "@type": "Place",
+    "name": "Melbourne, VIC"
+   },
+   "startDate": "2027-03",
+   "instructor": [
+    {
+     "@type": "Person",
+     "name": "Samir Rane"
+    },
+    {
+     "@type": "Person",
+     "name": "Shilpa Rane"
+    }
+   ]
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Do I need experience to do yoga teacher training?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No teaching experience is needed. Trainees are mentored from the basics, whatever their starting point. We ask for a commitment to attend every session."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is the teacher training recognised by Yoga Australia?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes. It is a Yoga Australia registered course."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How long does the 200-hour training take?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Six months, on Sundays, so you can keep working. The exact schedule is confirmed when you enrol."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Can I teach yoga after the course?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes. You graduate with a 200-hour teaching certificate and are eligible for the insurance that gyms, community centres and studios ask for. Many graduates now teach in Melbourne, around Australia and overseas."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How much does the teacher training cost?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Fees vary by intake and format, and there is no early-bird price. Send an enquiry and we quote the Melbourne intake by email."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How is this school different?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "We teach classical Ashtanga and Hatha from the source texts, without props. The principal teacher, Samir Rane, is a Registered Senior Teacher with Yoga Australia and the third generation of a yogic family."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Can I do the teacher training online?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes. The online intake is live-streamed, with the same teachers and syllabus."
+    }
+   }
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+   {
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://www.yogaschoolofindia.com.au/"
+   },
+   {
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Yoga Teacher Training Melbourne",
+    "item": "https://www.yogaschoolofindia.com.au/yoga-teacher-training-melbourne/"
+   }
+  ]
+ }
+]
+</script>
 <style>
 /* ============================================================
    Yoga & Meditation School of India: homepage design, v5
@@ -667,15 +782,146 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   .vslot,.vcard--online .vslot{padding:15px 0}
   .classes__after .btn{width:100%}
 }
-</style>
 
+/* ============================================================
+   Teacher training course page (Melbourne; Sydney reuses it).
+   Everything above is the homepage stylesheet, unchanged. The
+   rules below add only what this page needs, from the same tokens.
+   ============================================================ */
+.nav__link.is-current{border-color:var(--line)}
+
+/* hero: one photo, no slider controls */
+.hero--page .hero__in{justify-content:flex-end;padding-bottom:clamp(40px,5vw,64px)}   /* text sits at the bottom, like the homepage slides */
+.hero--page .hero__title{max-width:20ch}
+.hero--page .hero__sub{text-wrap:balance}
+/* one photo carries all the text here, so the shading is a little stronger than on the homepage slides */
+.hero--page::after{background:linear-gradient(to top,rgba(18,12,6,.86) 0%,rgba(18,12,6,.70) 62%,rgba(18,12,6,.30) 100%)}
+.hero--page .hero__eyebrow{color:#fff}
+
+/* course facts: a labelled row, in the manner of a course listing */
+.facts-wrap{border-bottom:0}
+.facts{display:grid;grid-template-columns:repeat(6,1fr);margin:0 auto;padding-top:0;padding-bottom:0}
+.fact{padding:22px 12px;text-align:center}
+.fact + .fact{border-left:1px solid var(--hair)}
+.fact dt{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.fact dd{margin:0;font-family:var(--display);font-size:1.18rem;line-height:1.25;color:var(--ink);text-wrap:balance}
+.fact dd a{text-decoration:underline;text-decoration-color:var(--orange-deep);text-underline-offset:4px}
+.fact dd a:hover{color:var(--orange-deep)}
+.fact dd a{display:inline-block;padding:11px 0;margin:-11px 0}
+@media (min-width:1041px){.facts{padding-top:24px;padding-bottom:24px}.fact{padding:0 12px}}
+.facts-wrap + .band{margin-top:0}
+
+.others{margin:var(--gap-block) 0 0;font-size:.95rem;color:var(--ink2);display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 10px}
+
+/* who it is for: two photo cards */
+.paths--two{grid-template-columns:repeat(2,1fr);max-width:920px;margin:0 auto}
+.paths--two .path p{margin-bottom:0}
+
+/* syllabus topics: circle thumbnail, title, one line */
+.topics{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px)}
+.topic{background:var(--shade);border-radius:var(--r-box);padding:clamp(26px,3vw,36px) clamp(18px,2.2vw,28px);display:flex;flex-direction:column;align-items:center;text-align:center}
+.topic__av{width:92px;height:92px;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 0 0 5px #fff,0 12px 30px rgba(36,36,36,.10);margin-bottom:18px}
+.topic__av img{width:100%;height:100%;object-fit:cover}
+.topic h3{font-size:1.3rem;margin:0 0 6px}
+.topic p{margin:0;font-size:.95rem;color:var(--ink2);max-width:30ch}
+.more--shade{background:var(--shade)}
+.more--shade .syl div{border-bottom-color:var(--hair)}
+
+/* how we teach it: three short statements, then one video */
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:var(--gap-block)}
+.point{padding:4px 28px;text-align:center}
+.point + .point{border-left:1px solid var(--hair)}
+.point h3{font-size:1.3rem;margin:0 0 8px}
+.point p{margin:0 auto;font-size:.95rem;color:var(--ink2);max-width:30ch}
+.vid--wide{max-width:880px;margin:0 auto}
+.vid--wide .vid__cap{text-align:center}
+
+/* teachers: two larger circles */
+.teachers{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:32px 24px;max-width:820px}
+.grad__av--lg{width:148px;height:148px}
+.grad__role{margin:0 0 8px;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.teachers .grad__at{max-width:40ch}
+.center-row{display:flex;justify-content:center;margin-top:var(--gap-block)}
+
+/* what it takes to graduate: three figures on white cards */
+.figs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px)}
+.fig{background:#fff;border-radius:var(--r-img);padding:clamp(26px,3vw,36px) 24px;text-align:center}
+.fig b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,4.4vw,3.4rem);line-height:1;color:var(--ink);margin-bottom:10px}
+.fig span{display:block;margin:0 auto;font-size:.95rem;color:var(--ink2);max-width:24ch;text-wrap:balance}
+
+/* graduate quote */
+.pull{margin:0 auto var(--gap-block);max-width:760px;text-align:center}
+.pull blockquote{margin:0}
+.pull blockquote p{margin:0;font-family:var(--display);font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.4;color:var(--ink);text-wrap:balance}
+.pull figcaption{margin-top:16px;font-size:.92rem;color:var(--ink2)}
+.pull figcaption b{font-weight:600;color:var(--ink)}
+
+/* how to enrol: three numbered steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px)}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px}
+.step__n{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-family:var(--display);font-size:1.2rem;color:var(--ink);margin-bottom:16px}
+.step h3{font-size:1.3rem;margin:0 0 8px}
+.step p{margin:0;font-size:.95rem;color:var(--ink2);max-width:30ch}
+
+/* floating enquire pill: the homepage's pass pill, pointed at the form */
+.pass-fab--link{text-decoration:none}
+@media (min-width:721px){.pass-fab--link{display:none}}   /* larger screens keep the Enquire button in the header */
+
+/* focus never lands under the sticky header, forwards or backwards */
+.hdr [id]{scroll-margin-top:0}
+main a,main button,main summary,main input,main select,main textarea,.ftr a{scroll-margin-top:calc(var(--hdr-h) + 16px)}
+.form input,.form select,.form textarea{scroll-margin-top:calc(var(--hdr-h) + 52px)}
+/* the video box also fits short windows, so its close button stays on screen */
+.lb__box{width:min(1100px,100%,calc((100svh - 150px) * 16 / 9))}
+/* review toggle: bottom left, clear of the header and the floating pill */
+.edit-toggle{top:auto;right:auto;left:18px;bottom:calc(var(--cookie-h) + 18px)}
+@media (min-width:721px){.topics{grid-auto-rows:1fr}}
+@media (min-width:721px) and (max-width:860px){.intake{grid-template-columns:1fr 1fr auto auto}}
+@media print{.cookie,.edit-toggle,.pass-fab,.announce__x,.burger{display:none!important}.hdr{position:static}body{padding-bottom:0!important}}
+
+@media (max-width:1040px){
+  .facts{grid-template-columns:repeat(3,1fr)}
+  .fact:nth-child(4){border-left:0}
+  .fact:nth-child(n+4){border-top:1px solid var(--hair)}
+}
+@media (max-width:860px){
+  .topics{grid-template-columns:1fr 1fr}
+  .figs{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:32px}
+  .points{grid-template-columns:1fr;gap:28px}
+  .point + .point{border-left:0}
+}
+@media (max-width:720px){
+  .facts{grid-template-columns:1fr 1fr}
+  .fact{padding:16px 8px}
+  .fact:nth-child(n){border-left:0;border-top:0}
+  .fact:nth-child(even){border-left:1px solid var(--hair)}
+  .fact:nth-child(n+3){border-top:1px solid var(--hair)}
+  .fact dd{font-size:1.08rem}
+  .paths--two{grid-template-columns:1fr;row-gap:var(--gap-block)}
+  .hero--page::after{background:linear-gradient(to top,rgba(18,12,6,.92) 0%,rgba(18,12,6,.74) 78%,rgba(18,12,6,.40) 100%)}
+  .more--shade .syl div{grid-template-columns:1fr;row-gap:2px}
+  .others{flex-direction:column;gap:0}
+  .others__sep{display:none}
+  .others .tlink{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+  .intake__go{min-height:44px}
+  .topics{grid-template-columns:1fr;gap:14px}
+  .topic{display:grid;grid-template-columns:64px 1fr;column-gap:16px;align-items:center;text-align:left;padding:18px;border-radius:var(--r-img)}
+  .topic__av{grid-row:1 / span 2;width:64px;height:64px;margin:0;border-radius:var(--r-sm);box-shadow:0 0 0 4px #fff}
+  .topic h3{margin:0 0 2px;align-self:end}
+  .topic p{max-width:none;align-self:start}
+  .teachers{grid-template-columns:1fr}
+  .grad__av--lg{width:124px;height:124px}
+  .hero--page .hero__btns .btn{width:100%}
+}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ============ ANNOUNCEMENT (editable text + dismissible; dismissal is keyed to the text) ============ -->
 <div class="announce" id="announce" data-edit="Offer bar: text + link + on/off">
-  <span id="announceText">2027 teacher training intakes are open in Melbourne, Sydney and online. <a href="#training">Dates and formats</a></span>
+  <span id="announceText">2027 teacher training intakes are open in Melbourne, Sydney and online. <a href="#intake">Dates and formats</a></span>
   <button class="announce__x" id="announceX" aria-label="Hide this message">&times;</button>
 </div>
 
@@ -683,17 +929,17 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 <header class="hdr">
   <div class="hdr__in">
     <div class="brand">
-      <a href="#top" aria-label="Yoga &amp; Meditation School of India, home"><img src="brand-assets/logos/logo.png" srcset="brand-assets/logos/logo.png 524w, brand-assets/logos/logo-2x.webp 1048w" sizes="(max-width:720px) 210px, (max-width:1200px) 260px, 270px" width="524" height="161" alt="Yoga &amp; Meditation School of India"></a>
+      <a href="index.html" aria-label="Yoga &amp; Meditation School of India, home"><img src="brand-assets/logos/logo.png" srcset="brand-assets/logos/logo.png 524w, brand-assets/logos/logo-2x.webp 1048w" sizes="(max-width:720px) 210px, (max-width:1200px) 260px, 270px" width="524" height="161" alt="Yoga &amp; Meditation School of India"></a>
     </div>
 
     <nav class="nav" aria-label="Main">
       <div class="nav__item">
-        <a href="#training" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">Teacher Training</a>
+        <a href="#top" class="nav__link nav__link--has is-current" aria-haspopup="true" aria-expanded="false">Teacher Training</a>
         <div class="drop">
-          <a href="#training">200 Hour Level 1 <span>2027 intakes, Australia-wide</span></a>
+          <a href="#top" aria-current="page">200 Hour Level 1 <span>Melbourne, 2027 intake</span></a>
           <a href="#" data-soon>350 Hour Level 2 <span>For Level 1 graduates</span></a>
-          <a href="#training">Online, Australia-wide <span>Fully live-streamed</span></a>
-          <a href="#training">Teacher Training in India <span>Residential, South India</span></a>
+          <a href="index.html#training">Online, Australia-wide <span>Fully live-streamed</span></a>
+          <a href="index.html#training">Teacher Training in India <span>Residential, South India</span></a>
           <div class="drop__sep"></div>
           <a href="#" data-soon>Where we train <span>Eight cities and 22 regional programs</span></a>
           <a href="#graduates">Graduate stories</a>
@@ -701,17 +947,17 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
         </div>
       </div>
       <div class="nav__item">
-        <a href="#classes" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">Classes</a>
+        <a href="index.html#classes" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">Classes</a>
         <div class="drop">
-          <a href="#classes">Timetable <span>Times and booking</span></a>
-          <a href="#oakleigh">Oakleigh Studio</a>
-          <a href="#mckinnon">McKinnon Studio</a>
-          <a href="#online">Online live classes</a>
+          <a href="index.html#classes">Timetable <span>Times and booking</span></a>
+          <a href="index.html#oakleigh">Oakleigh Studio</a>
+          <a href="index.html#mckinnon">McKinnon Studio</a>
+          <a href="index.html#online">Online live classes</a>
           <div class="drop__sep"></div>
-          <a href="#tradition">How we teach</a>
+          <a href="index.html#tradition">How we teach</a>
         </div>
       </div>
-      <div class="nav__item"><a href="#passes" class="nav__link">Class Passes</a></div>
+      <div class="nav__item"><a href="index.html#passes" class="nav__link">Class Passes</a></div>
       <div class="nav__item">
         <a href="#" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">Private &amp; Corporate</a>
         <div class="drop">
@@ -731,11 +977,11 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       </div>
       <div class="nav__item"><a href="#" data-soon class="nav__link">Retreats</a></div>
       <div class="nav__item">
-        <a href="#tradition" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">About</a>
+        <a href="index.html#tradition" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">About</a>
         <div class="drop">
-          <a href="#tradition">School tradition</a>
-          <a href="#founders">Samir &amp; Shilpa</a>
-          <a href="#reviews">Google reviews</a>
+          <a href="index.html#tradition">School tradition</a>
+          <a href="index.html#founders">Samir &amp; Shilpa</a>
+          <a href="index.html#reviews">Google reviews</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
@@ -753,22 +999,22 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   <button class="drawer__x" id="drawerX" aria-label="Close menu">&times;</button>
   <div class="drawer__cta">
     <a href="#contact" class="btn btn--primary">Enquire</a>
-    <button type="button" class="btn btn--ghost" data-pass-open aria-haspopup="dialog" aria-controls="passPop">Buy a Class Pass</button>
+    <a href="index.html#passes" class="btn btn--ghost">Buy a Class Pass</a>
   </div>
   <p class="drawer__h">Teacher Training</p>
-  <a href="#training">200 Hour Level 1 (2027 intakes)</a>
+  <a href="#top" aria-current="page">200 Hour Level 1 (Melbourne)</a>
   <a href="#" data-soon>350 Hour Level 2</a>
-  <a href="#training">Online, Australia-wide</a>
-  <a href="#training">Teacher Training in India</a>
+  <a href="index.html#training">Online, Australia-wide</a>
+  <a href="index.html#training">Teacher Training in India</a>
   <a href="#" data-soon>Where we train</a>
   <a href="#graduates">Graduate stories</a>
   <a href="#faq">Fees &amp; FAQ</a>
   <p class="drawer__h">Classes</p>
-  <a href="#classes">Timetable</a>
-  <a href="#oakleigh">Oakleigh Studio</a>
-  <a href="#mckinnon">McKinnon Studio</a>
-  <a href="#online">Online live classes</a>
-  <a href="#passes">Class Passes</a>
+  <a href="index.html#classes">Timetable</a>
+  <a href="index.html#oakleigh">Oakleigh Studio</a>
+  <a href="index.html#mckinnon">McKinnon Studio</a>
+  <a href="index.html#online">Online live classes</a>
+  <a href="index.html#passes">Class Passes</a>
   <p class="drawer__h">Private &amp; Corporate</p>
   <a href="#" data-soon class="drawer__sub">Private yoga therapy</a>
   <a href="#" data-soon class="drawer__sub">Corporate yoga</a>
@@ -780,133 +1026,53 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   <a href="#" data-soon class="drawer__sub">Vedic astrology</a>
   <p class="drawer__h">School</p>
   <a href="#" data-soon>Retreats</a>
-  <a href="#tradition">About the school</a>
-  <a href="#founders">Samir &amp; Shilpa</a>
+  <a href="index.html#tradition">About the school</a>
+  <a href="index.html#founders">Samir &amp; Shilpa</a>
   <a href="#contact">Contact</a>
   <p class="drawer__util">Already a student? <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Log in to book</a></p>
 </nav>
 
 <main id="main">
-<!-- ============ HERO (three slides in the markup, each editable) ============ -->
-<section class="hero" id="top">
-  <div class="hero__bg" aria-hidden="true" data-edit="Slide photos, one per slide">
-    <picture>
-      <!-- phones get the portrait version of the same scene -->
-      <source media="(max-width:720px)" srcset="brand-assets/web/bgslider1-correct-mobile-600.webp 600w, brand-assets/photos/bgslider1-correct-mobile.webp 941w" sizes="100vw">
-      <img class="is-on hero__bg--dancers" src="brand-assets/photos/bgslider1.webp"
-           srcset="brand-assets/web/bgslider1-800.webp 800w, brand-assets/photos/bgslider1.webp 1672w"
-           sizes="100vw" width="1672" height="941" fetchpriority="high" decoding="async" alt="">
-    </picture>
-    <img data-src="brand-assets/photos/slider-image-2.webp"
-         data-srcset="brand-assets/web/slide-2-800.webp 800w, brand-assets/photos/slider-image-2.webp 1448w"
-         sizes="100vw" width="1448" height="1086" decoding="async" alt="">
-    <img data-src="brand-assets/photos/slider-image-3.webp"
-         data-srcset="brand-assets/web/slide-3-800.webp 800w, brand-assets/photos/slider-image-3.webp 1672w"
-         sizes="100vw" width="1672" height="941" decoding="async" alt="">
+<!-- ============ HERO (one photo, editable; no slider on course pages) ============ -->
+<section class="hero hero--page" id="top">
+  <div class="hero__bg" aria-hidden="true" data-edit="Hero photo (Sam: 'we can keep changing them')">
+    <img class="is-on" src="brand-assets/photos/slide-image-1.webp"
+         srcset="brand-assets/web/slide-1-800.webp 800w, brand-assets/photos/slide-image-1.webp 1448w"
+         sizes="100vw" width="1448" height="1086" fetchpriority="high" decoding="async" alt="">
   </div>
   <div class="hero__in">
-    <h1 class="sr-only">Ashtanga and Hatha yoga teacher training and classes, Melbourne and Australia-wide</h1>
-    <div class="hero__slides" id="slides">
-      <div class="hero__slide is-on" data-edit="Slide 1: heading, line, buttons">
-        <p class="hero__title hero__title--lead"><span>Ashtanga</span> <span><span class="amp">&amp;</span> Hatha Yoga</span></p>
-        <p class="hero__tagline">as it is taught in India</p>
-        <div class="hero__btns">
-          <a href="#training" class="btn btn--primary">See the 2027 intakes</a>
-          <a href="#classes" class="btn btn--outline-light">See the class timetable</a>
-        </div>
-      </div>
-      <div class="hero__slide" data-edit="Slide 2: eyebrow, heading, text, buttons">
-        <p class="hero__eyebrow">200 hours · Yoga Australia registered</p>
-        <p class="hero__title">Teacher training in Melbourne, Sydney and live online.</p>
-        <div class="hero__btns">
-          <a href="#training" class="btn btn--primary">See the 2027 intakes</a>
-          <a href="#tradition" class="btn btn--outline-light">See what the 200 hours cover</a>
-        </div>
-      </div>
-      <div class="hero__slide" data-edit="Slide 3: eyebrow, heading, text, buttons">
-        <p class="hero__eyebrow">Since 2010 · Graduates</p>
-        <p class="hero__title">Graduates now teach across Australia and overseas.</p>
-        <div class="hero__btns">
-          <a href="#graduates" class="btn btn--primary">Meet the graduates</a>
-          <a href="#classes" class="btn btn--outline-light">See the class timetable</a>
-        </div>
-      </div>
-    </div>
-    <div class="hero__foot">
-      <div class="hero__ctrl" role="group" aria-label="Slideshow controls">
-        <div class="hero__dots" id="dots">
-          <button class="is-on" aria-label="Slide 1 of 3" aria-current="true"></button>
-          <button aria-label="Slide 2 of 3"></button>
-          <button aria-label="Slide 3 of 3"></button>
-        </div>
-        <button class="hero__pause" id="heroPause" aria-pressed="false" aria-label="Pause slideshow" title="Pause slideshow">
-          <svg class="ico-pause" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/></svg>
-          <svg class="ico-play" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M3 1.5v11l9-5.5z"/></svg>
-        </button>
+    <div class="hero__slide is-on" data-edit="Hero: label, heading, line, buttons">
+      <p class="hero__eyebrow">Yoga Australia registered course</p>
+      <h1 class="hero__title">200 Hour Yoga Teacher Training in Melbourne</h1>
+      <p class="hero__sub">Classical Ashtanga and Hatha, studied over six months with a third-generation teacher.</p>
+      <div class="hero__btns">
+        <a href="#contact" class="btn btn--primary" data-about="melbourne">Enquire about the next intake</a>
+        <a href="#intake" class="btn btn--outline-light">See the dates</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ TRUST ROW (every item links to its proof) ============ -->
-<div class="trust">
-  <div class="wrap trust__in" data-edit="Trust row: four items, each with a link">
-    <a class="trust__i" href="https://yogaaustralia.org.au/venue/yoga-and-meditation-school-of-india-melbourne-sydney/" target="_blank" rel="noopener"><img src="brand-assets/logos/yoga-australia-logo-1.png" width="111" height="140" alt=""><span><b>Yoga Australia</b> registered school</span></a>
-    <a class="trust__i" href="#founders"><span><b>Senior Level 3</b> principal teacher</span></a>
-    <a class="trust__i" href="#tradition"><span>Teaching in Australia since <b>2010</b></span></a>
-    <a class="trust__i" href="#explore"><span>Featured on <b>ABC</b> television</span></a>
-  </div>
+<!-- ============ COURSE FACTS (six fields from the course entry) ============ -->
+<div class="facts-wrap">
+  <dl class="wrap facts" data-edit="Course facts: six label and value pairs">
+    <div class="fact"><dt>Hours</dt><dd>200</dd></div>
+    <div class="fact"><dt>Length</dt><dd>Six months</dd></div>
+    <div class="fact"><dt>Days</dt><dd>Sundays</dd></div>
+    <div class="fact"><dt>Where</dt><dd>Melbourne, in person</dd></div>
+    <div class="fact"><dt>Registered with</dt><dd><a href="https://yogaaustralia.org.au/venue/yoga-and-meditation-school-of-india-melbourne-sydney/" target="_blank" rel="noopener">Yoga Australia</a></dd></div>
+    <div class="fact"><dt>Fees</dt><dd>Quoted on enquiry</dd></div>
+  </dl>
 </div>
 
-<!-- ============ CHOOSE YOUR PATH ============ -->
-<section class="sec" id="paths">
+<!-- ============ NEXT INTAKE (the same intake entry the homepage table reads) ============ -->
+<section class="band" id="intake">
   <div class="wrap">
-    <div class="shead" data-edit="Section heading + intro">
-      <h2>Choose your path</h2>
+    <div class="shead" data-edit="Section heading">
+      <h2>The next Melbourne intake</h2>
     </div>
-    <div class="paths" data-edit="Path tiles: image, title, text, button">
-
-      <a href="#training" class="path">
-        <img src="brand-assets/web/hd/path-training.jpg" width="960" height="567" loading="lazy" decoding="async" alt="">
-        <div class="path__in">
-          <h3>Train to teach</h3>
-          <p>200 hours over six months, registered with Yoga Australia.</p>
-          <span class="path__go btn btn--ghost btn--sm">2027 intakes</span>
-        </div>
-      </a>
-
-      <a href="#classes" class="path">
-        <img src="brand-assets/web/path-class.jpg" width="900" height="1121" loading="lazy" decoding="async" alt="">
-        <div class="path__in">
-          <h3>Come to class</h3>
-          <p>In the room at Oakleigh or McKinnon, or live on Zoom. One pass covers both.</p>
-          <span class="path__go btn btn--ghost btn--sm">Times and prices</span>
-        </div>
-      </a>
-
-      <a href="#training" class="path">
-        <img src="brand-assets/web/path-retreat.jpg" width="900" height="668" loading="lazy" decoding="async" alt="">
-        <div class="path__in">
-          <h3>Study in India</h3>
-          <p>The 200-hour training as a residential program at an eco shala in South India.</p>
-          <span class="path__go btn btn--ghost btn--sm">January 2027</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ TEACHER TRAINING ============ -->
-<section class="band" id="training">
-  <div class="wrap">
-    <div class="shead" data-edit="Section heading + intro">
-      <h2>2027 teacher training intakes</h2>
-    </div>
-
-    <div class="intakes" data-edit="Course intakes: one entry per intake with location, format, start, status, link">
+    <div class="intakes" data-edit="Course intake: location, format, start, status, link (one entry, shared with the homepage)">
       <div class="intake intake--head" aria-hidden="true"><span>Location</span><span>Format</span><span>Starts</span><span>Status</span><span></span></div>
-
       <div class="intake">
         <div class="intake__loc">Melbourne <span>In person</span></div>
         <div class="intake__meta"><b>Format</b>Sundays</div>
@@ -914,190 +1080,163 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
         <span class="chip chip--open">Applications open</span>
         <a class="intake__go" href="#contact" data-about="melbourne">Enquire →<span class="sr-only"> about Melbourne</span></a>
       </div>
-
-      <div class="intake">
-        <div class="intake__loc">Sydney <span>In person · Redfern</span></div>
-        <div class="intake__meta"><b>Format</b>Saturday &amp; Sunday intensive</div>
-        <div class="intake__meta"><b>Starts</b>March 2027</div>
-        <span class="chip chip--open">Applications open</span>
-        <a class="intake__go" href="#contact" data-about="sydney">Enquire →<span class="sr-only"> about Sydney</span></a>
-      </div>
-
-      <div class="intake">
-        <div class="intake__loc">Online <span>Live-streamed, Australia-wide</span></div>
-        <div class="intake__meta"><b>Format</b>Wednesdays</div>
-        <div class="intake__meta"><b>Starts</b>7 October 2026</div>
-        <span class="chip chip--open">Applications open</span>
-        <a class="intake__go" href="#contact" data-about="online">Enquire →<span class="sr-only"> about the online intake</span></a>
-      </div>
-
-      <div class="intake">
-        <div class="intake__loc">South India</div>
-        <div class="intake__meta"><b>Format</b>Residential</div>
-        <div class="intake__meta"><b>Starts</b>January 2027</div>
-        <span class="chip chip--open">Applications open</span>
-        <a class="intake__go" href="#contact" data-about="india">Enquire →<span class="sr-only"> about South India</span></a>
-      </div>
-
     </div>
-
-    <div class="tt-after" data-edit="Fees line, teachers line, button">
-      <p><b>Fees</b> are quoted when you enquire.</p>
-      <p>Taught by <a class="tlink" href="#founders">Yogacharya Samir Rane</a> and Shilpa Rane.</p>
+    <div class="tt-after" data-edit="Closing date line, button">
+      <p><b>Applications close</b> 5 December 2026, or earlier if the intake fills. There is no early-bird price.</p>
       <div class="tt-actions">
-        <a href="#contact" class="btn btn--primary">Enquire about a 2027 intake</a>
+        <a href="#contact" class="btn btn--primary" data-about="melbourne">Enquire about the next intake</a>
       </div>
     </div>
-    <details class="more" id="tradition" data-edit="Syllabus: photo, one line, six rows (optional detail)">
-      <summary>What the 200 hours cover <span class="tog" aria-hidden="true"></span></summary>
+    <p class="others" data-edit="Links to the other intakes"><span>Other 2027 intakes:</span>
+      <a class="tlink" href="index.html#training">Sydney teacher training</a><span class="others__sep" aria-hidden="true">·</span>
+      <a class="tlink" href="index.html#training">Online teacher training</a><span class="others__sep" aria-hidden="true">·</span>
+      <a class="tlink" href="index.html#training">Teacher training in India</a></p>
+  </div>
+</section>
+
+<!-- ============ WHO IT IS FOR ============ -->
+<section class="sec" id="who">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading + line">
+      <h2>Who the course is for</h2>
+      <p>Entry is by application and an interview with the course director.</p>
+    </div>
+    <div class="paths paths--two" data-edit="Two cards: photo, title, text">
+      <div class="path">
+        <img src="brand-assets/dummy/tt-02-teacher.jpg" width="1100" height="733" loading="lazy" decoding="async" alt="" data-edit="Placeholder photo">
+        <div class="path__in">
+          <h3>You want to teach</h3>
+          <p>No teaching experience is needed.</p>
+        </div>
+      </div>
+      <div class="path">
+        <img src="brand-assets/dummy/tt-11-practice-twist.jpg" width="1100" height="619" loading="lazy" decoding="async" alt="" data-edit="Placeholder photo">
+        <div class="path__in">
+          <h3>You want to study yoga in depth</h3>
+          <p>The course is also for dedicated students seeking deeper knowledge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU STUDY ============ -->
+<section class="sec" id="syllabus">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading">
+      <h2>What the 200 hours cover</h2>
+    </div>
+    <ul class="topics" role="list" data-edit="Six syllabus topics: photo (circle), title, one line">
+      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-04-study-manuscripts.jpg" width="1100" height="733" loading="lazy" decoding="async" alt=""></span>
+        <h3>Philosophy</h3><p>Patanjali's Yoga Sutras, the Hatha Yoga Pradipika and the Bhagavad Gita.</p></li>
+      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-10-practice-forward-bend.jpg" width="1100" height="619" loading="lazy" decoding="async" alt=""></span>
+        <h3>Asana</h3><p>More than 50 postures in eight categories, and Suryanamaskar with its mantra.</p></li>
+      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-05-notes.jpg" width="1100" height="733" loading="lazy" decoding="async" alt=""></span>
+        <h3>Anatomy</h3><p>The body's systems and alignment, with chakras, nadis and bandhas.</p></li>
+      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-03-pranayama.jpg" width="1100" height="733" loading="lazy" decoding="async" alt=""></span>
+        <h3>Pranayama</h3><p>Ujjayi, nadi shodhana, kapalabhati and sitali, with bandhas and mudras.</p></li>
+      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-13-detail-mudra.jpg" width="1100" height="733" loading="lazy" decoding="async" alt=""></span>
+        <h3>Meditation and mantra</h3><p>Dharana and dhyana, with mantra and Sanskrit terminology.</p></li>
+      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-01-hero-class.jpg" width="1800" height="1202" loading="lazy" decoding="async" alt=""></span>
+        <h3>Teaching</h3><p>Running a class of 15 and a class of 50. Mock teaching with feedback.</p></li>
+    </ul>
+    <details class="more more--shade" data-edit="Full syllabus: one row per module (optional detail)">
+      <summary>See the full syllabus <span class="tog" aria-hidden="true"></span></summary>
       <div class="more__body">
-        <img src="brand-assets/web/hd/tradition.jpg" width="1650" height="1650" loading="lazy" decoding="async" alt="Students in a training session with course manuals open on the floor">
-        <p>Classical Ashtanga and Hatha, taught from the source texts. We do not use props.</p>
         <dl class="syl">
-          <div><dt>Philosophy</dt><dd>Patanjali's 196 sutras, the Hatha Yoga Pradipika, the Bhagavad Gita</dd></div>
-          <div><dt>Asana</dt><dd>50+ postures across eight categories, with Suryanamaskar</dd></div>
-          <div><dt>Anatomy</dt><dd>Nervous, endocrine, respiratory and musculoskeletal systems</dd></div>
-          <div><dt>Pranayama</dt><dd>Ujjayi, nadi shodhana, kapalabhati and sitali</dd></div>
-          <div><dt>Teaching</dt><dd>Mock teaching with feedback</dd></div>
-          <div><dt>Business</dt><dd>Starting your own classes and finding work</dd></div>
+          <div><dt>Philosophy</dt><dd>Ashtanga and Hatha yoga, the Yoga Sutras, Sanskrit shlokas and mantras, the Bhagavad Gita, an introduction to the Vedas and Upanishads</dd></div>
+          <div><dt>Suryanamaskar</dt><dd>Levels and progressive sequences, with the mantra used in the practice</dd></div>
+          <div><dt>Asana</dt><dd>Standing and balancing, forward bends, backward bends, abdominal postures, inversions, sitting postures, twists and shavasana; alignment, modifications and safe sequencing</dd></div>
+          <div><dt>Anatomy</dt><dd>Nervous, endocrine, lymphatic, respiratory, cardiovascular, digestive and musculoskeletal systems; biomechanics and alignment</dd></div>
+          <div><dt>Yogic anatomy</dt><dd>Chakras, nadis and bandhas</dd></div>
+          <div><dt>Pranayama</dt><dd>Ujjayi, nadi shodhana, kapalabhati and sitali; bandhas and mudras</dd></div>
+          <div><dt>Meditation</dt><dd>Dharana and dhyana</dd></div>
+          <div><dt>Shatkarmas</dt><dd>The cleansing practices of Hatha yoga</dd></div>
+          <div><dt>Further study</dt><dd>Kundalini, karma yoga, Sanskrit terminology, mantras and chants</dd></div>
+          <div><dt>Teaching</dt><dd>Class preparation, instructing a class of 15 and a class of 50, alignment, mixed levels, mock teaching with feedback</dd></div>
+          <div><dt>Specialist classes</dt><dd>Pre and post pregnancy, people with special needs, kids and teens, private classes face to face and online</dd></div>
+          <div><dt>Business</dt><dd>Starting your own classes, promotion, applying for teaching work, mentoring from the school director</dd></div>
         </dl>
       </div>
     </details>
   </div>
 </section>
 
-<!-- ============ CLASSES / TIMETABLE ============ -->
-<section class="sec" id="classes">
+<!-- ============ HOW WE TEACH IT ============ -->
+<section class="sec" id="method">
   <div class="wrap">
-    <div class="shead" data-edit="Section heading + intro">
-      <h2>Weekly classes in Melbourne and online</h2>
-      <p>Every class is taught to mixed levels.</p>
+    <div class="shead" data-edit="Section heading">
+      <h2>How we teach it</h2>
     </div>
-    <div class="vcards" data-edit="Class times and venues: one entry per class in the admin; booking embeds here at build">
-
-      <div class="vcards__studios" id="studios">
-        <section class="vcard" id="oakleigh">
-          <div class="vcard__h">
-            <div class="vcard__t">
-              <span class="vcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.4a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.6"/></svg></span>
-              <h3 id="oakleigh-h">Oakleigh Studio</h3>
-            </div>
-            <p class="vcard__addr">Huntingdale Community Hall, Germain St, Oakleigh South VIC 3167</p>
-          </div>
-          <ul class="vslots" role="list">
-            <li class="vslot"><span class="vslot__day">Sunday</span><span class="vslot__time"><time datetime="09:00">9:00</time> to <time datetime="10:00">10:00am</time></span><span class="vslot__what">Ashtanga and 30&nbsp;minutes of meditation</span></li>
-          </ul>
-          <div class="vcard__foot">
-            <a class="btn btn--ghost btn--sm vcard__dir" href="https://www.google.com/maps/search/?api=1&amp;query=Huntingdale+Community+Hall%2C+Germain+St%2C+Oakleigh+South+VIC+3167" target="_blank" rel="noopener">Directions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="sr-only"> to Oakleigh Studio</span></a>
-          </div>
-        </section>
-
-        <section class="vcard" id="mckinnon">
-          <div class="vcard__h">
-            <div class="vcard__t">
-              <span class="vcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.4a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.6"/></svg></span>
-              <h3 id="mckinnon-h">McKinnon Studio</h3>
-            </div>
-            <p class="vcard__addr">118 McKinnon Rd, McKinnon VIC 3204</p>
-          </div>
-          <ul class="vslots" role="list">
-            <li class="vslot"><span class="vslot__day">Tuesday</span><span class="vslot__time"><time datetime="18:30">6:30</time> to <time datetime="19:30">7:30pm</time></span><span class="vslot__what">Evening class</span></li>
-          </ul>
-          <div class="vcard__foot">
-            <a class="btn btn--ghost btn--sm vcard__dir" href="https://www.google.com/maps/search/?api=1&amp;query=118+McKinnon+Rd%2C+McKinnon+VIC+3204" target="_blank" rel="noopener">Directions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="sr-only"> to McKinnon Studio</span></a>
-          </div>
-        </section>
-      </div>
-
-      <section class="vcard vcard--online" id="online">
-        <div class="vcard__h">
-          <div class="vcard__t">
-            <span class="vcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8.5 20h7M12 16.5V20"/><path d="M10.5 8.3v4.4l3.8-2.2z"/></svg></span>
-            <h3 id="online-h">Online, Australia-wide</h3>
-          </div>
-          <p class="vcard__addr">Live over Zoom, Melbourne time.</p>
-        </div>
-        <ul class="vslots" role="list">
-          <li class="vslot"><span class="vslot__day">Sunday</span><span class="vslot__time"><time datetime="09:00">9:00</time> to <time datetime="10:00">10:00am</time></span><span class="vslot__what">Ashtanga and meditation</span></li>
-          <li class="vslot"><span class="vslot__day">Monday to Wednesday</span><span class="vslot__time"><time datetime="18:30">6:30</time> to <time datetime="19:30">7:30pm</time></span><span class="vslot__what">Asana, pranayama, meditation</span></li>
-          <li class="vslot"><span class="vslot__day">Saturday</span><span class="vslot__time"><time datetime="08:00">8:00</time> to <time datetime="09:00">9:00am</time></span><span class="vslot__what">Morning practice</span></li>
-        </ul>
-      </section>
-
+    <div class="points" data-edit="Three statements: title, one line">
+      <div class="point"><h3>From the source texts</h3><p>Patanjali's Ashtanga yoga and Swatmarama's Hatha Yoga Pradipika.</p></div>
+      <div class="point"><h3>No props</h3><p>The classical systems as they were written.</p></div>
+      <div class="point"><h3>Small groups</h3><p>Each trainee gets direct attention from the principal teacher.</p></div>
     </div>
-    <div class="classes__after">
-      <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" class="btn btn--primary" target="_blank" rel="noopener">Book a class</a>
-    </div>
-    <p class="book-note">Booking opens our booking site, where you set up an account and choose a class.</p>
+    <a class="vid vid--wide" href="https://www.youtube.com/watch?v=qAIPy_PojqM" data-yt="qAIPy_PojqM" data-title="Teacher trainees reciting the Gayatri mantra" data-edit="Video: YouTube link, thumbnail, caption">
+      <span class="vid__media">
+        <img src="brand-assets/web/vid-mantra.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Teacher trainees seated in a hall, reciting a mantra with course manuals open">
+        <span class="vid__play" aria-hidden="true"></span>
+      </span>
+      <span class="vid__cap"><b>Trainees reciting the Gayatri mantra</b><span>Teacher training group, 2014</span></span>
+    </a>
   </div>
 </section>
 
-<!-- ============ CLASS PASSES ============ -->
-<section class="sec sec--tight" id="passes">
+<!-- ============ WHO TEACHES YOU ============ -->
+<section class="sec" id="teachers">
   <div class="wrap">
-    <div class="shead" data-edit="Section heading + intro">
-      <h2>Class pass prices</h2>
-      <p>Kids 12 and under join free with a paying parent on the monthly pass.</p>
+    <div class="shead" data-edit="Section heading">
+      <h2>Who teaches you</h2>
     </div>
-    <div class="prices" data-edit="Pass prices and inclusions">
-      <div class="price">
-        <h3>Monthly pass</h3>
-        <div class="price__amt"><sup>$</sup>55</div>
-        <div class="price__per">One month, every live and recorded class</div>
-        <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener" class="btn btn--primary btn--full">Buy monthly pass</a>
-      </div>
-      <div class="price">
-        <h3>Casual studio</h3>
-        <div class="price__amt"><sup>$</sup>25</div>
-        <div class="price__per">One class at Oakleigh or McKinnon</div>
-        <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener" class="btn btn--ghost btn--full">Buy casual pass</a>
-      </div>
-      <div class="price">
-        <h3>Casual online</h3>
-        <div class="price__amt"><sup>$</sup>20</div>
-        <div class="price__per">One live Zoom class</div>
-        <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener" class="btn btn--ghost btn--full">Buy online pass</a>
-      </div>
-    </div>
-    <p class="book-note">Each button opens our booking site, where you choose the pass and pay. <a class="tlink" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Log in to book with an existing pass</a></p>
+    <ul class="teachers" role="list" data-edit="Teachers: photo (circle), name, role, one line">
+      <li class="grad">
+        <span class="grad__av grad__av--lg"><img src="brand-assets/web/teacher-samir-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
+        <p class="grad__nm">Yogacharya Samir Rane</p>
+        <p class="grad__role">Principal Yoga Teacher</p>
+        <p class="grad__at">Third generation of a yogic family.<br><a class="tlink" href="https://yogaaustralia.org.au/teachers/samir-rane/" target="_blank" rel="noopener">Registered Senior Teacher with Yoga Australia</a>.</p>
+      </li>
+      <li class="grad">
+        <span class="grad__av grad__av--lg"><img src="brand-assets/web/teacher-shilpa-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
+        <p class="grad__nm">Shilpa Rane</p>
+        <p class="grad__role">Director of Yoga Education</p>
+        <p class="grad__at">Background in medical microbiology, human anatomy and genetics.</p>
+      </li>
+    </ul>
+    <div class="center-row"><a href="index.html#founders" class="btn btn--ghost">About Samir and Shilpa</a></div>
   </div>
 </section>
 
-<!-- ============ FOUNDERS (full screen) ============ -->
-<section class="founders-full" id="founders">
-  <div class="wrap founders-full__text" data-edit="Founders: heading, paragraph, button">
-    <h2>Who teaches you</h2>
-    <p class="lede">Samir Rane is the third generation of a yogic family; his grandfather, Yogacharya
-      Arjun, taught in India. Samir is a Senior Level 3 registered teacher with Yoga Australia and
-      has taught for over three decades. Shilpa Rane's background is in medical microbiology,
-      human anatomy and genetics.</p>
-    <!-- restore when the founders page exists -->
-    <a href="#" class="btn btn--ghost" style="margin-top:12px" hidden>Read about Samir and Shilpa</a>
-  </div>
-  <div class="founders-full__media" data-edit="Founder portraits: photo, name, role">
-    <figure>
-      <img src="brand-assets/web/founder-samir-1166.jpg"
-           srcset="brand-assets/web/founder-samir.jpg 800w, brand-assets/web/founder-samir-1166.jpg 1166w"
-           sizes="50vw" width="1166" height="1349" loading="lazy" decoding="async" alt="Yogacharya Samir Rane seated in padmasana">
-      <figcaption><b>Yogacharya Samir Rane</b>Principal Yoga Teacher</figcaption>
-    </figure>
-    <figure>
-      <img src="brand-assets/web/founder-shilpa-1076.jpg"
-           srcset="brand-assets/web/founder-shilpa-800.jpg 800w, brand-assets/web/founder-shilpa-1076.jpg 1076w"
-           sizes="50vw" width="1076" height="1462" loading="lazy" decoding="async" alt="Shilpa Rane demonstrating nadi shodhana pranayama">
-      <figcaption><b>Shilpa Rane</b>Director of Yoga Education</figcaption>
-    </figure>
+<!-- ============ WHAT IT TAKES TO GRADUATE ============ -->
+<section class="band" id="graduate">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading">
+      <h2>What it takes to graduate</h2>
+    </div>
+    <ul class="figs" role="list" data-edit="Three figures: number, label">
+      <li class="fig"><b>200</b><span>hours of training</span></li>
+      <li class="fig"><b>90%</b><span>minimum attendance</span></li>
+      <li class="fig"><b>2</b><span>rounds of practical and open-book theory exams</span></li>
+    </ul>
+    <div class="tt-after" data-edit="Insurance line, Level 2 line">
+      <p>Graduates receive a 200-hour teaching certificate and are eligible for professional indemnity and public liability insurance in Australia and overseas.</p>
+      <p>The <a class="tlink" href="#" data-soon>350 Hour Level 2</a> is open to Level 1 graduates.</p>
+    </div>
   </div>
 </section>
 
 <!-- ============ GRADUATES ============ -->
 <section class="sec" id="graduates">
   <div class="wrap">
-    <div class="shead" data-edit="Section heading + intro">
+    <div class="shead" data-edit="Section heading">
       <h2>Where our graduates teach now</h2>
     </div>
+    <figure class="pull" data-edit="Graduate quote: text, name">
+      <blockquote><p>The 2.5hr trip each way on a Sunday provided a fabulous opportunity to reflect on the course's teachings and of course chant!</p></blockquote>
+      <figcaption><b>Tameeka Vera</b></figcaption>
+    </figure>
     <div class="grads-box">
-    <ul class="grads" data-edit="Graduates: photo (circle), name, school or place">
+    <ul class="grads" role="list" data-edit="Graduates: photo (circle), name, school or place">
       <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-placeholder-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Lisa Sommerlad</p><p class="grad__at">Bindu Creative Dance &amp; Yoga, Footscray</p></li>
       <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-placeholder-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Julien Orriols</p><p class="grad__at">Yoga Essence Institute, France</p></li>
       <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-tameeka-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Tameeka Vera</p><p class="grad__at">Thank You Yoga, Heyfield</p></li>
@@ -1106,142 +1245,21 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-emma-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Emma Parker</p><p class="grad__at">Taught in Dili, now in New South Wales</p></li>
     </ul>
     </div>
+    <p class="book-note" data-edit="One line under the graduates">Trainees travel from Port Fairy, Ballarat and further for the Sunday training. Some drive four to six hours.</p>
   </div>
 </section>
 
-<!-- ============ VIDEOS: 'Explore our Yoga School' ============ -->
-<section class="sec" id="explore">
-  <div class="wrap">
-    <div class="shead" data-edit="Section heading + intro">
-      <h2>Explore our Yoga School</h2>
-    </div>
-    <div class="vid-grid" data-edit="Video tiles: YouTube link, thumbnail, caption (swap any tile in the admin)">
-
-      <a class="vid vid--lg" href="https://www.youtube.com/watch?v=yW29p5tg9D4" data-yt="yW29p5tg9D4" data-title="Has yoga lost its soul? India Now, ABC News">
-        <span class="vid__media">
-          <span class="vid__badge">Featured on ABC</span>
-          <img src="brand-assets/web/hd/vid-abc.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="The ABC India Now episode Has Yoga Lost Its Soul, featuring Samir Rane">
-          <span class="vid__play" aria-hidden="true"></span>
-        </span>
-        <span class="vid__cap">
-          <b>The origins of yoga</b>
-          <span>ABC News, India Now</span>
-        </span>
-      </a>
-
-      <div class="vid-side">
-        <a class="vid" href="https://www.youtube.com/watch?v=i-rdvr49t9Y" data-yt="i-rdvr49t9Y" data-title="Inside the school">
-          <span class="vid__media">
-            <img src="brand-assets/web/hd/vid-school.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Inside the Yoga and Meditation School of India">
-            <span class="vid__play" aria-hidden="true"></span>
-          </span>
-          <span class="vid__cap"><b>Inside the school</b></span>
-        </a>
-        <a class="vid" href="https://www.youtube.com/watch?v=bj_VE5K-oIY" data-yt="bj_VE5K-oIY" data-title="The teacher training program">
-          <span class="vid__media">
-            <img src="brand-assets/web/vid-ttc.jpg" width="480" height="360" loading="lazy" decoding="async" alt="The teacher training program explained">
-            <span class="vid__play" aria-hidden="true"></span>
-          </span>
-          <span class="vid__cap"><b>The teacher training program</b></span>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ GOOGLE REVIEWS (preview of the live embed) ============ -->
-<section class="band" id="reviews">
+<!-- ============ HOW TO ENROL ============ -->
+<section class="sec" id="enrol">
   <div class="wrap">
     <div class="shead" data-edit="Section heading">
-      <h2>What students say on Google</h2>
+      <h2>How to apply</h2>
     </div>
-    <div class="gr" data-edit="Google reviews: live from the five Business Profiles via a reviews plugin at build">
-      <div class="gr-top">
-        <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-        <span class="gr-score"><b>5.0</b><span class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span><span>38 reviews across five locations</span></span>
-        <a class="btn btn--ghost btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=Yoga+and+Meditation+School+of+India+Melbourne" target="_blank" rel="noopener">See all on Google</a>
-      </div>
-      <div class="gr-wrap">
-        <div class="gr-track" id="grTrack" tabindex="0" role="region" aria-label="Google reviews, scroll sideways for more">
-        <figure class="gr-card">
-          <div class="gr-card__h">
-            <span class="gr-av" style="background:#AB5A1B" aria-hidden="true">V</span>
-            <figcaption class="gr-who"><b>Vidura Wijesekara</b><span>4 weeks ago · Oakleigh</span></figcaption>
-            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          </div>
-          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
-          <blockquote><p>As a Personal Trainer, I wanted to learn yoga to better understand movement and the connection between the mind and body, so I decided to take the 200-hour Yoga Teacher Training Course. … Samir Rane and Shilpa Rane were fantastic teachers. They shared their knowledge and experience with so much patience and genuine care.</p></blockquote>
-        </figure>
-        <figure class="gr-card">
-          <div class="gr-card__h">
-            <span class="gr-av" style="background:#444444" aria-hidden="true">A</span>
-            <figcaption class="gr-who"><b>Ava Senaratne</b><span>3 months ago · McKinnon</span></figcaption>
-            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          </div>
-          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
-          <blockquote><p>I really enjoy my yoga classes here. I appreciated the traditional approach and found it both energising and a great workout. … I left feeling stronger, refreshed, and well cared for throughout the session.</p></blockquote>
-        </figure>
-        <figure class="gr-card">
-          <div class="gr-card__h">
-            <span class="gr-av" style="background:#7C5A3C" aria-hidden="true">S</span>
-            <figcaption class="gr-who"><b>Shasta Rianne</b><span>3 months ago · Cheltenham</span></figcaption>
-            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          </div>
-          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
-          <blockquote><p>I studied Level 1 Yoga Teacher Training online with Samir 4 years ago and have attended his traditional Ashtanga &amp; Hatha style classes via zoom ever since. The zoom classes are great as I can still attend no matter where I am in the world and they help me stay disciplined in my practise.</p></blockquote>
-        </figure>
-        <figure class="gr-card">
-          <div class="gr-card__h">
-            <span class="gr-av" style="background:#AB5A1B" aria-hidden="true">S</span>
-            <figcaption class="gr-who"><b>Shaheen Bal</b><span>3 months ago · Oakleigh</span></figcaption>
-            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          </div>
-          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
-          <blockquote><p>I cannot recommend this school enough. Their depth in both Ashtanga and Hatha philosophy is exceptional, taught with so much care for alignment, breath and the meaning behind every practice. Samir is a truly gifted teacher whose guidance and wisdom stay with you long after class ends.</p></blockquote>
-        </figure>
-        <figure class="gr-card">
-          <div class="gr-card__h">
-            <span class="gr-av" style="background:#444444" aria-hidden="true">E</span>
-            <figcaption class="gr-who"><b>Emma Pryce-Baxter</b><span>3 months ago · Oakleigh</span></figcaption>
-            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          </div>
-          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
-          <blockquote><p>I was searching for a Traditional Hatha and Ashtanga Yoga school in Melbourne, Australia, to undertake my Yoga Teacher Training. I found this and so much more with Samir and Shilpa. … Samir and Shilpa teach with great depth, wisdom, and compassion, creating a learning environment that is both supportive and inspiring.</p></blockquote>
-        </figure>
-        </div>
-        <div class="gr-nav">
-          <button class="gr-btn" id="grPrev" type="button" aria-label="Previous reviews"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
-          <button class="gr-btn" id="grNext" type="button" aria-label="More reviews"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ INSTAGRAM ============ -->
-<section class="sec" id="instagram">
-  <div class="wrap">
-    <h2 class="sr-only">On Instagram</h2>
-    <div class="igw" data-edit="Instagram feed: live from @yoga_schoolofindia at build">
-      <div class="ig-head">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="5.5"/>
-          <circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/>
-        </svg>
-        <b>@yoga_schoolofindia</b>
-        <span>26.8K followers</span>
-        <a href="https://www.instagram.com/yoga_schoolofindia/" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Follow on Instagram</a>
-      </div>
-      <div class="ig">
-        <a href="https://www.instagram.com/reel/DcSBhLZTGik/" target="_blank" rel="noopener" aria-label="Reel posted August 2026"><svg class="ig__reel" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6"/><path d="m10 8.5 6 3.5-6 3.5z" fill="#fff" stroke="none"/></svg><img src="brand-assets/web/hd/ig-01-DcSBhLZTGik.jpg" width="720" height="405" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/p/DWk-YBYEQs6/" target="_blank" rel="noopener" aria-label="Photo posted March 2026"><img src="brand-assets/instagram/02-DWk-YBYEQs6.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/reel/DVkY9x1kSz3/" target="_blank" rel="noopener" aria-label="Reel posted March 2026"><svg class="ig__reel" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6"/><path d="m10 8.5 6 3.5-6 3.5z" fill="#fff" stroke="none"/></svg><img src="brand-assets/instagram/03-DVkY9x1kSz3.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/reel/DPSIL2GE_i3/" target="_blank" rel="noopener" aria-label="Reel posted October 2025"><svg class="ig__reel" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6"/><path d="m10 8.5 6 3.5-6 3.5z" fill="#fff" stroke="none"/></svg><img src="brand-assets/instagram/04-DPSIL2GE_i3.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/reel/DNAkzRYTidH/" target="_blank" rel="noopener" aria-label="Reel posted August 2025"><svg class="ig__reel" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6"/><path d="m10 8.5 6 3.5-6 3.5z" fill="#fff" stroke="none"/></svg><img src="brand-assets/web/hd/ig-05-DNAkzRYTidH.jpg" width="400" height="711" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/reel/DI5htbmTwpb/" target="_blank" rel="noopener" aria-label="Reel posted April 2025"><svg class="ig__reel" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6"/><path d="m10 8.5 6 3.5-6 3.5z" fill="#fff" stroke="none"/></svg><img src="brand-assets/web/hd/ig-06-DI5htbmTwpb.jpg" width="400" height="711" alt="" loading="lazy" decoding="async"></a>
-      </div>
-    </div>
+    <ol class="steps" role="list" data-edit="Three steps: title, one line">
+      <li class="step"><span class="step__n" aria-hidden="true">1</span><h3>Send an enquiry</h3><p>Use the form below and choose the Melbourne intake.</p></li>
+      <li class="step"><span class="step__n" aria-hidden="true">2</span><h3>Get the fee</h3><p>We reply by email with the fee for this intake. The exact Sunday schedule is confirmed when you enrol.</p></li>
+      <li class="step"><span class="step__n" aria-hidden="true">3</span><h3>Meet the course director</h3><p>Entry is subject to approval after an interview.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -1249,26 +1267,36 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 <section class="sec" id="faq">
   <div class="wrap">
     <div class="shead" data-edit="Section heading">
-      <h2>Questions about the training</h2>
-      <p>Fees, recognition, entry and online study.</p>
+      <h2>Questions about the Melbourne training</h2>
     </div>
     <div class="faq" data-edit="FAQ: add, remove or reorder">
       <details name="faq" open>
-        <summary>What does the teacher training cost? <span class="tog" aria-hidden="true"></span></summary>
-        <p>Fees vary by intake and format, and there is no early-bird price. Choose the intake you want in the enquiry form and we quote it.</p>
+        <summary>Do I need experience to do yoga teacher training? <span class="tog" aria-hidden="true"></span></summary>
+        <p>No teaching experience is needed. Trainees are mentored from the basics, whatever their starting point. We ask for a commitment to attend every session.</p>
       </details>
       <details name="faq">
         <summary>Is the teacher training recognised by Yoga Australia? <span class="tog" aria-hidden="true"></span></summary>
-        <p>Yes. It is a Yoga Australia registered course. Graduates are eligible for professional
-          indemnity and public liability insurance.</p>
+        <p>Yes. It is a Yoga Australia registered course.</p>
       </details>
       <details name="faq">
-        <summary>Do I need experience to start the training? <span class="tog" aria-hidden="true"></span></summary>
-        <p>Entry is by application and an interview with the course director. Use the enquiry form and say how long you have practised.</p>
+        <summary>How long does the 200-hour training take? <span class="tog" aria-hidden="true"></span></summary>
+        <p>Six months, on Sundays, so you can keep working. The exact schedule is confirmed when you enrol.</p>
       </details>
       <details name="faq">
-        <summary>Can I do the whole training online? <span class="tog" aria-hidden="true"></span></summary>
-        <p>Yes. The online intake follows the in-person syllabus, with the same teachers.</p>
+        <summary>Can I teach yoga after the course? <span class="tog" aria-hidden="true"></span></summary>
+        <p>Yes. You graduate with a 200-hour teaching certificate and are eligible for the insurance that gyms, community centres and studios ask for. Many graduates now teach in Melbourne, around Australia and overseas.</p>
+      </details>
+      <details name="faq">
+        <summary>How much does the teacher training cost? <span class="tog" aria-hidden="true"></span></summary>
+        <p>Fees vary by intake and format, and there is no early-bird price. Send an enquiry and we quote the Melbourne intake by email.</p>
+      </details>
+      <details name="faq">
+        <summary>How is this school different? <span class="tog" aria-hidden="true"></span></summary>
+        <p>We teach classical Ashtanga and Hatha from the source texts, without props. The principal teacher, Samir Rane, is a Registered Senior Teacher with Yoga Australia and the third generation of a yogic family.</p>
+      </details>
+      <details name="faq">
+        <summary>Can I do the teacher training online? <span class="tog" aria-hidden="true"></span></summary>
+        <p>Yes. The <a class="tlink" href="index.html#training">online intake</a> is live-streamed, with the same teachers and syllabus.</p>
       </details>
     </div>
     <div class="faq-more">
@@ -1282,8 +1310,8 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 <section class="band band--brand" id="contact">
   <div class="wrap contact">
     <div class="shead" data-edit="Enquiry: heading, line, email">
-      <h2>Ask us about a course or a class</h2>
-      <p>Email <a href="mailto:info@yogaschoolofindia.com.au?subject=Enquiry%20from%20the%20website">info@yogaschoolofindia.com.au</a>.</p>
+      <h2>Enquire about the Melbourne intake</h2>
+      <p>Email <a href="mailto:info@yogaschoolofindia.com.au?subject=Melbourne%20teacher%20training%20enquiry">info@yogaschoolofindia.com.au</a>.</p>
     </div>
     <div class="form" id="enquiry" data-edit="Enquiry form: connects to a form plugin at build">
       <form id="enquiryForm" novalidate>
@@ -1294,17 +1322,13 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
         <div class="f">
           <label for="fAbout">I'm asking about</label>
           <select id="fAbout" name="about">
-            <option value="" selected disabled>Choose a topic</option>
             <optgroup label="200 Hour teacher training">
-              <option value="melbourne">Melbourne · in person</option>
+              <option value="melbourne" selected>Melbourne · in person</option>
               <option value="sydney">Sydney · in person</option>
               <option value="online">Online · live-streamed</option>
               <option value="india">South India · residential</option>
             </optgroup>
             <option value="level2">350 Hour Level 2</option>
-            <option value="classes">Weekly classes</option>
-            <option value="private">Private, corporate or school yoga</option>
-            <option value="retreats">Retreats</option>
             <option value="other">Something else</option>
           </select>
         </div>
@@ -1335,7 +1359,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
         <img class="ftr__logo" src="brand-assets/logos/logo.png" width="524" height="161" loading="lazy" alt="Yoga &amp; Meditation School of India">
         <p style="max-width:34ch">Classical Ashtanga and Hatha yoga from a third-generation
           Indian yoga family. Teaching in Australia since 2010.</p>
-        <p class="ftr__addr"><b>Studios</b><a href="#oakleigh">Oakleigh</a> · <a href="#mckinnon">McKinnon</a> · <a href="#online">Online, Australia-wide</a></p>
+        <p class="ftr__addr"><b>Studios</b><a href="index.html#oakleigh">Oakleigh</a> · <a href="index.html#mckinnon">McKinnon</a> · <a href="index.html#online">Online, Australia-wide</a></p>
         <p class="ftr__addr"><b>Private yoga therapy clinic</b>241 Warrigal Road, Cheltenham VIC 3192</p>
         <p class="ftr__addr"><a href="mailto:info@yogaschoolofindia.com.au?subject=Enquiry%20from%20the%20website">info@yogaschoolofindia.com.au</a></p>
         <div class="ftr__soc">
@@ -1347,10 +1371,10 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       <div>
         <p class="ftr__h">Teacher Training</p>
         <ul>
-          <li><a href="#training">200 Hour Level 1</a></li>
+          <li><a href="#top" aria-current="page">200 Hour Level 1</a></li>
           <li><a href="#" data-soon>350 Hour Level 2</a></li>
-          <li><a href="#training">Online, Australia-wide</a></li>
-          <li><a href="#training">Training in India</a></li>
+          <li><a href="index.html#training">Online, Australia-wide</a></li>
+          <li><a href="index.html#training">Training in India</a></li>
           <li><a href="#" data-soon>Where we train</a></li>
           <li><a href="#graduates">Graduate stories</a></li>
           <li><a href="#faq">Fees &amp; FAQ</a></li>
@@ -1359,20 +1383,20 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       <div>
         <p class="ftr__h">Classes</p>
         <ul>
-          <li><a href="#classes">Timetable</a></li>
-          <li><a href="#oakleigh">Oakleigh Studio</a></li>
-          <li><a href="#mckinnon">McKinnon Studio</a></li>
-          <li><a href="#online">Online live classes</a></li>
-          <li><a href="#passes">Class Passes</a></li>
+          <li><a href="index.html#classes">Timetable</a></li>
+          <li><a href="index.html#oakleigh">Oakleigh Studio</a></li>
+          <li><a href="index.html#mckinnon">McKinnon Studio</a></li>
+          <li><a href="index.html#online">Online live classes</a></li>
+          <li><a href="index.html#passes">Class Passes</a></li>
           <li><a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Student log in</a></li>
         </ul>
       </div>
       <div>
         <p class="ftr__h">School</p>
         <ul>
-          <li><a href="#tradition">School tradition</a></li>
-          <li><a href="#founders">Samir &amp; Shilpa</a></li>
-          <li><a href="#reviews">Google reviews</a></li>
+          <li><a href="index.html#tradition">School tradition</a></li>
+          <li><a href="index.html#founders">Samir &amp; Shilpa</a></li>
+          <li><a href="index.html#reviews">Google reviews</a></li>
           <li><a href="#" data-soon>Retreats</a></li>
           <li><a href="#" data-soon>Private &amp; corporate</a></li>
           <li><a href="#" data-soon>Wellness</a></li>
@@ -1411,25 +1435,10 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 
 <button class="edit-toggle" id="editToggle" aria-pressed="false">Show editable fields</button>
 
-<!-- ============ CLASS PASS POPUP (replaces the header button) ============ -->
-<button class="pass-fab" id="passFab" type="button" data-pass-open aria-haspopup="dialog" aria-controls="passPop" aria-expanded="false">
-  <span class="pass-fab__i"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5V5a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1v1.5a2 2 0 0 0 0 4V12a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1v-1.5a2 2 0 0 0 0-4z" transform="translate(0 1.5)"/><path d="M12.5 5.5v9" stroke-dasharray="1.6 1.8" /></svg></span>Buy a Class Pass
-</button>
-<div class="pass-scrim" id="passScrim"></div>
-<div class="pass-pop" id="passPop" role="dialog" aria-labelledby="passPopH" data-edit="Class pass popup: passes, prices, links">
-  <button class="pass-pop__x" id="passX" type="button" aria-label="Close">&times;</button>
-  <p class="eyebrow">Class passes</p>
-  <h3 id="passPopH" tabindex="-1">Buy a class pass</h3>
-  <ul class="pass-pop__list">
-    <li><span><b>Monthly pass</b><small>Every live and recorded class for a month</small></span><span class="pass-pop__price">$55</span><a class="btn btn--primary btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> the monthly pass</span></a></li>
-    <li><span><b>Casual studio</b><small>One class at Oakleigh or McKinnon</small></span><span class="pass-pop__price">$25</span><a class="btn btn--ghost btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> a casual studio pass</span></a></li>
-    <li><span><b>Casual online</b><small>One live Zoom class</small></span><span class="pass-pop__price">$20</span><a class="btn btn--ghost btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> a casual online pass</span></a></li>
-  </ul>
-  <div class="pass-pop__foot">
-    <p>Kids 12 and under join free with a paying parent on the monthly pass.</p>
-    <p>Payment opens our booking site. <a class="tlink" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Log in with an existing pass</a></p>
-  </div>
-</div>
+<!-- ============ FLOATING ENQUIRE PILL (phones lose the header button, so the action follows the reader) ============ -->
+<a class="pass-fab pass-fab--link" id="enquireFab" href="#contact" data-about="melbourne">
+  <span class="pass-fab__i"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5.5h14v9H3z"/><path d="m3.5 6 6.5 5 6.5-5"/></svg></span>Enquire about this intake
+</a>
 
 <script>
 (function(){
@@ -1448,7 +1457,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   annX.addEventListener('click', function(){ ann.classList.add('is-hidden'); store.set('ysi-ann', annKey); });
 
   /* while a layer is open, everything behind it is inert so Tab and screen readers stay inside */
-  var LAYERS = '.skip, .announce, .hdr, #drawer, main, .ftr, #cookie, #editToggle, #lb, #passFab, #passPop, #passScrim';
+  var LAYERS = '.skip, .announce, .hdr, #drawer, main, .ftr, #cookie, #editToggle, #lb, #enquireFab';
   function inertExcept(keep){
     document.querySelectorAll(LAYERS).forEach(function(el){
       if (keep && el.matches(keep)) el.removeAttribute('inert'); else el.setAttribute('inert','');
@@ -1461,13 +1470,13 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       drawerX = document.getElementById('drawerX');
   function openDrawer(){
     drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden','false');
-    burger.setAttribute('aria-expanded','true'); document.body.style.overflow = 'hidden';
+    burger.setAttribute('aria-expanded','true'); document.documentElement.style.overflow = 'hidden';
     inertExcept('#drawer'); drawerX.focus();
   }
   function closeDrawer(){
     if (!drawer.classList.contains('is-open')) return;
     drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden','true');
-    burger.setAttribute('aria-expanded','false'); document.body.style.overflow = '';
+    burger.setAttribute('aria-expanded','false'); document.documentElement.style.overflow = '';
     inertNone(); burger.focus();
   }
   burger.addEventListener('click', openDrawer);
@@ -1504,49 +1513,6 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   });
   document.addEventListener('click', function(e){ if (!e.target.closest('.nav__item')) closeMenus(null); });
 
-  /* hero slider. The bar under the active dot fills over one slide; when it
-     finishes, the next slide shows. Pause freezes the bar where it is. */
-  var bgs    = document.querySelectorAll('.hero__bg img'),
-      slides = document.querySelectorAll('.hero__slide'),
-      dots   = document.querySelectorAll('#dots button'),
-      pauseB = document.getElementById('heroPause'),
-      hero   = document.querySelector('.hero'),
-      i = 0, userPaused = false;
-  function loadBg(n){
-    var img = bgs[n]; if (!img || !img.dataset.src) return;
-    img.srcset = img.dataset.srcset; img.src = img.dataset.src;
-    delete img.dataset.src; delete img.dataset.srcset;
-  }
-  function restartBar(){ hero.classList.remove('is-playing'); void hero.offsetWidth; hero.classList.add('is-playing'); }
-  function go(n){
-    var prev = i; i = n;
-    loadBg(n); loadBg((n + 1) % bgs.length);
-    bgs.forEach(function(s,k){ s.classList.toggle('is-prev', k === prev && k !== n); s.classList.toggle('is-on', k === n); });
-    slides.forEach(function(s,k){ s.classList.toggle('is-on', k === n); });
-    dots.forEach(function(d,k){ d.classList.toggle('is-on', k === n); if (k === n) d.setAttribute('aria-current','true'); else d.removeAttribute('aria-current'); });
-    if (userPaused) hero.classList.remove('is-playing'); else restartBar();
-  }
-  function setPaused(p){
-    userPaused = p;
-    hero.classList.toggle('is-paused', p);
-    pauseB.setAttribute('aria-pressed', p ? 'true' : 'false');
-    pauseB.setAttribute('aria-label', p ? 'Play slideshow' : 'Pause slideshow');
-    pauseB.title = p ? 'Play slideshow' : 'Pause slideshow';
-    if (!p && !hero.classList.contains('is-playing')) restartBar();
-  }
-  dots.forEach(function(d,k){
-    d.addEventListener('click', function(){ go(k); });
-    d.addEventListener('animationend', function(e){
-      if (e.animationName === 'heroProgress' && k === i && !userPaused) go((i + 1) % slides.length);
-    });
-  });
-  pauseB.addEventListener('click', function(){ setPaused(!userPaused); });
-  /* keyboard users inside the hero get time to read; the mouse no longer stops it */
-  hero.addEventListener('focusin', function(e){ if (e.target.matches(':focus-visible')) hero.classList.add('is-held'); });
-  hero.addEventListener('focusout', function(e){ if (!hero.contains(e.relatedTarget)) hero.classList.remove('is-held'); });
-  if (reduced) setPaused(true); else restartBar();
-  window.addEventListener('load', function(){ if (!userPaused) setTimeout(function(){ loadBg(1); }, 2500); });
-
   /* privacy bar pads the page while it is showing, and lifts the pass button above it */
   var cookie = document.getElementById('cookie');
   function padForBar(){
@@ -1560,54 +1526,17 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   document.getElementById('cookieNo').addEventListener('click', dismiss('no'));
   padForBar(); window.addEventListener('resize', padForBar);
 
-  /* class pass popup. The pill appears once the hero is scrolled past and hides
-     while the price section or the enquiry form is on screen. Desktop: a small card above the
-     pill. Phone: a bottom sheet, modal, with the page behind it inert. */
-  var fab = document.getElementById('passFab'), pop = document.getElementById('passPop'),
-      scrim = document.getElementById('passScrim'), passX = document.getElementById('passX'),
-      passH = document.getElementById('passPopH'), passReturn = null, passModal = false;
-  function openPass(from){
-    passReturn = from || fab;
-    pop.classList.add('is-open'); scrim.classList.add('is-open');
-    fab.setAttribute('aria-expanded','true');
-    if (phone.matches) {
-      passModal = true; pop.setAttribute('aria-modal','true');
-      document.body.style.overflow = 'hidden'; inertExcept('#passPop, #passScrim');
-    }
-    passH.focus();
-  }
-  function closePass(refocus){
-    if (!pop.classList.contains('is-open')) return;
-    pop.classList.remove('is-open'); scrim.classList.remove('is-open');
-    fab.setAttribute('aria-expanded','false');
-    if (passModal) { passModal = false; pop.removeAttribute('aria-modal'); document.body.style.overflow = ''; inertNone(); }
-    if (refocus !== false && passReturn && passReturn.focus) passReturn.focus();
-  }
-  document.querySelectorAll('[data-pass-open]').forEach(function(b){
-    b.addEventListener('click', function(){
-      if (b === fab && pop.classList.contains('is-open')) { closePass(); return; }
-      var inDrawer = !!b.closest('#drawer');
-      if (inDrawer) closeDrawer();
-      openPass(inDrawer ? burger : b);
-    });
-  });
-  passX.addEventListener('click', function(){ closePass(); });
-  scrim.addEventListener('click', function(){ closePass(); });
-  document.addEventListener('click', function(e){
-    if (pop.classList.contains('is-open') && !pop.contains(e.target) && !e.target.closest('[data-pass-open]')) closePass(false);
-  });
-  pop.addEventListener('focusout', function(e){
-    if (!passModal && e.relatedTarget && !pop.contains(e.relatedTarget) && e.relatedTarget !== fab) closePass(false);
-  });
+  /* floating enquire pill: shows after the hero, hides while the intake card or the form is on screen */
+  var hero = document.querySelector('.hero'), fab = document.getElementById('enquireFab');
   if ('IntersectionObserver' in window) {
     var heroGone = false, inView = {};
-    var passIO = new IntersectionObserver(function(entries){
+    var fabIO = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if (en.target === hero) heroGone = !en.isIntersecting; else inView[en.target.id] = en.isIntersecting;
+        if (en.target === hero) heroGone = !en.isIntersecting; else inView[en.target.id || 'ftr'] = en.isIntersecting;
       });
-      fab.classList.toggle('is-shown', heroGone && !inView.passes && !inView.contact);
-    }, {rootMargin:'0px 0px 120px 0px'});
-    passIO.observe(hero); passIO.observe(document.getElementById('passes')); passIO.observe(document.getElementById('contact'));
+      fab.classList.toggle('is-shown', heroGone && !inView.intake && !inView.contact && !inView.ftr);
+    }, {rootMargin:'0px 0px 80px 0px'});
+    fabIO.observe(hero); fabIO.observe(document.getElementById('intake')); fabIO.observe(document.getElementById('contact')); fabIO.observe(document.querySelector('.ftr'));
   } else { fab.classList.add('is-shown'); }
 
   /* header shadow: shows only while the header is stuck to the top */
@@ -1620,8 +1549,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
      together are staggered 70ms apart. The hero, intake table, timetable rows, prices and
      the form stay still. Afterwards the helper classes come off, so hover styles are untouched. */
   if ('IntersectionObserver' in window && !reduced) {
-    var RV = '.shead, .paths > .path, .vcards__studios > .vcard, .vcard--online, .founders-full__text, ' +
-             '.founders-full__media > figure, .grads > .grad, .vid-grid > *, .gr, .ig-head, .ig, .faq, .faq-more';
+    var RV = '.shead, .intakes, .paths > .path, .topics > .topic, .more, .points > .point, .vid--wide, .teachers > .grad, .figs > .fig, .pull, .grads > .grad, .steps > .step, .faq, .faq-more';
     var rvEls = Array.prototype.slice.call(document.querySelectorAll(RV));
     document.documentElement.classList.add('js-reveal');
     var rvIO = new IntersectionObserver(function(entries){
@@ -1664,14 +1592,14 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       lbFrame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
     }
     lb.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     inertExcept('#lb'); lbX.focus();
   }
   function closeVid(){
     if (!lb.classList.contains('is-open')) return;
     lb.classList.remove('is-open');
     lbFrame.src = '';               /* clearing the src is what stops playback */
-    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
     inertNone();
     if (lbReturn && lbReturn.focus) lbReturn.focus();
   }
@@ -1692,23 +1620,8 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
     if (e.key !== 'Escape') return;
     var openItem = document.activeElement && document.activeElement.closest('.nav__item.is-open');
     if (openItem) { openItem.querySelector('.nav__link--has').focus(); }
-    closePass(); closeVid(); closeDrawer(); closeMenus(null);
+    closeVid(); closeDrawer(); closeMenus(null);
   });
-
-  /* Google reviews: arrows step one card; they dim at either end */
-  var grT = document.getElementById('grTrack'), grP = document.getElementById('grPrev'), grN = document.getElementById('grNext');
-  function grStep(){
-    var c = grT.querySelector('.gr-card');
-    return c ? c.getBoundingClientRect().width + (parseFloat(getComputedStyle(grT).columnGap) || 24) : 320;
-  }
-  function grSync(){
-    grP.disabled = grT.scrollLeft <= 2;
-    grN.disabled = grT.scrollLeft + grT.clientWidth >= grT.scrollWidth - 2;
-  }
-  grP.addEventListener('click', function(){ grT.scrollBy({left:-grStep(), behavior: reduced ? 'auto' : 'smooth'}); });
-  grN.addEventListener('click', function(){ grT.scrollBy({left:grStep(), behavior: reduced ? 'auto' : 'smooth'}); });
-  grT.addEventListener('scroll', grSync, {passive:true});
-  window.addEventListener('resize', grSync); grSync();
 
   /* FAQ: one answer open at a time (details[name] does this natively; this covers older browsers) */
   var faqs = document.querySelectorAll('.faq details');
@@ -1747,7 +1660,5 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   });
 })();
 </script>
-
-
 </body>
 </html>
