@@ -668,7 +668,7 @@ details[open] > summary .tog::before,details[open] > summary .tog::after{backgro
 @media print{.js-reveal .rv{opacity:1;transform:none;transition:none}}   /* a printout shows every section, scrolled to or not */
 
 /* ---- editable-field inspector (review aid, does not ship) --- */
-.edit-toggle{position:fixed;left:18px;bottom:calc(var(--cookie-h) + 18px);z-index:55;transition:bottom .3s ease;background:var(--ink);color:#fff;
+.edit-toggle{position:absolute;right:18px;top:calc(100% + 12px);background:var(--ink);color:#fff;
   border:1px solid rgba(255,255,255,.35);border-radius:40px;padding:12px 20px;font-family:var(--ui);font-size:.82rem;font-weight:600;cursor:pointer}
 .edit-toggle:hover{background:var(--amber);color:var(--ink);border-color:var(--amber)}
 body.show-edit [data-edit]{outline:2px dashed var(--orange);outline-offset:4px;scroll-margin-top:calc(var(--hdr-h) + 40px)}
@@ -873,8 +873,6 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
 .form input,.form select,.form textarea{scroll-margin-top:calc(var(--hdr-h) + 52px)}
 /* the video box also fits short windows, so its close button stays on screen */
 .lb__box{width:min(1100px,100%,calc((100svh - 150px) * 16 / 9))}
-/* review toggle: bottom left, clear of the header and the floating pill */
-.edit-toggle{top:auto;right:auto;left:18px;bottom:calc(var(--cookie-h) + 18px)}
 @media (min-width:721px){.topics{grid-auto-rows:1fr}}
 @media (min-width:721px) and (max-width:860px){.intake{grid-template-columns:1fr 1fr auto auto}}
 @media print{.cookie,.edit-toggle,.pass-fab,.announce__x,.burger{display:none!important}.hdr{position:static}body{padding-bottom:0!important}}
@@ -927,6 +925,8 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
 
 <!-- ============ HEADER ============ -->
 <header class="hdr">
+  <!-- review aid, does not ship: placed first so the menus open over it -->
+  <button class="edit-toggle" id="editToggle" aria-pressed="false">Show editable fields</button>
   <div class="hdr__in">
     <div class="brand">
       <a href="index.html" aria-label="Yoga &amp; Meditation School of India, home"><img src="brand-assets/logos/logo.png" srcset="brand-assets/logos/logo.png 524w, brand-assets/logos/logo-2x.webp 1048w" sizes="(max-width:720px) 210px, (max-width:1200px) 260px, 270px" width="524" height="161" alt="Yoga &amp; Meditation School of India"></a>
@@ -1433,7 +1433,6 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
   </div>
 </div>
 
-<button class="edit-toggle" id="editToggle" aria-pressed="false">Show editable fields</button>
 
 <!-- ============ FLOATING ENQUIRE PILL (phones lose the header button, so the action follows the reader) ============ -->
 <a class="pass-fab pass-fab--link" id="enquireFab" href="#contact" data-about="melbourne">

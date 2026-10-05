@@ -553,7 +553,7 @@ details[open] > summary .tog::before,details[open] > summary .tog::after{backgro
 @media print{.js-reveal .rv{opacity:1;transform:none;transition:none}}   /* a printout shows every section, scrolled to or not */
 
 /* ---- editable-field inspector (review aid, does not ship) --- */
-.edit-toggle{position:fixed;left:18px;bottom:calc(var(--cookie-h) + 18px);z-index:55;transition:bottom .3s ease;background:var(--ink);color:#fff;
+.edit-toggle{position:absolute;right:18px;top:calc(100% + 12px);background:var(--ink);color:#fff;
   border:1px solid rgba(255,255,255,.35);border-radius:40px;padding:12px 20px;font-family:var(--ui);font-size:.82rem;font-weight:600;cursor:pointer}
 .edit-toggle:hover{background:var(--amber);color:var(--ink);border-color:var(--amber)}
 body.show-edit [data-edit]{outline:2px dashed var(--orange);outline-offset:4px;scroll-margin-top:calc(var(--hdr-h) + 40px)}
@@ -681,6 +681,8 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 
 <!-- ============ HEADER ============ -->
 <header class="hdr">
+  <!-- review aid, does not ship: placed first so the menus open over it -->
+  <button class="edit-toggle" id="editToggle" aria-pressed="false">Show editable fields</button>
   <div class="hdr__in">
     <div class="brand">
       <a href="#top" aria-label="Yoga &amp; Meditation School of India, home"><img src="brand-assets/logos/logo.png" srcset="brand-assets/logos/logo.png 524w, brand-assets/logos/logo-2x.webp 1048w" sizes="(max-width:720px) 210px, (max-width:1200px) 260px, 270px" width="524" height="161" alt="Yoga &amp; Meditation School of India"></a>
@@ -1409,7 +1411,6 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   </div>
 </div>
 
-<button class="edit-toggle" id="editToggle" aria-pressed="false">Show editable fields</button>
 
 <!-- ============ CLASS PASS POPUP (replaces the header button) ============ -->
 <button class="pass-fab" id="passFab" type="button" data-pass-open aria-haspopup="dialog" aria-controls="passPop" aria-expanded="false">
