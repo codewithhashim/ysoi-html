@@ -874,15 +874,22 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 <!-- ============ HERO (three slides in the markup, each editable) ============ -->
 <section class="hero" id="top">
   <div class="hero__bg" aria-hidden="true" data-edit="Slide photos, one per slide">
-    <!-- slide 1: the hall the school uses now (Sam's "option 1") -->
-    <img class="is-on hero__bg--hall" src="brand-assets/web/doc-hall-1290.jpg"
-         srcset="brand-assets/web/doc-hall-1290.jpg 1290w, brand-assets/web/doc-hall-2580.webp 2580w"
-         sizes="(max-width:720px) 340vw, 100vw" width="1290" height="690" fetchpriority="high" decoding="async" alt="">
-    <!-- slide 2: the senior lady photo, unchanged -->
+    <picture>
+      <!-- phones get the portrait version of the same scene -->
+      <source media="(max-width:720px)" srcset="brand-assets/web/bgslider1-correct-mobile-600.webp 600w, brand-assets/photos/bgslider1-correct-mobile.webp 941w" sizes="100vw">
+      <img class="is-on hero__bg--dancers" src="brand-assets/photos/bgslider1.webp"
+           srcset="brand-assets/web/bgslider1-800.webp 800w, brand-assets/photos/bgslider1.webp 1672w"
+           sizes="100vw" width="1672" height="941" fetchpriority="high" decoding="async" alt="">
+    </picture>
+    <!-- slide 1 above: the Taj Mahal, kept. Slide 2: the hall the school uses now (Sam's "option 1") -->
+    <img class="hero__bg--hall" data-src="brand-assets/web/doc-hall-1290.jpg"
+         data-srcset="brand-assets/web/doc-hall-1290.jpg 1290w, brand-assets/web/doc-hall-2580.webp 2580w"
+         sizes="(max-width:720px) 340vw, 100vw" width="1290" height="690" decoding="async" alt="">
+    <!-- slide 3: the senior lady photo, unchanged -->
     <img data-src="brand-assets/photos/slider-image-2.webp"
          data-srcset="brand-assets/web/slide-2-800.webp 800w, brand-assets/photos/slider-image-2.webp 1448w"
          sizes="100vw" width="1448" height="1086" decoding="async" alt="">
-    <!-- slide 3: the teachers group without Samir; phones get it from the Japanese student to the right -->
+    <!-- slide 4: the teachers group without Samir; phones get it from the Japanese student to the right -->
     <picture>
       <source media="(max-width:720px)" data-srcset="brand-assets/web/doc-team-slice.webp">
       <img class="hero__bg--team" data-src="brand-assets/web/doc-team-desktop.webp"
@@ -902,6 +909,14 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
         </div>
       </div>
       <div class="hero__slide" data-edit="Slide 2: eyebrow, heading, text, buttons">
+        <p class="hero__eyebrow">Weekly classes · Mixed levels</p>
+        <p class="hero__title">Classes at Oakleigh, McKinnon and live online.</p>
+        <div class="hero__btns">
+          <a href="#classes" class="btn btn--primary">See the class timetable</a>
+          <a href="#passes" class="btn btn--outline-light">Class pass prices</a>
+        </div>
+      </div>
+      <div class="hero__slide" data-edit="Slide 3: eyebrow, heading, text, buttons">
         <p class="hero__eyebrow">200 hours · Yoga Australia registered</p>
         <p class="hero__title">Teacher training in Melbourne, Sydney and live online.</p>
         <div class="hero__btns">
@@ -909,7 +924,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
           <a href="#tradition" class="btn btn--outline-light">See what the 200 hours cover</a>
         </div>
       </div>
-      <div class="hero__slide" data-edit="Slide 3: eyebrow, heading, text, buttons">
+      <div class="hero__slide" data-edit="Slide 4: eyebrow, heading, text, buttons">
         <p class="hero__eyebrow">Since 2010 · Graduates</p>
         <p class="hero__title">Graduates now teach across Australia and overseas.</p>
         <div class="hero__btns">
@@ -921,9 +936,10 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
     <div class="hero__foot">
       <div class="hero__ctrl" role="group" aria-label="Slideshow controls">
         <div class="hero__dots" id="dots">
-          <button class="is-on" aria-label="Slide 1 of 3" aria-current="true"></button>
-          <button aria-label="Slide 2 of 3"></button>
-          <button aria-label="Slide 3 of 3"></button>
+          <button class="is-on" aria-label="Slide 1 of 4" aria-current="true"></button>
+          <button aria-label="Slide 2 of 4"></button>
+          <button aria-label="Slide 3 of 4"></button>
+          <button aria-label="Slide 4 of 4"></button>
         </div>
         <button class="hero__pause" id="heroPause" aria-pressed="false" aria-label="Pause slideshow" title="Pause slideshow">
           <svg class="ico-pause" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/></svg>
