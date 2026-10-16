@@ -500,7 +500,7 @@ details[open] > summary .tog::before,details[open] > summary .tog::after{backgro
 .ftr__soc{display:flex;gap:12px;margin-top:20px}
 .ftr__soc a{width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center}
 .ftr__soc a:hover{background:#fff;border-color:#fff}
-.ftr__soc a:hover img{filter:none}
+.ftr__soc a:hover img{filter:brightness(0)}   /* SVGs are white; need dark glyphs on white hover bg */
 .ftr__soc img{width:15px;filter:brightness(0) invert(1)}
 .ftr__btm{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.875rem;color:rgba(255,255,255,.55)}
 .ftr__btm a{text-decoration:underline;text-underline-offset:3px}
