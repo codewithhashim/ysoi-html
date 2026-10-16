@@ -339,7 +339,7 @@ details[open] > summary .tog::before,details[open] > summary .tog::after{backgro
 .price+.price{border-left:1px solid var(--hair)}
 .price__amt{font-family:var(--display);font-size:3.4rem;line-height:1;margin:10px 0 6px}
 .price__amt sup{font-size:1.1rem;top:-.85em;position:relative}
-.price__per{font-size:.9rem;color:var(--muted);margin-bottom:22px;flex:1}
+.price__per{font-size:.9rem;color:var(--muted);line-height:1.45;margin-bottom:22px;flex:1;max-width:34ch;text-wrap:balance}
 .price .btn{width:100%;max-width:260px}
 
 /* ---- founders: one full screen, text on top, portraits edge to edge ---- */
@@ -1177,19 +1177,19 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       <div class="price">
         <h3>Monthly pass</h3>
         <div class="price__amt"><sup>$</sup>55</div>
-        <div class="price__per">One month, every live and recorded class</div>
+        <div class="price__per">Every live and recorded class for one month, in the studio and on Zoom. The Zoom link comes when you book. More than 45 classes in the month.</div>
         <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener" class="btn btn--primary btn--full">Buy monthly pass</a>
       </div>
       <div class="price">
         <h3>Casual studio</h3>
         <div class="price__amt"><sup>$</sup>25</div>
-        <div class="price__per">One class at Oakleigh or McKinnon</div>
+        <div class="price__per">One class at Oakleigh or McKinnon. If you cannot get to the studio, you also get a Zoom link.</div>
         <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener" class="btn btn--ghost btn--full">Buy casual pass</a>
       </div>
       <div class="price">
         <h3>Casual online</h3>
         <div class="price__amt"><sup>$</sup>20</div>
-        <div class="price__per">One live Zoom class</div>
+        <div class="price__per">One live class on Zoom.</div>
         <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener" class="btn btn--ghost btn--full">Buy online pass</a>
       </div>
     </div>
@@ -1558,9 +1558,9 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   <p class="eyebrow">Class passes</p>
   <h3 id="passPopH" tabindex="-1">Buy a class pass</h3>
   <ul class="pass-pop__list">
-    <li><span><b>Monthly pass</b><small>Every live and recorded class for a month</small></span><span class="pass-pop__price">$55</span><a class="btn btn--primary btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> the monthly pass</span></a></li>
-    <li><span><b>Casual studio</b><small>One class at Oakleigh or McKinnon</small></span><span class="pass-pop__price">$25</span><a class="btn btn--ghost btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> a casual studio pass</span></a></li>
-    <li><span><b>Casual online</b><small>One live Zoom class</small></span><span class="pass-pop__price">$20</span><a class="btn btn--ghost btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> a casual online pass</span></a></li>
+    <li><span><b>Monthly pass</b><small>Live and recorded, in studio and on Zoom. More than 45 classes. Zoom link when you book.</small></span><span class="pass-pop__price">$55</span><a class="btn btn--primary btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> the monthly pass</span></a></li>
+    <li><span><b>Casual studio</b><small>One class at Oakleigh or McKinnon, plus a Zoom link if you cannot attend.</small></span><span class="pass-pop__price">$25</span><a class="btn btn--ghost btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> a casual studio pass</span></a></li>
+    <li><span><b>Casual online</b><small>One live class on Zoom.</small></span><span class="pass-pop__price">$20</span><a class="btn btn--ghost btn--sm" href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Buy<span class="sr-only"> a casual online pass</span></a></li>
   </ul>
   <div class="pass-pop__foot">
     <p>Kids 12 and under join free with a paying parent on the monthly pass.</p>
