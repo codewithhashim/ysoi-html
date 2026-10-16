@@ -238,6 +238,7 @@ summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
 .paths{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px)}
 .path{display:flex;flex-direction:column;align-items:center;text-align:center}
 .path img{aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-img);width:100%}
+.path img.path__img--group{object-position:58% center}
 .path__in{display:flex;flex-direction:column;align-items:center;flex:1}
 .path h3{margin:22px 0 8px}
 .path p{color:var(--ink2);font-size:.95rem;margin:0 0 18px;max-width:34ch}
@@ -709,8 +710,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 .cmp img{position:absolute;inset:0;width:100%;height:100%;max-width:none;aspect-ratio:auto;object-fit:cover;border-radius:0;pointer-events:none}
 .cmp__clip{position:absolute;inset:0;clip-path:inset(0 0 0 var(--pos))}
 .cmp img.cmp__a{object-position:center 50%}
-/* the studio photo is shown a little larger and anchored left, so Samir stands inside the right-hand half */
-.cmp img.cmp__b{right:auto;width:125%;object-position:center 12%}
+.cmp img.cmp__b{object-position:center 40%}
 .cmp__lbl{position:absolute;bottom:12px;z-index:2;background:rgba(36,36,36,.92);color:#fff;border-radius:var(--pill);
   font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;pointer-events:none}
 .cmp__lbl--l{left:12px}
@@ -987,7 +987,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
     <div class="paths" data-edit="Pathway tiles: image, title, text, buttons">
 
       <a href="#training" class="path">
-        <img src="brand-assets/web/path-retreat.jpg" width="900" height="668" loading="lazy" decoding="async" alt="">
+        <img class="path__img--group" src="brand-assets/web/path-ttc.webp" width="960" height="567" loading="lazy" decoding="async" alt="The teacher training group with Samir">
         <div class="path__in">
           <h3>Train to teach yoga or for self-development</h3>
           <p>200, 350 and 500 hours, registered with Yoga Australia.</p>
@@ -998,7 +998,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       <div class="path path--box">
         <div class="cmp" id="cmp" data-edit="Drag slider: two photos (online class, studio class) and their labels">
           <img class="cmp__a" src="brand-assets/web/path-class.jpg" width="900" height="1121" loading="lazy" decoding="async" alt="A student following the class at home on Zoom">
-          <div class="cmp__clip"><img class="cmp__b" src="brand-assets/photos/samir-teaching-class.jpg" width="572" height="720" loading="lazy" decoding="async" alt="A studio class with Samir teaching"></div>
+          <div class="cmp__clip"><img class="cmp__b" src="brand-assets/web/path-studio.webp" width="1290" height="718" loading="lazy" decoding="async" alt="Samir teaching a studio class"></div>
           <span class="cmp__lbl cmp__lbl--l" aria-hidden="true">Online</span>
           <span class="cmp__lbl cmp__lbl--r" aria-hidden="true">In studio</span>
           <input class="cmp__range" id="cmpRange" type="range" min="0" max="100" value="50" aria-label="Slide between the online class and the studio class">
@@ -1013,7 +1013,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 
       <div class="path path--box">
         <button type="button" class="path__media" data-video-soon aria-label="Play the retreat video" data-edit="Retreat video: thumbnail and video file (from Google Drive)">
-          <img src="brand-assets/photos/india-group-garlands.jpg" width="572" height="720" loading="lazy" decoding="async" alt="">
+          <img src="brand-assets/web/path-retreat-group.webp" width="1290" height="815" loading="lazy" decoding="async" alt="The retreat group in Rishikesh">
           <span class="vid__play" aria-hidden="true"></span>
         </button>
         <div class="path__in">
