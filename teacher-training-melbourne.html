@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yoga Teacher Training Melbourne 2027 | 200 Hour Course</title>
-<meta name="description" content="200-hour yoga teacher training in Melbourne, on Sundays over six months. A Yoga Australia registered course in classical Ashtanga and Hatha. Starts March 2027.">
+<meta name="description" content="200-hour yoga teacher training in Melbourne, on Sundays over five months. A Yoga Australia registered course in classical Ashtanga and Hatha. Starts March 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
   "@context": "https://schema.org",
   "@type": "Course",
   "name": "200 Hour Yoga Teacher Training, Melbourne",
-  "description": "A 200-hour teacher training in classical Ashtanga and Hatha yoga, taught in person in Melbourne on Sundays over six months.",
+  "description": "A 200-hour teacher training in classical Ashtanga and Hatha yoga, taught in person in Melbourne on Sundays over five months.",
   "provider": {
    "@type": "Organization",
    "name": "Yoga & Meditation School of India",
@@ -67,7 +67,7 @@
     "name": "How long does the 200-hour training take?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Six months, on Sundays, so you can keep working. The exact schedule is confirmed when you enrol."
+     "text": "Five months, on Sundays, so you can keep working. The exact schedule is confirmed when you enrol."
     }
    },
    {
@@ -144,7 +144,7 @@
   --orange-deep:#AB5A1B;            /* 4.66:1 on paper, 4.99:1 on white */
   --white:#fff; --paper:#FAF7F0; --shade:#F4F0E8; --paper-2:#EDE6D9;
   --ink:#242424; --ink2:#444; --muted:#666; --hair:#E2DED6; --line:rgba(36,36,36,.26);
-  --max:1240px; --gut:24px; --hdr-h:108px;
+  --max:1240px; --gut:24px; --hdr-h:120px;
   /* vertical rhythm: 136 / 96 / 56 / 40 on a 1440 screen; 80 / 56 / 32 / 28 on a phone */
   --gap-loose:clamp(80px,9.5vw,136px);   /* between sections */
   --gap-tight:clamp(56px,6.6vw,96px);    /* between two sections that belong together */
@@ -243,7 +243,7 @@ summary:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px}
 .hdr__in{max-width:var(--max);margin:0 auto;padding:0 var(--gut);
   display:flex;align-items:center;gap:10px;min-height:var(--hdr-h)}
 .brand{display:flex;align-items:center;flex-shrink:0}
-.brand img{width:clamp(228px,18.5vw,270px);height:auto}   /* 270px from 1460px wide; the 2x file keeps it sharp on retina */
+.brand img{width:clamp(260px,21vw,320px);height:auto}   /* 270px from 1460px wide; the 2x file keeps it sharp on retina */
 .nav{display:flex;align-items:center;gap:2px;margin-left:auto}
 .nav__item{position:relative}
 .nav__link{display:block;padding:8px 11px;font-size:.84rem;font-weight:500;
@@ -683,7 +683,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 
 /* ---- responsive ------------------------------------------- */
 @media (max-width:1200px){
-  .brand img{width:260px}
+  .brand img{width:290px}
   .nav{display:none}
   .burger{display:block}
   .hdr__cta{margin-left:auto}
@@ -913,6 +913,159 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
   .grad__av--lg{width:124px;height:124px}
   .hero--page .hero__btns .btn{width:100%}
 }
+/* ============================================================
+   Sam's October changes ("YOGA TEACHER TRAINING PAGE - MELBOURNE"
+   in the Google Doc): one hero button, the table first, a city map,
+   the old page's full content, read more in the teacher boxes, and
+   graduates in two streams.
+   ============================================================ */
+.hero--page .hero__title{max-width:22ch}
+
+/* city map: states lift and turn orange under the pointer; pins pulse so it reads as clickable */
+.ausmap{max-width:720px;margin:0 auto}
+.ausmap svg{display:block;width:100%;height:auto;overflow:visible}
+.land{filter:drop-shadow(0 7px 0 #DDCFB9) drop-shadow(0 20px 26px rgba(70,45,20,.16))}
+.st{fill:var(--paper);stroke:#E4DACB;stroke-width:2;stroke-linejoin:round;transform-box:fill-box;transform-origin:center;transition:fill .2s,transform .25s}
+.ausmap a .st{fill:var(--paper-2);cursor:pointer}   /* states with a course are a shade darker than the Northern Territory */
+.ausmap a.is-here .st{fill:#F6D3B4}
+.ausmap a:hover .st,.ausmap a.is-lit .st{fill:var(--orange);transform:translateY(-6px)}
+.ausmap a:focus{outline:none}
+.ausmap a:focus-visible .st{fill:var(--orange);stroke:var(--ink);stroke-width:3;transform:translateY(-6px)}
+.pins{pointer-events:none}
+.pin__dot{fill:var(--ink);stroke:#fff;stroke-width:3}
+.pin[data-state="VIC"] .pin__dot{fill:var(--orange-deep)}
+.pin__ring{fill:none;stroke:var(--orange);stroke-width:3;transform-box:fill-box;transform-origin:center;animation:pin 2.6s ease-out infinite}
+@keyframes pin{0%{transform:scale(1);opacity:.85}80%,100%{transform:scale(2.8);opacity:0}}
+.pin text{font:600 24px var(--ui);fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round}
+.cities{list-style:none;margin:var(--gap-block) auto 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:760px}
+.city{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 20px;border-radius:var(--pill);border:1.5px solid var(--line);
+  background:#fff;color:var(--ink);font-weight:600;font-size:.92rem;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.city:hover,.city.is-lit{background:var(--ink);border-color:var(--ink);color:#fff}
+.city.is-here{background:var(--orange);border-color:var(--orange);color:#fff}
+.city span{font-weight:400;font-size:.8rem}
+.cities + .others{margin-top:22px}
+
+/* history: the homepage's lineage pair, then the story and one photo */
+.gens-pair{max-width:900px;margin:0 auto}
+.gens-pair__img{width:100%;height:auto;display:block}
+.gens-pair__caps{display:grid;grid-template-columns:1fr 1fr;padding-top:18px;text-align:center}
+.gen-cap b{display:block;font-family:var(--display);font-weight:400;font-size:1.4rem;line-height:1.25;color:var(--ink)}
+.gen-cap > span{display:block;margin:4px auto 0;font-family:var(--display);font-size:1rem;line-height:1.5;color:var(--ink2);max-width:26ch;text-wrap:balance}
+.story{max-width:62ch;margin:var(--gap-block) auto 0;text-align:center}
+.story p{margin:0 0 12px;font-size:1.05rem;color:var(--ink2)}
+.photo-cap{max-width:900px;margin:var(--gap-block) auto 0}
+.photo-cap img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-img)}
+.photo-cap figcaption{margin-top:12px;text-align:center;font-size:.875rem;color:var(--muted)}
+
+/* why: eight short reasons */
+.why{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,24px)}
+.wcard{background:var(--shade);border-radius:var(--r-img);padding:clamp(22px,2.4vw,30px) clamp(18px,2vw,24px)}
+.wcard h3{font-size:1.2rem;margin:0 0 8px}
+.wcard h3::before{content:'';display:block;width:28px;height:2px;background:var(--orange);margin-bottom:14px}
+.wcard p{margin:0;font-size:.93rem;color:var(--ink2)}
+
+/* course overview */
+.ovw{max-width:920px}
+.ovw__txt p{margin:0 auto 14px;max-width:64ch;text-align:center;font-size:1.05rem;color:var(--ink2)}
+.cdet{margin:var(--gap-block) 0 0;background:var(--shade);border-radius:var(--r-img);padding:8px clamp(20px,3vw,34px)}
+.cdet div{display:grid;grid-template-columns:11em 1fr;column-gap:20px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.cdet div:last-child{border-bottom:0}
+.cdet dt{padding-top:3px;font-size:.74rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.cdet dd{margin:0;font-size:.98rem;color:var(--ink)}
+
+/* syllabus modules: photo on top, then the whole text */
+.mods{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px)}
+.mod{background:#fff;border-radius:var(--r-img);overflow:hidden;display:flex;flex-direction:column}
+.mod__img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.mod__img--high{object-position:center 30%}
+.mod__vid .vid__media{border-radius:0}
+.mod__vid .vid__media img{aspect-ratio:4/3}
+.mod__in{padding:22px 24px 26px}
+.mod h3{font-size:1.3rem;margin:0 0 10px}
+.mod p{margin:0 0 10px;font-size:.95rem;color:var(--ink2)}
+.mod p:last-child{margin-bottom:0}
+.tags{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.tags li{padding:5px 11px;border-radius:var(--pill);background:var(--shade);font-size:.78rem;color:var(--ink2)}
+.mods--sm{margin-top:var(--gap-block);grid-template-columns:repeat(4,1fr)}
+.mods--sm .mod{background:var(--shade)}
+.mods--sm .mod__in{padding:22px 22px 24px}
+.mods--sm h3{font-size:1.12rem;margin-bottom:8px}
+
+/* teachers: a box each, the biography opens inside it */
+.tcards{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,32px);max-width:920px;align-items:start}
+.tcard{background:var(--shade);border-radius:var(--r-box);padding:clamp(28px,3.4vw,40px) clamp(20px,2.6vw,32px);display:flex;flex-direction:column;align-items:center;text-align:center}
+.tcard .grad__at{max-width:40ch}
+.tmore{width:100%;margin-top:16px}
+.tmore summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 20px;
+  border-radius:var(--pill);border:1.5px solid var(--line);background:#fff;font-size:.85rem;font-weight:600;color:var(--ink)}
+.tmore summary::-webkit-details-marker{display:none}
+.tmore summary:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.tmore__c,.tmore[open] .tmore__o{display:none}
+.tmore[open] .tmore__c{display:inline}
+.tmore__body{padding-top:16px;text-align:left}
+.tmore__body p{margin:0 0 10px;font-size:.95rem;color:var(--ink2)}
+
+/* practical teaching methodology */
+.ticks{list-style:none;margin:0 auto;padding:clamp(24px,3vw,36px) clamp(20px,3vw,40px);max-width:1000px;background:var(--shade);border-radius:var(--r-box);
+  display:grid;grid-template-columns:1fr 1fr;gap:14px 36px}
+.ticks li{position:relative;padding-left:30px;font-size:.96rem;color:var(--ink)}
+.ticks li::before{content:'';position:absolute;left:0;top:.18em;width:19px;height:19px;border-radius:50%;
+  background:var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2 5 8.6l4.5-5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.ps{max-width:780px;margin:var(--gap-block) auto 0;padding:20px 26px;border-left:3px solid var(--orange);background:var(--paper);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:.96rem;color:var(--ink2)}
+.ps b{color:var(--ink)}
+
+/* graduates: two streams, each with read more and load more */
+.streams{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,32px);align-items:start}
+.stream{background:var(--shade);border-radius:var(--r-box);padding:clamp(24px,3vw,36px) clamp(16px,2.4vw,30px)}
+.stream__h{text-align:center;margin-bottom:22px}
+.stream__h h3{font-size:1.5rem;margin:0 0 6px}
+.stream__h p{margin:0;font-size:.92rem;color:var(--ink2)}
+.stream .gr-top{margin-bottom:18px}
+.gcards{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.gcard{background:#fff;border-radius:var(--r-img);padding:20px 22px}
+.gcard__h{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.gcard__av{width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;box-shadow:0 0 0 3px var(--shade)}
+.gcard__av img{width:100%;height:100%;object-fit:cover}
+.gcard__nm{display:block;font-family:var(--display);font-weight:400;font-size:1.15rem;line-height:1.25;color:var(--ink)}
+.gcard__at{display:block;font-size:.84rem;line-height:1.4;color:var(--muted)}
+.gcard blockquote{margin:0}
+.gcard p{margin:0;font-size:.95rem;line-height:1.6;color:var(--ink2)}
+.stream .gr-card{padding:20px 22px}
+.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.stream .gr-card p.clamp{-webkit-line-clamp:4}
+.is-open .clamp,.stream .gr-card.is-open p.clamp{display:block;-webkit-line-clamp:unset;overflow:visible}
+.rm{align-self:flex-start;min-height:36px;padding:8px 0 0;background:none;border:0;font:inherit;font-size:.86rem;font-weight:600;
+  color:var(--orange-deep);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.more-btn{display:flex;margin:18px auto 0}
+.apply-note{max-width:64ch;margin:var(--gap-block) auto 0;text-align:center;font-size:.95rem;color:var(--ink2)}
+
+@media (prefers-reduced-motion:reduce){.pin__ring{animation:none;opacity:0}}
+@media (max-width:1040px){
+  .why{grid-template-columns:repeat(2,1fr)}
+  .mods--sm{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .mods{grid-template-columns:1fr 1fr}
+  .tcards,.streams{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  /* the homepage's phone header: logo in the centre and a little bigger */
+  :root{--hdr-h:100px}
+  .hdr__in{position:relative}
+  .brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content}
+  .brand img{width:min(270px,calc(100vw - 136px));max-width:none}
+
+  .hero__bg img.hero__bg--class{object-position:72% center}
+  .pin text{font-size:40px;stroke-width:9px}
+  .pin__dot{r:11}
+  .gen-cap b{font-size:1.06rem}
+  .gen-cap > span{font-size:.84rem;padding:0 4px}
+  .gens-pair__caps{padding-top:12px}
+  .why,.mods,.mods--sm,.ticks{grid-template-columns:1fr}
+  .cdet div{grid-template-columns:1fr;row-gap:4px}
+  .gcard,.stream .gr-card{padding:18px}
+}
 </style>
 </head>
 <body>
@@ -955,7 +1108,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
           <a href="index.html#mckinnon">McKinnon Studio</a>
           <a href="index.html#online">Online live classes</a>
           <div class="drop__sep"></div>
-          <a href="index.html#tradition">How we teach</a>
+          <a href="index.html#lineage">How we teach</a>
         </div>
       </div>
       <div class="nav__item"><a href="index.html#passes" class="nav__link">Class Passes</a></div>
@@ -978,9 +1131,9 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
       </div>
       <div class="nav__item"><a href="#" data-soon class="nav__link">Retreats</a></div>
       <div class="nav__item">
-        <a href="index.html#tradition" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">About</a>
+        <a href="index.html#lineage" class="nav__link nav__link--has" aria-haspopup="true" aria-expanded="false">About</a>
         <div class="drop">
-          <a href="index.html#tradition">School tradition</a>
+          <a href="index.html#lineage">School tradition</a>
           <a href="index.html#founders">Samir &amp; Shilpa</a>
           <a href="index.html#reviews">Google reviews</a>
           <a href="#contact">Contact</a>
@@ -1027,7 +1180,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
   <a href="#" data-soon class="drawer__sub">Vedic astrology</a>
   <p class="drawer__h">School</p>
   <a href="#" data-soon>Retreats</a>
-  <a href="index.html#tradition">About the school</a>
+  <a href="index.html#lineage">About the school</a>
   <a href="index.html#founders">Samir &amp; Shilpa</a>
   <a href="#contact">Contact</a>
   <p class="drawer__util">Already a student? <a href="https://studiobookingonline.com/yogaandmeditationschoolofindia(australia)/login" target="_blank" rel="noopener">Log in to book</a></p>
@@ -1036,43 +1189,31 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
 <main id="main">
 <!-- ============ HERO (one photo, editable; no slider on course pages) ============ -->
 <section class="hero hero--page" id="top">
-  <div class="hero__bg" aria-hidden="true" data-edit="Hero photo (Sam: 'we can keep changing them')">
-    <img class="is-on" src="brand-assets/photos/slide-image-1.webp"
-         srcset="brand-assets/web/slide-1-800.webp 800w, brand-assets/photos/slide-image-1.webp 1448w"
+  <div class="hero__bg" aria-hidden="true" data-edit="Hero photo: change it any time in the admin">
+    <!-- the homepage's former second slide, the class with the senior student, as Sam asked -->
+    <img class="is-on hero__bg--class" src="brand-assets/photos/slider-image-2.webp"
+         srcset="brand-assets/web/slide-2-800.webp 800w, brand-assets/photos/slider-image-2.webp 1448w"
          sizes="100vw" width="1448" height="1086" fetchpriority="high" decoding="async" alt="">
   </div>
   <div class="hero__in">
-    <div class="hero__slide is-on" data-edit="Hero: label, heading, line, buttons">
-      <p class="hero__eyebrow">Yoga Australia registered course</p>
-      <h1 class="hero__title">200 Hour Yoga Teacher Training in Melbourne</h1>
-      <p class="hero__sub">Classical Ashtanga and Hatha, studied over six months with a third-generation teacher.</p>
+    <div class="hero__slide is-on" data-edit="Hero: label, heading, line, button">
+      <p class="hero__eyebrow">Yoga Australia Registered Course in Melbourne</p>
+      <h1 class="hero__title">200 Hour Yoga Teacher Training: An Unbroken Thread of Grace</h1>
+      <p class="hero__sub">Five months of Classical Ashtanga and Hatha Yoga from a 100+ year paramparā (lineage), passed down through three generations of teachers, now to you.</p>
       <div class="hero__btns">
-        <a href="#contact" class="btn btn--primary" data-about="melbourne">Enquire about the next intake</a>
-        <a href="#intake" class="btn btn--outline-light">See the dates</a>
+        <a href="#intake" class="btn btn--primary">See the dates</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ COURSE FACTS (six fields from the course entry) ============ -->
-<div class="facts-wrap">
-  <dl class="wrap facts" data-edit="Course facts: six label and value pairs">
-    <div class="fact"><dt>Hours</dt><dd>200</dd></div>
-    <div class="fact"><dt>Length</dt><dd>Six months</dd></div>
-    <div class="fact"><dt>Days</dt><dd>Sundays</dd></div>
-    <div class="fact"><dt>Where</dt><dd>Melbourne, in person</dd></div>
-    <div class="fact"><dt>Registered with</dt><dd><a href="https://yogaaustralia.org.au/venue/yoga-and-meditation-school-of-india-melbourne-sydney/" target="_blank" rel="noopener">Yoga Australia</a></dd></div>
-    <div class="fact"><dt>Fees</dt><dd>Quoted on enquiry</dd></div>
-  </dl>
-</div>
-
-<!-- ============ NEXT INTAKE (the same intake entry the homepage table reads) ============ -->
+<!-- ============ INTAKE (the same intake entry the homepage table reads; wording and status set in the admin) ============ -->
 <section class="band" id="intake">
   <div class="wrap">
     <div class="shead" data-edit="Section heading">
-      <h2>The next Melbourne intake</h2>
+      <h2>The Melbourne 2027 intake</h2>
     </div>
-    <div class="intakes" data-edit="Course intake: location, format, start, status, link (one entry, shared with the homepage)">
+    <div class="intakes" data-edit="Course intake: location, format, start, status tag, link. Every field, including the green Applications open tag, is changed in the admin">
       <div class="intake intake--head" aria-hidden="true"><span>Location</span><span>Format</span><span>Starts</span><span>Status</span><span></span></div>
       <div class="intake">
         <div class="intake__loc">Melbourne <span>In person</span></div>
@@ -1082,21 +1223,121 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
         <a class="intake__go" href="#contact" data-about="melbourne">Enquire →<span class="sr-only"> about Melbourne</span></a>
       </div>
     </div>
-    <div class="tt-after" data-edit="Closing date line, button">
+    <div class="tt-after" data-edit="Closing date line">
       <p><b>Applications close</b> 5 December 2026, or earlier if the intake fills. There is no early-bird price.</p>
-      <div class="tt-actions">
-        <a href="#contact" class="btn btn--primary" data-about="melbourne">Enquire about the next intake</a>
-      </div>
     </div>
-    <p class="others" data-edit="Links to the other intakes"><span>Other 2027 intakes:</span>
-      <a class="tlink" href="index.html#training">Sydney teacher training</a><span class="others__sep" aria-hidden="true">·</span>
+  </div>
+</section>
+
+<!-- ============ CITIES (map of the six metro course pages; Cairns and the regional pages stay out of the menu, as now) ============ -->
+<section class="sec sec--tight" id="cities">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading + line">
+      <h2>Teacher training across Australia</h2>
+      <p>Tap a state to open its course.</p>
+    </div>
+    <div class="ausmap" data-edit="Map: one link per state, each pointing at its city's course page">
+      <svg viewBox="0 0 1000 915" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Map of Australia. Each state with a course links to it.">
+        <g class="land">
+          <a href="#" data-soon data-state="WA" aria-label="Perth, Western Australia"><path class="st" d="M392.5,577.6L392.5,426.6 392.5,131.2 386.5,130.1 381.3,128.1 378.1,129.2 378.3,131.6 376.1,132.1 373.3,136.2 373.9,140.1 371.6,139.5 370.2,137.5 371.8,131.9 373.2,130.1 373,127.7 374.1,127.2 370.2,124.9 368.7,123 367.5,122.3 365.9,120.7 365.5,119.3 363.6,117.9 360.6,112.9 356.8,109.9 355.5,109.6 354.7,106.6 352.6,105.5 350.4,105.3 348.7,104.9 346.8,105 346.4,103.6 345.2,102.2 343.6,100.8 342.5,101.3 341.1,102 338.7,102.6 340.2,106.1 340.7,107.7 337.8,107.7 338.1,109 337.4,111.3 335.5,112.8 333.3,112 331.7,110.2 329.9,109.3 328.8,109.7 327.9,111.7 327.8,114.2 326.3,113.8 324.4,113.3 322.4,114.4 322.4,117.4 320.4,118.2 321.9,121.6 320.9,121.7 319.1,121.9 319,125 316.9,123.6 316.5,121 314.5,120.6 313.4,121.6 311.1,122.6 308.8,122.6 306.4,122.4 304.6,123.3 302.6,124.4 302.1,126.7 301.6,128.8 301.9,130.5 304.4,131.6 304,132.5 303.8,134.5 302.9,136.4 301.2,135.8 298.9,136.2 297.6,137.3 296.4,138.2 294.6,137.4 293.1,139 294,141.3 294.3,142.5 292.8,144.1 290.8,143.5 289.5,145.1 289.5,147.2 288.2,148.1 284.5,147.1 283.9,148.6 282.7,150.8 282.2,152.6 282.8,157.9 283.7,156.6 285,159.9 287.1,160.9 287.4,164.3 285.6,165.9 283.4,165.3 282.2,166.9 282.8,169.9 282.4,170.5 281.4,172 278.5,171.7 276.2,168.4 271.1,167 272,169 269.9,169.9 266.8,168.1 267.6,166.6 266.5,165.3 263.5,165.3 263.1,167.6 264.1,169 266.3,170.1 266.3,171.3 266.3,172.6 264.9,174.1 263.4,174.6 261.6,176.2 261.5,178.6 263.6,178.9 266.2,180.9 268.3,184.8 269.4,186.3 268.3,187.7 266.8,189.5 265.6,189.3 265,187.6 263.5,187.3 263.2,190.2 264.7,192.6 262.9,197.3 261.3,199.1 258.6,196.1 255.6,188.1 252.8,185.4 252.9,182.6 251.6,181.6 250.4,179.6 249.8,177.5 248.4,176.6 249.1,173.8 247.3,172.2 246.6,174.8 243.6,177.2 243.3,179.9 243.6,181.3 240.8,182.4 239.4,181.9 238,184.1 236.8,185.6 235.3,187 232.1,190.1 232.2,191.4 229.6,194.7 228.9,202.7 230.4,206.6 230.5,211.9 231.4,213.2 233.7,213.8 234.3,216 233.8,217.5 227,222.8 226,224.5 223.4,226.6 221,226.6 219.1,229.7 220,231.7 218.7,233 216.3,233.2 217,235.8 214,242.7 209.1,250.2 204.7,254.6 200.6,257.6 186.6,263.8 183.5,264.9 171.4,266.4 171,267.5 168,269.1 166.4,268.8 164.3,267.7 158.5,266.3 156.2,266.5 153.3,268.7 153,270.1 149.3,274.8 146.3,275.9 144.5,275.6 138.9,277 137.8,276.3 135.6,277.2 133.7,276.8 128.7,280.4 128.1,282.1 126.2,283.7 123.8,284.8 120.6,284.8 118.5,286.1 114.7,286.7 110.6,285.2 109.9,283.2 107.7,283.9 102.8,286.3 101.1,284.8 99.1,284.9 93.1,289 89.3,290.3 87.1,289.8 86,293.1 80.9,295.5 78,299.9 73.4,302.4 69.9,307.2 61,311.6 56.8,312.3 50.1,316.3 47.8,321.5 47.1,322.3 46.5,324.8 45.8,325 43.4,333.1 41.5,332.2 40,332.9 39,334.3 37.6,333.8 37.5,331 38.8,328.9 37.6,327.7 36.5,325.1 38.8,315.2 35.5,316.1 32.2,321.7 28.3,333.2 26.2,335.8 26.5,339.8 28.9,341.4 30.1,345.1 30.2,348.3 28.7,351.3 29.5,355.7 29.1,359.1 28.4,361 25.2,363.6 21.8,371.1 21.7,373.3 20.7,374.8 21.1,378 20,380.1 20.1,384.5 21.3,387.7 25.2,392.8 25.4,397.2 26.7,398.3 26.2,399.9 27.3,402.8 30,404.6 33,412 35.8,417.2 37.7,419 38.4,421 40.8,422.4 40.3,424.7 41.1,426.3 40.1,428.3 39.2,431.8 40.3,435 39.6,436.6 37.1,438.5 35.2,437 33.9,435.4 33.4,430.3 31,429.8 29.8,432.1 28.2,431.8 27.6,430.5 28.9,423.5 28.2,421.2 26.9,420.8 24.7,416.8 23.2,416 23.1,413.6 20.9,417.4 20.8,419.4 23,422.7 23.2,424.5 24.1,425 24.6,429 26.3,430.3 27.1,432.5 29.5,433 31.9,435.7 31.6,440.5 30.2,442.5 27.4,442.9 26.8,443.9 24.9,444.5 35,461.5 38.1,471.4 37,476 38.6,482.5 42.1,485.8 47.3,493.5 48.7,497.1 48.4,500.5 49.1,501.9 54.8,509.1 58,519 57.2,523.7 57.7,530.2 57.1,533.6 58.2,536.6 57.9,538.4 59.1,539.7 58.7,541.2 60,546.6 62.8,554.7 66,559 69.4,567.3 74.7,576.5 75.7,579.8 76.6,590.8 76.1,592.9 76.1,594.7 76.3,596.9 75.6,600.1 76.9,601.8 76.4,602.7 74.2,602.5 72.9,603.4 74.6,613 74.4,620 73.4,620.5 70.9,626 67.3,629.1 63.2,629.5 58.2,626.2 58.6,628.7 57.5,630.5 58.2,633.1 57.6,635.2 58.8,645.4 61.4,648.6 62.9,646.9 65.5,646.9 73.1,650.7 80.4,657.5 81.9,661.1 84.7,661.2 91.3,663.3 91.6,661.7 94.4,663.8 93.5,665.5 97.6,666.8 99.9,665.7 103.3,666.9 105,665.8 109.6,667.1 110.8,665.7 114.3,665.9 121,669.1 121.2,667.6 122.5,666.7 128.5,668.6 127.7,666.6 126.2,666.3 132.6,665.1 133.9,664 139.6,662.8 139.3,660.8 140.6,658.6 147.4,655.8 147.4,653.7 151.3,652.2 150.1,650.9 156.7,651.5 159.4,653 161.1,650.7 163.5,651.1 163.7,648.7 165.1,647.2 167.6,642.7 173.2,638.5 177.8,636.9 180.2,637.6 184.4,637.3 187.2,638.2 190.4,637.2 191.2,636.1 204,634.7 205.6,635.4 209.6,634 214.4,634.1 216.6,635.6 218.3,635.1 220.6,636.2 225.6,634.2 227.3,636 228,638 230,639.5 230.7,638.7 231.9,637.8 233.8,636.7 237.9,637.1 240,636.1 244,635.6 245.6,636.4 249.9,635.2 252.1,636.4 253,639.2 255.7,638.6 258.5,636 261.9,637.3 262.9,635.8 264.2,635.6 266.7,633.7 267.4,631.3 270.6,628 272.1,627.4 275.5,616.5 277.1,614.2 280.7,611.5 293.1,608.9 297.1,605.4 309.9,600.4 317.8,594.7 321.1,593.1 322.8,593.3 325.3,592 329.8,593.3 337.1,594.2 351.6,593.1 363,589.1 369,588.1 373.8,586.3Z"/></a>
+          <path class="st st--off" d="M392.5,131.2L392.5,426.6 607.2,426.6 607.2,175.6 604,172.8 601.1,167.9 591.9,164.4 589.3,161.7 584.4,159.1 583.1,157.6 581.5,159.5 578.2,158.6 576.7,157.5 573.6,153.5 572.1,153.7 569.4,151.2 567.8,151 566,149.5 564.8,145.5 558.3,141.7 556.1,139.3 552.7,137.7 551.2,135.8 548.7,135.2 546.3,132.4 544.4,127.3 545.9,127.2 548.1,125.4 548.3,123.5 550.1,120.1 551.5,119.5 553.7,115.2 556.3,113.2 557.3,113.3 557.6,107 559.2,105.5 559.6,102.8 558.7,101.3 557.1,101.2 557.4,98.9 555.7,97.5 556.3,95.9 556,93.7 557.6,92.6 556.7,90.2 558.1,88.4 559.6,87.3 560.7,87.7 561.9,85.8 563,84.8 565.4,85 566.7,84 568.3,83.3 568.7,87.6 570,87.3 570.9,86 572.1,85.7 573,83.1 571.3,81.8 571.3,80.9 572.5,79.3 571.1,77.6 570.7,75.6 572,75.1 574,74 575.9,74 576.2,71.4 577.6,70.3 577.8,69.4 581.1,65.4 582.9,64.2 581.6,62.7 580.3,61 577.6,59.4 575.7,60.5 573.5,59.7 573.4,57.3 572.8,57.1 572.2,54.9 570.2,53.5 563.7,59.6 565,60.6 567.4,60.4 568.2,61.4 565.5,66.7 563.6,67.3 561.6,66.9 559.8,65.2 559.1,64.7 560.9,61.2 558.8,62.1 557.9,60.7 556.6,59.1 553.1,63.3 551.5,61.3 551.1,59.4 555.4,55.2 554.9,53.8 554.1,52.9 549.7,54.1 549.1,55.7 548.4,56.7 546.6,58.1 544.3,57.4 543.1,59.1 540.9,60.1 539.1,61.5 537.3,61.9 534.8,58.9 532.3,58.4 531.7,56 530.8,56.1 530.1,53.7 528.5,54 525.9,56.7 522,56.6 518.5,54.2 516.4,53.7 515,51.8 513.1,50.9 510.4,52.7 508,51.2 508.1,49.9 505.8,48.9 504.2,48.9 503.5,50.3 501.2,50 499.3,49.5 497.6,48.9 495.6,48.7 494.1,47.9 491.9,47.2 489.7,43.4 489.7,42 485.8,37.3 484.7,37.5 483.9,39.1 481.6,42 480.1,42 478.7,39.3 476.9,37.3 476.4,37.5 475.4,34.7 474.6,34.1 473,36 470.8,35.6 468.5,36.6 467.4,36.6 466.1,34.6 463.6,34.5 462.6,35.2 461,36.6 462.3,37.8 463.8,39.8 464.9,41.1 466.1,42.2 469.8,40.6 473.9,40.2 476.7,42 477.8,44.7 480.6,45.8 478.2,49.3 479.6,51 479.2,56.8 477.5,57.5 474.5,59.2 473.1,60.8 470.7,61.1 469.2,60.6 465.4,63.2 462.5,62 461.6,60.8 458.9,62.2 450.9,62.7 448.4,60.9 446.3,61.3 442.7,58.9 442,59.5 440.1,60.1 441.4,65 438,63.9 436,65.7 435,66.6 431.6,65.2 430.5,67 430.1,70.5 428.4,70.9 427,71.7 425.9,73.1 424.8,72.9 424.7,77.4 423.9,79.1 421.7,80 419.4,80 419.3,85.9 420.2,86.1 424.2,90.8 422.4,90.2 419.5,93.8 419,93.5 415.6,95.7 414.3,95.2 412.5,95.1 411.2,99.5 411.9,101.8 409.5,104.6 410.3,106.3 410,107.9 407.6,109.1 406.4,110.6 405.3,110.3 404.2,112 401.4,116.9 401,119 405.2,122.6 406.5,124.4 408.4,128.1 408,130.2 407.1,133.1 408,136.7 406.1,136.1 403.8,132.9 401.4,132.1 400.2,131 397.9,130.3 398.7,137.5 397.2,137.8 396.9,134.2 394.7,132ZM432,37.3L430.3,36.1 428.6,36.4 425.9,32.6 425.1,33.9 428.2,45.7 439.3,53.3 447.2,47.7 449.4,43.8 451.5,44.4 451.4,41.6 452.8,41.1 453,39.5 451.5,38.9 450.4,35.1 448.1,34.9 446.7,33.5 445.1,35 443.8,35.1 441.3,36.9 440.3,37.7 438.3,36.7 436.5,38.1 433.6,38.7ZM574.4,102.2L572.1,102.4 571.7,103.7 569.2,103.3 569.9,111.3 569.6,113.3 574.7,115.6 576.9,114.9 578.2,113.1 576.3,111.5 577.4,109.5 577.6,108 577.8,106.6 579.9,105.9 578.9,104.1 576.9,103.9 576.8,101.9ZM420.7,46.5L419.8,47.1 418,48.6 418.3,50.5 424,48.9 428.2,50.8 430,50.6 431.5,48.9 429.1,47.2 427,47.1 427.3,44.2 425.5,42.3 425.8,40 424.6,36.9 422.8,37.5 419.8,41.5 421.1,41.9Z"/>
+          <a href="#" data-soon data-state="SA" aria-label="Adelaide, South Australia"><path class="st" d="M678,746.6L677.9,638.6 678.7,639.4 678.7,506.2 678.7,426.6 607.2,426.6 392.5,426.6 392.5,577.6 420.1,574.5 435.2,575.4 444.4,572 453,575.4 458.9,578.6 469.6,586.7 473.5,586.2 474.8,585.4 476.3,584.3 482.5,584.5 487.1,587.8 488.7,588.4 491.4,591.1 492.5,590.7 494.3,591.6 495.2,590.9 499.7,591.1 501.1,590.4 501.9,588.6 503.9,588.8 504.4,590.9 506,591.6 507.6,592.3 510.5,596.2 508.6,597.3 508.3,600.2 514.9,597.8 518.3,601.4 518.8,603.8 516.9,605.1 513.3,605.1 514.9,608 513.4,610.5 515.9,610.7 515.3,613.1 517.3,613.6 518.4,616.7 520.8,617.1 523.1,616.5 525.6,616.2 528.6,617 527.9,618.6 531.2,621.7 532.3,625.1 531.8,629.1 540.1,636.1 541.8,638.9 542.1,642 541.1,642.5 543.4,644.8 545,651.5 543.4,652.9 542.5,654.6 543.7,655.8 543.2,657.1 546.5,658.3 550,662.3 552.4,662.6 554.3,661.7 558.6,665.7 559.7,664.9 558.7,662.2 559.7,660.6 558.2,659.3 556.7,659.3 556.3,656.7 557.4,654.6 557.9,653.1 561.1,651.7 561.9,653.1 562.2,649.1 565,647.1 568.3,640.9 573.3,637.6 573.9,636.3 582.5,632.4 583.8,631.8 587,631.1 588.7,629.7 592.1,623.3 594.1,616.1 597.4,613.3 598.4,611.4 601.9,611.9 601.3,610.2 602.6,608.3 602.3,605.1 603.6,604.4 605.7,605.8 604.8,606.7 606.1,612.5 607.4,613 608.1,614.5 608,616.1 606,616.2 603.7,617.4 602.6,619.3 605.7,626.4 604.3,628.2 597.7,635.6 598.3,636.8 596,639.3 596.4,641.2 595.4,642.9 595,645.2 594.8,648.3 594.3,650.8 594.7,651.3 595.5,655.3 593.9,663.3 592.6,664.2 589.7,662.9 586.6,663.5 583.8,662.8 581.9,666.2 582.4,668 579.9,670.9 579.5,672.2 581.2,673.3 584.2,671.5 587.3,671.9 589,670 591.2,670 593.4,668.6 596.7,668.9 599.3,670.3 601.2,668.9 601.1,667 605,655.5 604.4,654.6 604.6,652.9 605.5,649.9 608.1,647.1 607.4,645.4 609,642.3 610.9,644.5 610.9,645.8 612.6,647.4 614.2,652.3 620.3,659.7 618.9,659.9 619.4,666.5 618.3,668.4 618.4,671.5 617.6,674.5 615.7,675.7 613.3,678.5 610.5,679.8 609.7,681.9 612,683.3 613.8,682.6 619.8,682.6 622.4,680.5 624.9,679.8 626.1,678.3 628.2,678 630.1,676.4 631.7,675.7 633.4,675.8 635.4,674.6 637.4,674.2 638.5,676 637.8,678.2 636.6,680 634.7,678.8 633.1,679.7 631,681 629,680.8 635.8,685.3 641.9,690.9 644.5,694 648.4,701.9 651.4,708.5 651.6,712.4 650.5,715.3 647,717.3 648.4,718.6 649.8,721.9 648.7,723.3 654.6,731.5 657.6,732.3 657.5,733.7 660.6,736.2 664.4,742.9 671.3,746.9ZM572.1,689.7L575.1,691.3 576.5,693.7 580,692.7 581.4,693.3 583.8,692.6 586.6,693.1 588.7,691.5 592.2,692.3 594.3,694.2 597.7,692.7 598.3,689.6 602.9,688.4 608.3,689.8 610.2,688.4 610.2,687.1 608.7,685.6 605.6,684.7 604.1,686.5 602.7,687 601.9,685.1 599.7,685.6 597.2,684.7 597.2,682.6 598.2,680.9 593.9,681.7 591.3,680.9 585.1,683.3 573.7,685.6Z"/></a>
+          <a href="#" data-soon data-state="QLD" aria-label="Brisbane, Queensland"><path class="st" d="M607.2,175.6L607.2,426.6 678.7,426.6 678.7,506.2 868.9,506.2 871.1,504.5 871.8,502.2 879.5,497.7 881.1,495.2 883.7,494.7 884.4,495.8 886.3,496.3 893.9,495.6 900.5,493.9 904.1,496.8 908.2,497.2 912.3,496.5 918.3,499.2 918.7,501.6 921.1,502.1 924.1,504.1 924.8,508.8 926.2,510.7 929.7,507.8 930.7,504.9 934.5,503.2 935.5,504.9 936.9,505.5 937.7,504 941.4,503.5 942.7,498.3 940.2,494 945,491.3 946.7,491.2 948.1,489.9 950.3,489.4 952.7,486.7 954.6,488.5 955.8,487.5 959,489.2 961.8,488.2 967.5,489.1 969.5,486.6 973.4,486.3 977,483.6 975.7,481.6 975.4,478.3 975.3,478 975.6,474.1 974.7,473.9 972.5,470.5 971.4,466.3 969.5,465.1 969,462.8 966.5,461.4 967.8,458.4 966.9,456.1 970,455.2 968.4,450.3 968.6,444.8 967.6,443.8 968.2,437 967.1,436.3 966.7,435 968.3,428.2 969.9,424.9 967.9,424.8 966.4,421.8 965.5,422 962.2,417.9 962.8,417.8 962.7,414.9 964.1,413.3 963.3,411.1 962.9,407.7 960.5,407.6 957.7,406.7 954.6,404.8 956.3,404.3 953.2,400 952.3,394.9 944,389.2 941.2,384.4 938.7,377.4 936.6,377.3 935.9,374.1 934.7,374 932.5,372.9 931.9,373.4 930.1,374.1 927.8,373.7 923.9,368.8 921.7,368.3 920.3,364.9 917.5,362 915.7,361.4 914.4,360 912.8,357.9 912.2,355.2 913.4,353.6 911.6,351.2 911.9,346.1 912.2,345 913.1,339 912.1,337.8 911.8,334.5 909.4,334.3 910.2,332.1 908.3,330.8 906.1,331.8 907.9,336.6 903,333 898,330.5 897.1,327.5 894.7,324.2 892.9,325 891.6,328.4 894.5,337.6 888.9,330.5 887.8,332.3 886.2,332.3 886.2,329.6 883.6,327.9 884.1,326.9 883.2,324.6 879.9,314.9 881,313.2 880.1,310.8 881.4,309 881.2,308.1 879,307.3 877.8,306.6 876.5,306.1 877.2,303.9 876.5,301.4 875.6,300.6 874.2,299.7 875.1,296.3 873.1,293.8 871.8,293.1 870.2,293.3 869.9,291.5 866.6,289.7 865.8,288 864.5,287.8 863.3,286.4 863.1,284.5 861.4,282.5 863,280.6 863.8,279.9 865,278.9 865.9,276.6 864.3,273.7 863.7,273.5 862,274.6 860.3,273 859,268.8 858.1,269.6 857.1,270.9 855.3,272 852,269.6 852,268.6 852.3,266.4 848.8,265.7 847.4,264.1 846,265 844,264.6 842.7,263.5 840.6,263 838.2,262.8 835.3,259.5 836.1,259 835.2,255.1 831.9,249.2 832.6,250.9 831.9,251.8 825,251.7 823.2,249.2 822.1,247.5 819.6,248.9 815.8,245.4 813.6,245.7 809,242.8 804.6,237.5 806.1,228.3 803,227.9 802.4,224.4 800.4,223.6 798.2,220.6 798.1,218 800.7,210.7 800,208.9 800.5,205.9 801.5,204.5 799.6,201.4 799.7,198.1 795.2,189.3 796.9,184.4 795.1,185.2 792.7,184.7 791.4,182.4 787.6,178.6 785.2,174 783.7,173 784,170.1 785.3,168.1 784.5,166.5 785.2,162.8 782.6,158.6 782.9,154.5 779.9,146 781.2,143.5 780.9,142.6 781.9,140.4 779.8,139.1 780,137.2 782.4,133.1 780.7,133.3 779.4,131.5 779.4,130.2 774.9,129.5 772.8,127.6 771.8,124.4 769.3,124.1 768.3,122.8 766.4,122.9 765,120.5 765.4,117.1 764.2,115.1 761.9,112.4 760.8,114.8 757.5,116.4 755.1,114.8 754.1,118 748.9,121.7 745.1,118.8 743.3,113.7 742.8,108.5 741,106.7 739.1,101.5 740.7,95.5 740.5,92.6 739,90.3 738.4,83.6 738.2,79.5 736.3,78.1 735,78.4 735.5,74.5 736.8,71.3 733.5,69.2 732.5,65.4 730.6,64 728.3,63.8 728.5,59 731.3,54.6 730.6,54 728.9,52.4 726.2,53.3 723.1,50.7 723,44.6 722.2,41.2 723.4,38.7 721.7,35.9 721.9,33 720.3,27.8 718.3,26.7 716.7,24.9 714.9,24.6 717.3,21.9 715.6,20.2 712.9,21.3 712.1,23.7 710.3,25.9 706.2,27.2 705.7,37.5 701.3,52.3 700.5,53.8 698.5,55.2 696.7,60.6 695.8,61.2 692.8,69.4 693,70 695.4,69.5 695.3,68.4 697.7,70.4 698,72.8 696.7,76.8 694.5,78.9 693.8,78.8 692.6,81.2 693.6,85.1 695.3,88.2 694.8,90.8 693.8,90.8 691.3,96.7 689.9,104.5 690.3,106.8 693,111.2 693.1,113.5 691.2,121 693.1,131.4 694.5,134.4 694.4,137.2 694,138.4 692.6,140.5 689.2,151.9 688.4,158.3 687.7,159.3 689,162.8 685.6,171.9 685.7,174.3 684.3,176.4 683.5,179.9 680.7,182.4 677.4,188.2 677.5,191.4 675,199.4 667,204.6 660.6,206.4 654.8,206.5 653.1,204.2 646.3,201.9 641.5,197.7 636.7,196.3 634.6,192.2 634.8,188.6 632.5,187.1 631.2,185 627.2,184.3 622.8,181.9 618.9,182.3 616.1,181 614.2,181 610.8,179.2ZM963.7,415.5L964.6,416.5 964.9,419.4 966.3,421.2 967.3,420.2 966.9,417.7 973.8,399.8 971.8,396.8 970.7,397.8 970.4,400.8 965.3,405.7 966.6,406.6 966.6,408.8ZM638.2,180.4L639.9,179.5 641.6,178.8 642.3,176 642.6,174.9 644.2,174 645.6,175.9 647.9,175.2 647.7,173 644.9,171.7 637.9,173.7 634.9,177.6 635.3,178.8 636.4,180.3Z"/></a>
+          <a href="#" data-soon data-state="NSW" aria-label="Sydney, New South Wales"><path class="st" d="M977,483.6L973.4,486.3 969.5,486.6 967.5,489.1 961.8,488.2 959,489.2 955.8,487.5 954.6,488.5 952.7,486.7 950.3,489.4 948.1,489.9 946.7,491.2 945,491.3 940.2,494 942.7,498.3 941.4,503.5 937.7,504 936.9,505.5 935.5,504.9 934.5,503.2 930.7,504.9 929.7,507.8 926.2,510.7 924.8,508.8 924.1,504.1 921.1,502.1 918.7,501.6 918.3,499.2 912.3,496.5 908.2,497.2 904.1,496.8 900.5,493.9 893.9,495.6 886.3,496.3 884.4,495.8 883.7,494.7 881.1,495.2 879.5,497.7 871.8,502.2 871.1,504.5 868.9,506.2 678.7,506.2 678.7,639.4 679.8,640.6 684.5,640.9 686.6,642.8 688.1,642.5 690.9,643.5 691.7,644.7 695.6,641.8 698.8,642.4 703.8,642 704.8,643.4 706.1,643.1 708.2,644 708.7,646.2 709.8,647.3 712,647.9 711.4,650.2 711.8,653.1 713.7,654.9 715.6,659.4 717.9,659.8 717.6,658.5 719.1,658.3 719.9,654.9 721.4,654.4 723,655.4 723.6,656.9 724.8,656.4 726,657.2 726.3,656.7 729.8,657.5 732.8,658.9 733.2,659.9 734.2,659.7 735,660.3 734.3,664.5 735.1,668.3 736.4,670.4 740.3,672.1 740.4,674.8 745,676.6 749.8,679.3 750.2,680.2 752.7,681 754.6,683.5 758.7,686.1 761.1,690.6 767.9,695.6 769.6,695.5 771.5,694 773.5,694.6 772.6,692.1 773.4,689.2 774.3,688.5 779.3,688 783.1,688.6 785.9,687.5 787.8,687.8 792.9,691.5 796.5,691.1 797.6,692.4 803.1,693.5 803.8,692.9 806.8,693.4 808.3,691.6 810,691.3 812.9,691.8 818.2,694.6 820.8,695.1 822,694.4 822.9,694.8 822.8,696.6 824.4,698.4 826.5,697.8 824.1,696.5 823.7,694.7 825,693 826.2,693.7 829.1,693.4 830,694 831,691.5 833.4,690.6 835.1,691.9 838.9,690.4 843.5,692.1 845.6,693.6 845.5,695 846.8,696.6 846.5,698.3 847.5,701.1 847.3,702.9 848.8,704.2 849.3,706.9 850.8,708.4 848.6,712.9 850.9,713.3 892.7,732.1 892.2,726.1 894.7,725.7 893.3,722.5 890.4,721.1 892,720.2 891.5,718.6 892.1,717.3 891.2,716 895,707 895.1,702.8 896.8,700.5 896.3,696.6 896.8,695 896.9,693.7 897,689.3 899.1,687.6 898,684.7 900.4,684.6 903.1,680 903.2,677.8 905.1,675.4 905.1,673.6 906.6,671.1 908.6,670.2 910.6,669 912.6,668.4 913.5,667.5 913.7,665.8 912.2,664 910.7,662.1 913.3,659.7 914.2,655.5 914.2,653.4 915.3,651.8 915.5,647.7 916.5,645.9 921.3,641.8 922.8,640 923.2,639 924,637.6 924.3,635.5 924.5,634.3 925.4,628.8 924,627.3 927.4,626.4 927.9,623.9 928,621.8 929.5,621.1 930.8,620.1 930.8,618.9 932.2,617.5 933.2,614 934.8,612.8 936.3,609.6 940.7,607 945.5,606.2 946.3,604.3 945.7,603.2 948.1,600.7 954,597.6 953.5,596.7 954.3,594.4 953.6,593.3 954.7,591.7 953.3,590.1 954.1,587 955.6,584.4 958.9,581.7 958.9,580.3 960.2,578.8 959.9,578 961.3,576.4 961.3,574.4 963.4,572.1 963,569.8 964.4,567.8 964,565.7 964.5,563.7 966.4,561.3 966.1,559.1 967.1,557.3 965.8,556.2 965.1,554.9 964.7,552.3 966,545.9 969.5,537.4 969.8,533.4 972,528.2 973.6,518.7 973.3,513.7 975.6,510.2 975.4,508.5 976.3,506.2 979.4,502.7 980,497.2 978.7,495.3 978.4,493.1 979.1,486.8 978.4,484.3Z"/></a>
+          <a href="#intake" class="is-here" aria-current="page" data-state="VIC" aria-label="Melbourne, Victoria (this page)"><path class="st" d="M892.7,732.1L850.9,713.3 848.6,712.9 850.8,708.4 849.3,706.9 848.8,704.2 847.3,702.9 847.5,701.1 846.5,698.3 846.8,696.6 845.5,695 845.6,693.6 843.5,692.1 838.9,690.4 835.1,691.9 833.4,690.6 831,691.5 830,694 829.1,693.4 826.2,693.7 825,693 823.7,694.7 824.1,696.5 826.5,697.8 824.4,698.4 822.8,696.6 822.9,694.8 822,694.4 820.8,695.1 818.2,694.6 812.9,691.8 810,691.3 808.3,691.6 806.8,693.4 803.8,692.9 803.1,693.5 797.6,692.4 796.5,691.1 792.9,691.5 787.8,687.8 785.9,687.5 783.1,688.6 779.3,688 774.3,688.5 773.4,689.2 772.6,692.1 773.5,694.6 771.5,694 769.6,695.5 767.9,695.6 761.1,690.6 758.7,686.1 754.6,683.5 752.7,681 750.2,680.2 749.8,679.3 745,676.6 740.4,674.8 740.3,672.1 736.4,670.4 735.1,668.3 734.3,664.5 735,660.3 734.2,659.7 733.2,659.9 732.8,658.9 729.8,657.5 726.3,656.7 726,657.2 724.8,656.4 723.6,656.9 723,655.4 721.4,654.4 719.9,654.9 719.1,658.3 717.6,658.5 717.9,659.8 715.6,659.4 713.7,654.9 711.8,653.1 711.4,650.2 712,647.9 709.8,647.3 708.7,646.2 708.2,644 706.1,643.1 704.8,643.4 703.8,642 698.8,642.4 695.6,641.8 691.7,644.7 690.9,643.5 688.1,642.5 686.6,642.8 684.5,640.9 679.8,640.6 678.7,639.4 677.9,638.6 678,746.6 681.9,748.5 687.7,752.8 688.3,754 690.2,755.1 692,756.7 693.1,755.5 693.8,753.3 696.9,752 701.3,752.6 706.8,755.7 712.1,754.8 714.6,755 714.9,755.9 721.9,760.4 727.9,761.9 731.7,765.1 734.9,765.2 739.2,767.9 742.3,766 743.2,764.4 746.6,763.4 751.5,758 754.7,756.6 759.9,753.1 765.8,752.7 767.3,750.8 767.1,748.9 765.9,748.4 762.8,749.8 762.6,748 763.6,746.3 766.3,745.5 769.5,743.5 770,742.4 771.9,742.4 773.7,742.4 774.8,745 776.8,746.4 777,749.3 773.7,754.1 769.5,755.1 767.7,753.9 766.4,753.9 772.8,758.6 775.2,758 776.8,755.9 779.6,756 779,753.7 780.2,751.5 785.2,751.3 787.4,755.3 786.2,756.3 784.2,756.4 784.5,758.4 783,759.3 786.4,760.4 788.4,763.1 791.6,762 792.2,762.6 794.5,765.2 796.1,769.1 798.1,768.9 798.4,767.1 800.2,766.8 802.3,768.1 804.9,772.4 805.8,774.4 807.4,775.5 809.5,773.3 808.4,772.1 809.5,769.6 807.8,767.8 804.8,769.2 804.3,766.8 802.3,765.1 803.3,764 806.3,763.5 807.8,764.7 812.7,763.1 817.8,762.4 818.2,763.3 831.3,750.9 839.9,744.7 843.7,742.9 853,740.4 863,740.4 864.4,739.7 872.8,739.1 875.6,739.5 877.7,739.4 881.3,739.3 885.7,736.9 887.8,734 888.1,733.3 890.9,733.1Z"/></a>
+          <a href="#" data-soon data-state="TAS" aria-label="Hobart, Tasmania"><path class="st" d="M766.4,826.8L766.5,830.6 768.9,834.4 768.2,835.7 770.9,839.1 772.2,843.3 773.2,843.6 775.6,847.2 779.1,850.3 780.5,854.5 782.4,855.1 782.9,857.5 785.2,859.9 784.5,861.3 779.9,858.3 778.6,856.4 779.7,863.6 781.2,866.1 780.5,867.3 782.5,868.5 783.3,870.2 782.9,871.3 786.3,876.7 788.4,877 790.5,879.1 791.5,880.4 794,885.5 796,884.3 796,883 798.6,886.4 796.6,887.5 798.6,889.8 798.6,892.4 800.5,891.5 802.5,892.1 804.9,891.9 806.1,891.2 810.2,891.9 812.3,892.4 814.9,894.5 817.1,894 818.2,894.8 819.3,892.6 820.5,890.4 821.8,889 820.9,886.8 824.2,885.7 825.7,884.9 828,884.5 827.7,881.2 829,880 829.8,878.9 832.2,879 834,878.4 835.2,877.2 833.8,874.6 834.6,873.4 836,873 838.3,875 838.1,877.4 836.8,878.9 839.7,880.6 838.5,882.1 840.7,884.2 842.5,883.2 843.4,882.6 844.8,881.5 844.5,879.7 845.1,877.4 845.8,875.4 843.7,874.8 843,873 843,871.4 844.6,870.3 844.2,866.9 844.6,865.9 845.8,864.9 845.8,861 844.8,860.2 847.5,856.5 847.9,853.9 849.6,852.8 853.3,854.4 852.8,852.6 853.5,849 851.9,845.9 853,844.6 852.5,843 853.2,840.8 852.4,836.6 854.1,832.4 853.4,831.8 852.2,830.1 853,826.4 853.6,824.7 850.7,820.5 849.1,820.3 847.6,818.5 845.3,817.7 843.7,820.8 842.1,821.7 838.9,821.2 837.4,820.1 835.8,820.9 832.4,824.9 830,823.2 828.7,823.1 825.9,824.9 822.3,824.1 818,825.7 815.7,826.4 813.6,827.2 812,829.5 811,828.2 808.1,829.1 803.1,828.8 796,825.8 793.4,825.4 791.5,823.1 787.8,822.3 786.6,820.6 784.7,821.2 782.1,820.4 780.1,819.2 777.3,819.2 777,819.9 773.8,817.9 768.6,817.4 766.9,815.7 767.1,821.3 765,822.8 764.7,824.6ZM849.7,796.4L844.6,790.5 842.5,791.3 842.4,793.3 842.8,795.4 843.5,797.5 844.3,799.3 846,802.1 847.1,803.5 848.7,805.3 850.1,804.8 850.8,803.6 851,801.5 852.4,800.3 852.8,797.1ZM746.4,796L747.6,797.3 747.2,799.5 748,801.5 753,799 753.7,796.2 752.8,795.3 753.3,793 752.9,789.3 750.1,786.9 749,789 747,790.2Z"/></a>
+        </g>
+        <g class="pins" aria-hidden="true">
+          <g class="pin" data-state="VIC" transform="translate(773.2 740.1)"><circle class="pin__ring" r="9"/><circle class="pin__dot" r="8"/><text x="-16" y="22" text-anchor="end">Melbourne</text></g>
+          <g class="pin" data-state="NSW" transform="translate(922.2 635.4)"><circle class="pin__ring" r="9"/><circle class="pin__dot" r="8"/><text x="-16" y="6" text-anchor="end">Sydney</text></g>
+          <g class="pin" data-state="QLD" transform="translate(965.6 465.6)"><circle class="pin__ring" r="9"/><circle class="pin__dot" r="8"/><text x="-16" y="6" text-anchor="end">Brisbane</text></g>
+          <g class="pin" data-state="WA" transform="translate(79.1 584.5)"><circle class="pin__ring" r="9"/><circle class="pin__dot" r="8"/><text x="16" y="6" text-anchor="start">Perth</text></g>
+          <g class="pin" data-state="SA" transform="translate(621.5 663.6)"><circle class="pin__ring" r="9"/><circle class="pin__dot" r="8"/><text x="-16" y="-12" text-anchor="end">Adelaide</text></g>
+          <g class="pin" data-state="TAS" transform="translate(829.6 874.6)"><circle class="pin__ring" r="9"/><circle class="pin__dot" r="8"/><text x="16" y="6" text-anchor="start">Hobart</text></g>
+        </g>
+      </svg>
+    </div>
+    <ul class="cities" role="list" data-edit="City buttons: the same six links as the map">
+      <li><a class="city is-here" href="#intake" data-state="VIC" aria-current="page">Melbourne <span>You are here</span></a></li>
+      <li><a class="city" href="#" data-soon data-state="NSW">Sydney</a></li>
+      <li><a class="city" href="#" data-soon data-state="QLD">Brisbane</a></li>
+      <li><a class="city" href="#" data-soon data-state="WA">Perth</a></li>
+      <li><a class="city" href="#" data-soon data-state="SA">Adelaide</a></li>
+      <li><a class="city" href="#" data-soon data-state="TAS">Hobart</a></li>
+    </ul>
+    <p class="others" data-edit="Links to the other formats"><span>Also:</span>
       <a class="tlink" href="index.html#training">Online teacher training</a><span class="others__sep" aria-hidden="true">·</span>
       <a class="tlink" href="index.html#training">Teacher training in India</a></p>
   </div>
 </section>
 
+<!-- ============ SCHOOL HISTORY (the lineage pair from the homepage, then Samir's own class photo) ============ -->
+<section class="band" id="history">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading">
+      <h2>Our yoga school history</h2>
+    </div>
+    <figure class="gens-pair" data-edit="Lineage: the two portraits joined by the Om, and a name and line under each">
+      <img class="gens-pair__img" src="brand-assets/web/lineage-pair.webp" width="1238" height="815" loading="lazy" decoding="async" alt="Yogacharya Arjun, Samir's grandfather, and Yogacharya Samir Rane adjusting a student in shoulder stand, joined by an Om">
+      <figcaption class="gens-pair__caps">
+        <span class="gen-cap"><b>Yogacharya Arjun</b><span>Samir's grandfather</span></span>
+        <span class="gen-cap"><b>Yogacharya Samir Rane</b><span>3rd generation. Teaching in Australia since 2010.</span></span>
+      </figcaption>
+    </figure>
+    <div class="story" data-edit="History: text">
+      <p>Yoga and Meditation School of India was established in Melbourne in 2010. It teaches traditional Ashtanga and Hatha yoga, and its teacher training is registered with Yoga Australia.</p>
+      <p>Graduates are trained to teach in Australia and internationally, and many now do.</p>
+    </div>
+    <figure class="photo-cap" data-edit="Photo and caption">
+      <img src="brand-assets/web/tt-samir-hall.webp" width="1290" height="720" loading="lazy" decoding="async" alt="Samir Rane standing among a large class on mats, all holding their feet in a bow-like pose">
+      <figcaption>Yogacharya Samir Rane teaching a class.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ WHY STUDENTS CHOOSE THE SCHOOL ============ -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading">
+      <h2>Why yoga seekers choose our school</h2>
+    </div>
+    <ul class="why" role="list" data-edit="Reasons: title, one or two lines (add, remove or reorder)">
+      <li class="wcard"><h3>Traditional teaching</h3><p>Ashtanga and Hatha taught step by step, the traditional way, without props. The focus is alignment, precision and the spiritual side of the practice.</p></li>
+      <li class="wcard"><h3>A new career, or a new you</h3><p>Demand for well-trained traditional yoga teachers is growing across Australia. Watch Samir on <a class="tlink" href="index.html#explore">ABC News</a>.</p></li>
+      <li class="wcard"><h3>A family heritage</h3><p>Founded by Yogacharya Samir Rane, a third-generation Ashtanga and Hatha teacher with more than 30 years of practice and teaching in India, New Zealand and Australia.</p></li>
+      <li class="wcard"><h3>Registered with Yoga Australia</h3><p>Our 200, 350 and 500 hour courses meet Yoga Australia's standards for professional teacher registration.</p></li>
+      <li class="wcard"><h3>Recognised worldwide</h3><p>We follow the Ashtanga and Hatha traditions strictly. Both are practised and recognised around the world.</p></li>
+      <li class="wcard"><h3>Insured on graduation</h3><p>Graduates can take out professional indemnity and public liability insurance straight away, in Australia and overseas.</p></li>
+      <li class="wcard"><h3>Small groups</h3><p>Groups stay small, so every trainee gets direct attention from the principal teacher for the whole course.</p></li>
+      <li class="wcard"><h3>Since 2010</h3><p>More than 15 years of teacher training in Australia, with hundreds of graduates.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ COURSE OVERVIEW (the course details that used to sit under the hero) ============ -->
+<section class="sec sec--tight" id="overview">
+  <div class="wrap ovw">
+    <div class="shead" data-edit="Section heading">
+      <h2>Course overview</h2>
+    </div>
+    <div class="ovw__txt" data-edit="Overview: text">
+      <p>Our Level 1, 200 hour teacher training is a hands-on, practical course for yoga students, yoga teachers and dedicated practitioners who want deeper knowledge, and for beginners too. It is built on Sage Patanjali's Ashtanga yoga, from the Yoga Sutras, and Swami Swatmarama's Hatha yoga, from the Hatha Yoga Pradipika of 1200 AD, two of the oldest and most respected yoga texts.</p>
+      <p>The course runs in Melbourne on Sundays, so you can keep working and look after your family. When you finish, you receive a 200 hour teaching certificate recognised in Australia and overseas.</p>
+    </div>
+    <dl class="cdet" data-edit="Course details: label and value pairs, from the course entry">
+      <div><dt>Level</dt><dd>200 Hour Level 1 teacher training</dd></div>
+      <div><dt>Location</dt><dd>Melbourne, Victoria, in person</dd></div>
+      <div><dt>Format</dt><dd>Sundays, so you can keep working</dd></div>
+      <div><dt>Duration</dt><dd>Five months. The exact schedule is confirmed when you enrol.</dd></div>
+      <div><dt>Registered with</dt><dd><a class="tlink" href="https://yogaaustralia.org.au/venue/yoga-and-meditation-school-of-india-melbourne-sydney/" target="_blank" rel="noopener">Yoga Australia</a>, recognised in Australia and overseas for insurance</dd></div>
+      <div><dt>Who can apply</dt><dd>All ages and levels, with a genuine wish to learn. Entry is by application and an interview with the course director.</dd></div>
+      <div><dt>Contact</dt><dd><a class="tlink" href="mailto:info@yogaschoolofindia.com.au?subject=Melbourne%20teacher%20training%20enquiry">info@yogaschoolofindia.com.au</a></dd></div>
+    </dl>
+  </div>
+</section>
+
 <!-- ============ WHO IT IS FOR ============ -->
-<section class="sec" id="who">
+<section class="sec sec--tight" id="who">
   <div class="wrap">
     <div class="shead" data-edit="Section heading + line">
       <h2>Who the course is for</h2>
@@ -1104,107 +1345,154 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
     </div>
     <div class="paths paths--two" data-edit="Two cards: photo, title, text">
       <div class="path">
-        <img src="brand-assets/dummy/tt-02-teacher.jpg" width="1100" height="733" loading="lazy" decoding="async" alt="" data-edit="Placeholder photo">
+        <img src="brand-assets/web/tt-who-teach.webp" width="1100" height="650" loading="lazy" decoding="async" alt="A teacher training group with Samir Rane in the studio">
         <div class="path__in">
           <h3>You want to teach</h3>
-          <p>No teaching experience is needed.</p>
+          <p>No teaching experience is needed. You are trained from the basics and mentored to start your own classes.</p>
         </div>
       </div>
       <div class="path">
-        <img src="brand-assets/dummy/tt-11-practice-twist.jpg" width="1100" height="619" loading="lazy" decoding="async" alt="" data-edit="Placeholder photo">
+        <img src="brand-assets/web/tt-who-study.webp" width="1100" height="825" loading="lazy" decoding="async" alt="Samir Rane watching students hold a twisting pose">
         <div class="path__in">
           <h3>You want to study yoga in depth</h3>
-          <p>The course is also for dedicated students seeking deeper knowledge.</p>
+          <p>For dedicated students who want deeper knowledge, and for your own self-development.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ WHAT YOU STUDY ============ -->
-<section class="sec" id="syllabus">
+<!-- ============ SYLLABUS (each module carries its full text; no summary-then-detail repeat) ============ -->
+<section class="band" id="syllabus">
   <div class="wrap">
     <div class="shead" data-edit="Section heading">
-      <h2>What the 200 hours cover</h2>
+      <h2>The Level 1, 200 hour syllabus</h2>
     </div>
-    <ul class="topics" role="list" data-edit="Six syllabus topics: photo (circle), title, one line">
-      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-04-study-manuscripts.jpg" width="1100" height="733" loading="lazy" decoding="async" alt=""></span>
-        <h3>Philosophy</h3><p>Patanjali's Yoga Sutras, the Hatha Yoga Pradipika and the Bhagavad Gita.</p></li>
-      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-10-practice-forward-bend.jpg" width="1100" height="619" loading="lazy" decoding="async" alt=""></span>
-        <h3>Asana</h3><p>More than 50 postures in eight categories, and Suryanamaskar with its mantra.</p></li>
-      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-05-notes.jpg" width="1100" height="733" loading="lazy" decoding="async" alt=""></span>
-        <h3>Anatomy</h3><p>The body's systems and alignment, with chakras, nadis and bandhas.</p></li>
-      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-03-pranayama.jpg" width="1100" height="733" loading="lazy" decoding="async" alt=""></span>
-        <h3>Pranayama</h3><p>Ujjayi, nadi shodhana, kapalabhati and sitali, with bandhas and mudras.</p></li>
-      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-13-detail-mudra.jpg" width="1100" height="733" loading="lazy" decoding="async" alt=""></span>
-        <h3>Meditation and mantra</h3><p>Dharana and dhyana, with mantra and Sanskrit terminology.</p></li>
-      <li class="topic"><span class="topic__av"><img src="brand-assets/dummy/tt-01-hero-class.jpg" width="1800" height="1202" loading="lazy" decoding="async" alt=""></span>
-        <h3>Teaching</h3><p>Running a class of 15 and a class of 50. Mock teaching with feedback.</p></li>
+    <ul class="mods" role="list" data-edit="Syllabus modules: photo or video, title, text (add, remove or reorder)">
+      <li class="mod">
+        <a class="vid mod__vid" href="https://www.youtube.com/watch?v=qAIPy_PojqM" data-yt="qAIPy_PojqM" data-title="Teacher trainees reciting the Gayatri mantra">
+          <span class="vid__media">
+            <img class="mod__img" src="brand-assets/web/vid-mantra.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Teacher trainees seated in a hall, reciting a mantra with course manuals open">
+            <span class="vid__play" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Watch the trainees reciting the Gayatri mantra</span>
+        </a>
+        <div class="mod__in">
+          <h3>Philosophy, mantra and Sanskrit</h3>
+          <p>Ashtanga and Hatha yoga, Patanjali's Yoga Sutras and their meaning, the Bhagavad Gita, and an introduction to the Vedas and Upanishads.</p>
+          <p>You learn Sanskrit shlokas, mantras and chants: their meaning, pronunciation and how to use them in your classes. The video shows trainees reciting the Gayatri mantra.</p>
+        </div>
+      </li>
+      <li class="mod">
+        <img class="mod__img" src="brand-assets/web/tt-syl-asana.webp" width="1057" height="785" loading="lazy" decoding="async" alt="Trainees in a warrior pose with their course notes on the floor">
+        <div class="mod__in">
+          <h3>Suryanamaskar and asana</h3>
+          <p>Suryanamaskar in levels, moving with the breath, done the traditional way with its mantra. More than 50 asanas, beginner to advanced, with alignment, modifications and safe sequencing for elderly people, adults, teens and kids.</p>
+          <ul class="tags" role="list"><li>Standing and balancing</li><li>Forward bends</li><li>Backward bends</li><li>Abdominal</li><li>Inversions</li><li>Sitting</li><li>Twists</li><li>Shavasana</li></ul>
+        </div>
+      </li>
+      <li class="mod">
+        <img class="mod__img" src="brand-assets/web/tt-syl-anatomy.webp" width="1100" height="733" loading="lazy" decoding="async" alt="Trainees at a lecture with drawings of the spine on the screen">
+        <div class="mod__in">
+          <h3>Modern and yogic anatomy</h3>
+          <p>The nervous, endocrine, lymphatic, respiratory, cardiovascular, digestive and musculoskeletal systems, with biomechanics and alignment in the asanas.</p>
+          <p>Then yogic anatomy: the chakras, the nadis that carry prana, and the bandhas. You learn self-correction and the precautions to take in asana and pranayama.</p>
+        </div>
+      </li>
+      <li class="mod">
+        <img class="mod__img mod__img--high" src="brand-assets/web/tt-syl-pranayama.webp" width="1100" height="1498" loading="lazy" decoding="async" alt="A student in white seated for pranayama, one hand raised to the nose">
+        <div class="mod__in">
+          <h3>Pranayama</h3>
+          <p>Classical breathing techniques with bandhas and mudras: ujjayi (victory breath), nadi shodhana (alternate nostril), kapalabhati (breath of fire), sitali (cooling breath) and more.</p>
+          <p>You learn how the breath directs prana, and the precautions for each technique.</p>
+        </div>
+      </li>
+      <li class="mod">
+        <img class="mod__img" src="brand-assets/web/tt-syl-meditation.webp" width="743" height="1228" loading="lazy" decoding="async" alt="A trainee in a school T-shirt sitting still in meditation">
+        <div class="mod__in">
+          <h3>Meditation</h3>
+          <p>Dharana and dhyana, using traditional techniques passed down for generations. You practise them during the training, going further than concentrating on an object or visualising.</p>
+        </div>
+      </li>
+      <li class="mod">
+        <img class="mod__img mod__img--high" src="brand-assets/web/tt-syl-kundalini.webp" width="1100" height="1273" loading="lazy" decoding="async" alt="Samir Rane seated cross-legged in white">
+        <div class="mod__in">
+          <h3>Shatkarma, kundalini and karma yoga</h3>
+          <p>The cleansing techniques of traditional Hatha yoga, recorded around 1200 AD. Kundalini energy, which the practice works towards.</p>
+          <p>Karma yoga from the Vedas, put to work in daily life, with self-enquiry into who you are and where you are going.</p>
+        </div>
+      </li>
     </ul>
-    <details class="more more--shade" data-edit="Full syllabus: one row per module (optional detail)">
-      <summary>See the full syllabus <span class="tog" aria-hidden="true"></span></summary>
-      <div class="more__body">
-        <dl class="syl">
-          <div><dt>Philosophy</dt><dd>Ashtanga and Hatha yoga, the Yoga Sutras, Sanskrit shlokas and mantras, the Bhagavad Gita, an introduction to the Vedas and Upanishads</dd></div>
-          <div><dt>Suryanamaskar</dt><dd>Levels and progressive sequences, with the mantra used in the practice</dd></div>
-          <div><dt>Asana</dt><dd>Standing and balancing, forward bends, backward bends, abdominal postures, inversions, sitting postures, twists and shavasana; alignment, modifications and safe sequencing</dd></div>
-          <div><dt>Anatomy</dt><dd>Nervous, endocrine, lymphatic, respiratory, cardiovascular, digestive and musculoskeletal systems; biomechanics and alignment</dd></div>
-          <div><dt>Yogic anatomy</dt><dd>Chakras, nadis and bandhas</dd></div>
-          <div><dt>Pranayama</dt><dd>Ujjayi, nadi shodhana, kapalabhati and sitali; bandhas and mudras</dd></div>
-          <div><dt>Meditation</dt><dd>Dharana and dhyana</dd></div>
-          <div><dt>Shatkarmas</dt><dd>The cleansing practices of Hatha yoga</dd></div>
-          <div><dt>Further study</dt><dd>Kundalini, karma yoga, Sanskrit terminology, mantras and chants</dd></div>
-          <div><dt>Teaching</dt><dd>Class preparation, instructing a class of 15 and a class of 50, alignment, mixed levels, mock teaching with feedback</dd></div>
-          <div><dt>Specialist classes</dt><dd>Pre and post pregnancy, people with special needs, kids and teens, private classes face to face and online</dd></div>
-          <div><dt>Business</dt><dd>Starting your own classes, promotion, applying for teaching work, mentoring from the school director</dd></div>
-        </dl>
-      </div>
-    </details>
   </div>
 </section>
 
-<!-- ============ HOW WE TEACH IT ============ -->
-<section class="sec" id="method">
-  <div class="wrap">
-    <div class="shead" data-edit="Section heading">
-      <h2>How we teach it</h2>
-    </div>
-    <div class="points" data-edit="Three statements: title, one line">
-      <div class="point"><h3>From the source texts</h3><p>Patanjali's Ashtanga yoga and Swatmarama's Hatha Yoga Pradipika.</p></div>
-      <div class="point"><h3>No props</h3><p>The classical systems as they were written.</p></div>
-      <div class="point"><h3>Small groups</h3><p>Each trainee gets direct attention from the principal teacher.</p></div>
-    </div>
-    <a class="vid vid--wide" href="https://www.youtube.com/watch?v=qAIPy_PojqM" data-yt="qAIPy_PojqM" data-title="Teacher trainees reciting the Gayatri mantra" data-edit="Video: YouTube link, thumbnail, caption">
-      <span class="vid__media">
-        <img src="brand-assets/web/vid-mantra.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Teacher trainees seated in a hall, reciting a mantra with course manuals open">
-        <span class="vid__play" aria-hidden="true"></span>
-      </span>
-      <span class="vid__cap"><b>Trainees reciting the Gayatri mantra</b><span>Teacher training group, 2014</span></span>
-    </a>
-  </div>
-</section>
-
-<!-- ============ WHO TEACHES YOU ============ -->
+<!-- ============ WHO TEACHES YOU (read more opens inside the box, so nobody is sent away from this page) ============ -->
 <section class="sec" id="teachers">
   <div class="wrap">
     <div class="shead" data-edit="Section heading">
       <h2>Who teaches you</h2>
     </div>
-    <ul class="teachers" role="list" data-edit="Teachers: photo (circle), name, role, one line">
-      <li class="grad">
+    <ul class="tcards" role="list" data-edit="Teachers: photo (circle), name, role, one line, full biography">
+      <li class="tcard">
         <span class="grad__av grad__av--lg"><img src="brand-assets/web/teacher-samir-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
         <p class="grad__nm">Yogacharya Samir Rane</p>
         <p class="grad__role">Principal Yoga Teacher</p>
         <p class="grad__at">Third generation of a yogic family.<br><a class="tlink" href="https://yogaaustralia.org.au/teachers/samir-rane/" target="_blank" rel="noopener">Registered Senior Teacher with Yoga Australia</a>.</p>
+        <details class="tmore">
+          <summary><span class="tmore__o">Read more</span><span class="tmore__c">Read less</span><span class="sr-only"> about Samir Rane</span></summary>
+          <div class="tmore__body">
+            <p>Samir comes from a family in India where yoga is followed as a tradition, and he is the third generation to carry the lineage. He has taught students in Australia, New Zealand and India, and has been associated with yoga for 33 years.</p>
+            <p>More than 20,000 students have attended his public classes in Melbourne. He also joined a panel for the ABC's India Now, on the history of the yoga tradition.</p>
+          </div>
+        </details>
       </li>
-      <li class="grad">
+      <li class="tcard">
         <span class="grad__av grad__av--lg"><img src="brand-assets/web/teacher-shilpa-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
         <p class="grad__nm">Shilpa Rane</p>
         <p class="grad__role">Director of Yoga Education</p>
         <p class="grad__at">Background in medical microbiology, human anatomy and genetics.</p>
+        <details class="tmore">
+          <summary><span class="tmore__o">Read more</span><span class="tmore__c">Read less</span><span class="sr-only"> about Shilpa Rane</span></summary>
+          <div class="tmore__body">
+            <p>Shilpa is the school's Director of Yoga Education and senior teaching faculty. She brings knowledge of scientific human anatomy and of yoga philosophy, and has trained in Sanskrit mantras with yoga masters since childhood.</p>
+            <p>She is also an astrologer and a qualified Ayurveda practitioner specialising in nutrition, and has worked as a specialist lecturer in hospitals and research centres.</p>
+          </div>
+        </details>
       </li>
     </ul>
-    <div class="center-row"><a href="index.html#founders" class="btn btn--ghost">About Samir and Shilpa</a></div>
+    <p class="book-note" data-edit="One line under the teachers">Samir and Shilpa also show how they use yoga in clinics, childcare, studios, gyms and with people with special needs.</p>
+  </div>
+</section>
+
+<!-- ============ PRACTICAL TEACHING METHODOLOGY ============ -->
+<section class="sec sec--tight" id="method">
+  <div class="wrap">
+    <div class="shead" data-edit="Section heading + line">
+      <h2>Practical teaching methodology</h2>
+      <p>You are trained and mentored to teach asana and pranayama, keeping to the tradition and its precautions.</p>
+    </div>
+    <ul class="ticks" role="list" data-edit="Teaching skills: one line each">
+      <li>Preparing before you take a class</li>
+      <li>Leading a class of 15 and a class of 50 or more, with timing for each asana</li>
+      <li>Keeping a class alert and enjoyable from start to finish</li>
+      <li>Staying with the traditional system while you teach</li>
+      <li>Holding correct alignment as you demonstrate, and avoiding injury</li>
+      <li>Explaining each asana's benefits and precautions as you teach</li>
+      <li>Teaching beginners and regular students, together or apart</li>
+      <li>Teaching in a club and in a dedicated yoga class</li>
+      <li>Keeping your own practice going in a busy teaching week</li>
+    </ul>
+    <ul class="mods mods--sm" role="list" data-edit="Teaching modules: title, text">
+      <li class="mod"><div class="mod__in"><h3>Pre and post pregnancy</h3><p>The traditional methods used in these periods, with insight from our own teachers' case studies.</p></div></li>
+      <li class="mod"><div class="mod__in"><h3>People with special needs</h3><p>How to take care of people with special needs in your classes.</p></div></li>
+      <li class="mod"><div class="mod__in"><h3>Kids and teens</h3><p>How to teach school children and run a kids' class across age groups.</p></div></li>
+      <li class="mod"><div class="mod__in"><h3>Private classes</h3><p>A session of its own on one-to-one classes, face to face and online.</p></div></li>
+      <li class="mod"><div class="mod__in"><h3>Mock group teaching</h3><p>Every trainee leads mock classes within the group, gets feedback, and learns to observe others teaching.</p></div></li>
+      <li class="mod"><div class="mod__in"><h3>A teacher's role</h3><p>The vision to bring to public classes, in a studio or a club, and how to become a successful teacher in your community.</p></div></li>
+      <li class="mod"><div class="mod__in"><h3>Starting your own classes</h3><p>Advertising and marketing tips, and the stories of past trainees who now run their own studios.</p></div></li>
+      <li class="mod"><div class="mod__in"><h3>Mentoring for teaching work</h3><p>How to apply for yoga jobs, with mentoring from the school's director for trainees who meet the course requirements.</p></div></li>
+    </ul>
+    <p class="ps" data-edit="Note on yoga styles"><b>Also covered:</b> why yoga has so many style names, and what an Ashtanga or Hatha class should be according to the original teachings. Iyengar, Krama Vinyasa, Vinyasa and Kriya yoga are explained, along with newer names such as Yin, Power and Hot yoga.</p>
   </div>
 </section>
 
@@ -1221,30 +1509,128 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
     </ul>
     <div class="tt-after" data-edit="Insurance line, Level 2 line">
       <p>Graduates receive a 200-hour teaching certificate and are eligible for professional indemnity and public liability insurance in Australia and overseas.</p>
-      <p>The <a class="tlink" href="#" data-soon>350 Hour Level 2</a> is open to Level 1 graduates.</p>
+      <p>The <a class="tlink" href="#" data-soon>350 Hour Level 2</a> adds 150 hours and is open to Level 1 graduates.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ GRADUATES ============ -->
+<!-- ============ GRADUATES (two streams: those who now teach, and students in their own words on Google) ============ -->
 <section class="sec" id="graduates">
   <div class="wrap">
-    <div class="shead" data-edit="Section heading">
+    <div class="shead" data-edit="Section heading + line">
       <h2>Where our graduates teach now</h2>
+      <p>Some trainees go on to teach. Others come for their own self-development.</p>
     </div>
-    <figure class="pull" data-edit="Graduate quote: text, name">
-      <blockquote><p>The 2.5hr trip each way on a Sunday provided a fabulous opportunity to reflect on the course's teachings and of course chant!</p></blockquote>
-      <figcaption><b>Tameeka Vera</b></figcaption>
-    </figure>
-    <div class="grads-box">
-    <ul class="grads" role="list" data-edit="Graduates: photo (circle), name, school or place">
-      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-placeholder-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Lisa Sommerlad</p><p class="grad__at">Bindu Creative Dance &amp; Yoga, Footscray</p></li>
-      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-placeholder-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Julien Orriols</p><p class="grad__at">Yoga Essence Institute, France</p></li>
-      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-tameeka-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Tameeka Vera</p><p class="grad__at">Thank You Yoga, Heyfield</p></li>
-      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-placeholder-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Jo Wallis</p><p class="grad__at">Mortlake Yoga and Wellness</p></li>
-      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-kym-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Kym Wilson</p><p class="grad__at">Kym Yoga and Music, Melbourne</p></li>
-      <li class="grad"><span class="grad__av"><img src="brand-assets/web/grad-emma-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span><p class="grad__nm">Emma Parker</p><p class="grad__at">Taught in Dili, now in New South Wales</p></li>
-    </ul>
+    <div class="streams">
+      <div class="stream" data-edit="Graduates who teach: photo, name, school and place, their words">
+        <div class="stream__h">
+          <h3>Now teaching</h3>
+          <p>Graduates and the schools they run</p>
+        </div>
+        <ul class="gcards" role="list" id="gradList">
+          <li class="gcard" data-rm>
+            <div class="gcard__h"><span class="gcard__av"><img src="brand-assets/web/grad-tameeka-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
+              <span><b class="gcard__nm">Tameeka Vera</b><span class="gcard__at">Thank You Yoga, Heyfield, 207 km from Melbourne</span></span></div>
+            <blockquote><p class="clamp">As a dairy farmer and mother of 3 young boys, committing the time to my yoga teacher training with Yoga and Meditation School Of India was a big decision to make. However it changed not only my life but that of my family, which we will be forever grateful for. The 2.5hr trip each way on a Sunday provided a fabulous opportunity to reflect on the course's teachings and of course chant! Now I share this traditional, honest and amazing knowledge with the people of my local town (Heyfield) who constantly thank and love what this true yoga brings to their lives. From sharing with adults I have now incorporated these traditional teachings into children's classes and it simply lights up your life when you can make this kind of difference for someone else.</p></blockquote>
+            <button type="button" class="rm" aria-expanded="false">Read more</button>
+          </li>
+          <li class="gcard" data-rm>
+            <div class="gcard__h"><span class="gcard__av"><img src="brand-assets/web/grad-lisa-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
+              <span><b class="gcard__nm">Lisa Sommerlad</b><span class="gcard__at">Bindu Creative Dance &amp; Yoga, Footscray</span></span></div>
+            <blockquote><p class="clamp">I have joyfully taught creative dance for the last 7 years, which has its foundations in yoga. Since completing [the] teacher training with Yoga and Meditation School of India, in Melbourne, I am blessed to realise that my life now also has its foundations in yoga. I teach Mums &amp; Bubs yoga, Kids yoga and Adult classes in schools and studios throughout Melbourne. As Bindu Creative Dance &amp; Yoga, I can be found teaching weekly adult yoga and creative dance &amp; yoga classes for toddlers to tweens at The Body Voice Centre in Footscray.</p></blockquote>
+            <button type="button" class="rm" aria-expanded="false">Read more</button>
+          </li>
+          <li class="gcard" data-rm>
+            <div class="gcard__h"><span class="gcard__av"><img src="brand-assets/web/grad-jo-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
+              <span><b class="gcard__nm">Jo Wallis</b><span class="gcard__at">Mortlake Yoga and Wellness Studio, 217 km south-west of Melbourne</span></span></div>
+            <blockquote><p class="clamp">Since completing my Yoga Teacher Training in February 2017 from this school, I have been teaching Traditional Yoga within my small local community of Mortlake, SW Victoria. Classes range from 4 year old Kinder kids to general classes up to the age of 80, and most recently monthly advanced yoga intensives for those wanting to deepen their practice further. Classes are held in our beautiful home studio set within our gardens and small farm. …</p></blockquote>
+            <button type="button" class="rm" aria-expanded="false">Read more</button>
+          </li>
+          <li class="gcard" data-rm hidden>
+            <div class="gcard__h"><span class="gcard__av"><img src="brand-assets/web/grad-julien-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
+              <span><b class="gcard__nm">Julien Orriols</b><span class="gcard__at">Yoga Essence Institute, France. Taught 15 or more classes a week in Melbourne studios.</span></span></div>
+            <blockquote><p class="clamp">Thanks to Samir and Shilpa I have become aware there is much more to life than just this physical world in which we are stuck, in turn restraining the mind. … Yoga has exceeded my expectations, not just with the suppleness gained by my body but also of the mind and has literally changed my life, for the better. For ever grateful to all my Teachers. I know there is so much more to come as I delve deeper in the energy bodies and I hope to continue inspiring people to reach their full life's potential for a long time.</p></blockquote>
+            <button type="button" class="rm" aria-expanded="false">Read more</button>
+          </li>
+          <li class="gcard" data-rm hidden>
+            <div class="gcard__h"><span class="gcard__av"><img src="brand-assets/web/grad-kym-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
+              <span><b class="gcard__nm">Kym Wilson</b><span class="gcard__at">Kym Yoga and Music, Melbourne</span></span></div>
+            <blockquote><p class="clamp">I started teaching yoga and meditation shortly after completing the Yoga Teacher Training Course at the Yoga and Meditation School of India in Melbourne. I am currently teaching Adults and Teens yoga along with my Music classes. I am grateful to Samir for the excellent tuition and continuing guidance.</p></blockquote>
+            <button type="button" class="rm" aria-expanded="false">Read more</button>
+          </li>
+          <li class="gcard" data-rm hidden>
+            <div class="gcard__h"><span class="gcard__av"><img src="brand-assets/web/grad-emma-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
+              <span><b class="gcard__nm">Emma Parker</b><span class="gcard__at">Taught in Dili, now teaching in New South Wales</span></span></div>
+            <blockquote><p class="clamp">After completing my yoga teacher training level 1 course with Yoga and Meditation School of India in Melbourne I started teaching yoga in Dili, the capital of Timor-Leste, the country located just above Darwin. I was teaching for one year at a small studio called Dili Wellness, which offers yoga, pilates, massage, and dance. It was interesting to teach people from such a variety of ages and cultural backgrounds, including Timorese people who had never even heard of yoga before. I also taught at an international school and at a women's shelter, a very special and enriching experience. We recently moved to Sydney, and I teach yoga once a week to university students living at the residential college where I work. The students love it as a study break! I've started teaching meditation and yoga nidra sessions with them as well.</p></blockquote>
+            <button type="button" class="rm" aria-expanded="false">Read more</button>
+          </li>
+        </ul>
+        <button type="button" class="btn btn--ghost btn--sm more-btn" data-more="gradList">Show more graduates</button>
+      </div>
+      <div class="stream" data-edit="Google reviews: pulled live from the Business Profiles at build; only training-related ones shown here">
+        <div class="stream__h">
+          <h3>Self-development</h3>
+          <p>Students in their own words, from Google</p>
+        </div>
+        <div class="gr-top">
+          <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          <span class="gr-score"><b>4.9</b><span class="gr-stars" role="img" aria-label="Rated 4.9 out of 5">★★★★★</span></span>
+          <a class="btn btn--ghost btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=Yoga+and+Meditation+School+of+India+Melbourne" target="_blank" rel="noopener">See all on Google</a>
+        </div>
+        <div class="gcards" id="revList">
+        <figure class="gr-card" data-rm>
+          <div class="gr-card__h">
+            <span class="gr-av" style="background:#AB5A1B" aria-hidden="true">V</span>
+            <figcaption class="gr-who"><b>Vidura Wijesekara</b><span>4 weeks ago · Oakleigh</span></figcaption>
+            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote><p class="clamp">As a Personal Trainer, I wanted to learn yoga to better understand movement and the connection between the mind and body, so I decided to take the 200-hour Yoga Teacher Training Course. … Samir Rane and Shilpa Rane were fantastic teachers. They shared their knowledge and experience with so much patience and genuine care.</p></blockquote>
+          <button type="button" class="rm" aria-expanded="false">Read more</button>
+        </figure>
+        <figure class="gr-card" data-rm>
+          <div class="gr-card__h">
+            <span class="gr-av" style="background:#444444" aria-hidden="true">E</span>
+            <figcaption class="gr-who"><b>Emma Pryce-Baxter</b><span>3 months ago · Oakleigh</span></figcaption>
+            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote><p class="clamp">I was searching for a Traditional Hatha and Ashtanga Yoga school in Melbourne, Australia, to undertake my Yoga Teacher Training. I found this and so much more with Samir and Shilpa. … Samir and Shilpa teach with great depth, wisdom, and compassion, creating a learning environment that is both supportive and inspiring.</p></blockquote>
+          <button type="button" class="rm" aria-expanded="false">Read more</button>
+        </figure>
+        <figure class="gr-card" data-rm>
+          <div class="gr-card__h">
+            <span class="gr-av" style="background:#7C5A3C" aria-hidden="true">S</span>
+            <figcaption class="gr-who"><b>Shasta Rianne</b><span>3 months ago · Cheltenham</span></figcaption>
+            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote><p class="clamp">I studied Level 1 Yoga Teacher Training online with Samir 4 years ago and have attended his traditional Ashtanga &amp; Hatha style classes via zoom ever since. The zoom classes are great as I can still attend no matter where I am in the world and they help me stay disciplined in my practise.</p></blockquote>
+          <button type="button" class="rm" aria-expanded="false">Read more</button>
+        </figure>
+        <figure class="gr-card" data-rm hidden>
+          <div class="gr-card__h">
+            <span class="gr-av" style="background:#AB5A1B" aria-hidden="true">S</span>
+            <figcaption class="gr-who"><b>Shaheen Bal</b><span>3 months ago · Oakleigh</span></figcaption>
+            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote><p class="clamp">I cannot recommend this school enough. Their depth in both Ashtanga and Hatha philosophy is exceptional, taught with so much care for alignment, breath and the meaning behind every practice. Samir is a truly gifted teacher whose guidance and wisdom stay with you long after class ends.</p></blockquote>
+          <button type="button" class="rm" aria-expanded="false">Read more</button>
+        </figure>
+        <figure class="gr-card" data-rm hidden>
+          <div class="gr-card__h">
+            <span class="gr-av" style="background:#444444" aria-hidden="true">A</span>
+            <figcaption class="gr-who"><b>Ava Senaratne</b><span>3 months ago · McKinnon</span></figcaption>
+            <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <div class="gr-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote><p class="clamp">I really enjoy my yoga classes here. I appreciated the traditional approach and found it both energising and a great workout. … I left feeling stronger, refreshed, and well cared for throughout the session.</p></blockquote>
+          <button type="button" class="rm" aria-expanded="false">Read more</button>
+        </figure>
+        </div>
+        <button type="button" class="btn btn--ghost btn--sm more-btn" data-more="revList">Load more reviews</button>
+      </div>
     </div>
     <p class="book-note" data-edit="One line under the graduates">Trainees travel from Port Fairy, Ballarat and further for the Sunday training. Some drive four to six hours.</p>
   </div>
@@ -1261,6 +1647,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
       <li class="step"><span class="step__n" aria-hidden="true">2</span><h3>Get the fee</h3><p>We reply by email with the fee for this intake. The exact Sunday schedule is confirmed when you enrol.</p></li>
       <li class="step"><span class="step__n" aria-hidden="true">3</span><h3>Meet the course director</h3><p>Entry is subject to approval after an interview.</p></li>
     </ol>
+    <p class="apply-note" data-edit="Note under the steps">Every trainee is mentored from the basics. What we ask for is hard work, a passion to learn yoga the right way, and time set aside for the course. Come to learn and deepen your practice, as well as to qualify.</p>
   </div>
 </section>
 
@@ -1281,7 +1668,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
       </details>
       <details name="faq">
         <summary>How long does the 200-hour training take? <span class="tog" aria-hidden="true"></span></summary>
-        <p>Six months, on Sundays, so you can keep working. The exact schedule is confirmed when you enrol.</p>
+        <p>Five months, on Sundays, so you can keep working. The exact schedule is confirmed when you enrol.</p>
       </details>
       <details name="faq">
         <summary>Can I teach yoga after the course? <span class="tog" aria-hidden="true"></span></summary>
@@ -1293,7 +1680,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
       </details>
       <details name="faq">
         <summary>How is this school different? <span class="tog" aria-hidden="true"></span></summary>
-        <p>We teach classical Ashtanga and Hatha from the source texts, without props. The principal teacher, Samir Rane, is a Registered Senior Teacher with Yoga Australia and the third generation of a yogic family.</p>
+        <p>We teach classical Ashtanga and Hatha from the source texts, without props. The principal teacher, Samir Rane, is a Registered Senior Teacher with Yoga Australia and the third generation of a yogic family, with more than 30 years in yoga and 16 years of teaching in Australia.</p>
       </details>
       <details name="faq">
         <summary>Can I do the teacher training online? <span class="tog" aria-hidden="true"></span></summary>
@@ -1395,7 +1782,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
       <div>
         <p class="ftr__h">School</p>
         <ul>
-          <li><a href="index.html#tradition">School tradition</a></li>
+          <li><a href="index.html#lineage">School tradition</a></li>
           <li><a href="index.html#founders">Samir &amp; Shilpa</a></li>
           <li><a href="index.html#reviews">Google reviews</a></li>
           <li><a href="#" data-soon>Retreats</a></li>
@@ -1549,7 +1936,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
      together are staggered 70ms apart. The hero, intake table, timetable rows, prices and
      the form stay still. Afterwards the helper classes come off, so hover styles are untouched. */
   if ('IntersectionObserver' in window && !reduced) {
-    var RV = '.shead, .intakes, .paths > .path, .topics > .topic, .more, .points > .point, .vid--wide, .teachers > .grad, .figs > .fig, .pull, .grads > .grad, .steps > .step, .faq, .faq-more';
+    var RV = '.shead, .intakes, .ausmap, .cities, .gens-pair, .story, .photo-cap, .why > .wcard, .cdet, .paths > .path, .mods > .mod, .tcards > .tcard, .ticks, .ps, .figs > .fig, .streams > .stream, .steps > .step, .apply-note, .faq, .faq-more';
     var rvEls = Array.prototype.slice.call(document.querySelectorAll(RV));
     document.documentElement.classList.add('js-reveal');
     var rvIO = new IntersectionObserver(function(entries){
@@ -1646,6 +2033,47 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
     if (first) { first.focus(); return; }
     document.getElementById('enquiry').classList.add('is-sent');
     document.getElementById('sentHeading').focus();
+  });
+
+  /* read more: a quote or review shows four lines; the button appears only when there is more */
+  var rmCards = Array.prototype.slice.call(document.querySelectorAll('[data-rm]'));
+  function rmFit(){
+    rmCards.forEach(function(card){
+      var p = card.querySelector('.clamp'), b = card.querySelector('.rm');
+      if (!card.classList.contains('is-open')) b.hidden = !card.offsetParent || p.scrollHeight <= p.clientHeight + 2;
+    });
+  }
+  rmCards.forEach(function(card){
+    var b = card.querySelector('.rm');
+    b.addEventListener('click', function(){
+      var open = card.classList.toggle('is-open');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      b.textContent = open ? 'Read less' : 'Read more';
+    });
+  });
+  rmFit(); window.addEventListener('resize', rmFit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(rmFit);
+
+  /* load more: shows the rest of a list, then moves focus to the first new item */
+  document.querySelectorAll('[data-more]').forEach(function(b){
+    var list = document.getElementById(b.getAttribute('data-more'));
+    b.addEventListener('click', function(){
+      var shown = Array.prototype.slice.call(list.querySelectorAll('[hidden]'));
+      shown.forEach(function(el){ el.hidden = false; });
+      rmFit();
+      if (shown[0]) { shown[0].setAttribute('tabindex', '-1'); shown[0].focus(); }
+      b.remove();
+    });
+  });
+
+  /* city map: a state and its city button light up together */
+  function lit(st, on){ document.querySelectorAll('.ausmap a[data-state="' + st + '"], .city[data-state="' + st + '"]').forEach(function(el){ el.classList.toggle('is-lit', on); }); }
+  document.querySelectorAll('.ausmap a[data-state], .city[data-state]').forEach(function(el){
+    var st = el.getAttribute('data-state');
+    el.addEventListener('mouseenter', function(){ lit(st, true); });
+    el.addEventListener('mouseleave', function(){ lit(st, false); });
+    el.addEventListener('focus', function(){ lit(st, true); });
+    el.addEventListener('blur', function(){ lit(st, false); });
   });
 
   /* links to pages that do not exist yet: no silent jump to the top */
