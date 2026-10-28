@@ -956,6 +956,8 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
 .photo-cap{max-width:900px;margin:var(--gap-block) auto 0}
 .photo-cap img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-img)}
 .photo-cap figcaption{margin-top:12px;text-align:center;font-size:.875rem;color:var(--muted)}
+.photo-cap--top{margin:0 auto var(--gap-block)}
+.path img.path__img--low{object-position:center 62%}
 
 /* why: eight short reasons */
 .why{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,24px)}
@@ -1275,6 +1277,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
 <section class="band" id="history">
   <div class="wrap">
     <div class="shead" data-edit="Section heading">
+      <p class="eyebrow">The living tradition of Ashtanga &amp; Hatha Yoga</p>
       <h2>Our yoga school history</h2>
     </div>
     <figure class="gens-pair" data-edit="Lineage: the two portraits joined by the Om, and a name and line under each">
@@ -1285,6 +1288,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
       </figcaption>
     </figure>
     <div class="story" data-edit="History: text">
+      <p>Rooted in an unbroken family tradition of classical yoga, our teachings carry forward the timeless wisdom, discipline and spiritual heritage of generations of traditional Yoga Masters, connecting the sacred traditions of India with the practice of authentic yoga in Australia.</p>
       <p>Yoga and Meditation School of India was established in Melbourne in 2010. It teaches traditional Ashtanga and Hatha yoga, and its teacher training is registered with Yoga Australia.</p>
       <p>Graduates are trained to teach in Australia and internationally, and many now do.</p>
     </div>
@@ -1345,14 +1349,14 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
     </div>
     <div class="paths paths--two" data-edit="Two cards: photo, title, text">
       <div class="path">
-        <img src="brand-assets/web/tt-who-teach.webp" width="1100" height="650" loading="lazy" decoding="async" alt="A teacher training group with Samir Rane in the studio">
+        <img src="brand-assets/web/tt-who-teach.webp" width="960" height="567" loading="lazy" decoding="async" alt="A teacher training group with Samir Rane in the studio">
         <div class="path__in">
           <h3>You want to teach</h3>
           <p>No teaching experience is needed. You are trained from the basics and mentored to start your own classes.</p>
         </div>
       </div>
       <div class="path">
-        <img src="brand-assets/web/tt-who-study.webp" width="1100" height="825" loading="lazy" decoding="async" alt="Samir Rane watching students hold a twisting pose">
+        <img class="path__img--low" src="brand-assets/web/tt-who-study.webp" width="1100" height="1467" loading="lazy" decoding="async" alt="A student resting in child's pose on a studio floor">
         <div class="path__in">
           <h3>You want to study yoga in depth</h3>
           <p>For dedicated students who want deeper knowledge, and for your own self-development.</p>
@@ -1408,14 +1412,14 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
         </div>
       </li>
       <li class="mod">
-        <img class="mod__img" src="brand-assets/web/tt-syl-meditation.webp" width="743" height="1228" loading="lazy" decoding="async" alt="A trainee in a school T-shirt sitting still in meditation">
+        <img class="mod__img mod__img--high" src="brand-assets/web/tt-syl-meditation.webp" width="1100" height="1063" loading="lazy" decoding="async" alt="Shilpa Rane seated in meditation, holding a mala">
         <div class="mod__in">
           <h3>Meditation</h3>
           <p>Dharana and dhyana, using traditional techniques passed down for generations. You practise them during the training, going further than concentrating on an object or visualising.</p>
         </div>
       </li>
       <li class="mod">
-        <img class="mod__img mod__img--high" src="brand-assets/web/tt-syl-kundalini.webp" width="1100" height="1273" loading="lazy" decoding="async" alt="Samir Rane seated cross-legged in white">
+        <img class="mod__img mod__img--high" src="brand-assets/web/tt-syl-kundalini.webp" width="1100" height="1240" loading="lazy" decoding="async" alt="Samir Rane seated in white, hands in a mudra">
         <div class="mod__in">
           <h3>Shatkarma, kundalini and karma yoga</h3>
           <p>The cleansing techniques of traditional Hatha yoga, recorded around 1200 AD. Kundalini energy, which the practice works towards.</p>
@@ -1432,6 +1436,9 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
     <div class="shead" data-edit="Section heading">
       <h2>Who teaches you</h2>
     </div>
+    <figure class="photo-cap photo-cap--top" data-edit="Photo of the teachers">
+      <img src="brand-assets/web/tt-teachers.webp" width="1400" height="758" loading="lazy" decoding="async" alt="Samir and Shilpa Rane wearing marigold garlands">
+    </figure>
     <ul class="tcards" role="list" data-edit="Teachers: photo (circle), name, role, one line, full biography">
       <li class="tcard">
         <span class="grad__av grad__av--lg"><img src="brand-assets/web/teacher-samir-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></span>
@@ -1471,6 +1478,10 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
       <h2>Practical teaching methodology</h2>
       <p>You are trained and mentored to teach asana and pranayama, keeping to the tradition and its precautions.</p>
     </div>
+    <figure class="photo-cap photo-cap--top" data-edit="Photo and caption">
+      <img src="brand-assets/web/tt-method.webp" width="1276" height="709" loading="lazy" decoding="async" alt="Samir Rane speaking to a seated group wearing marigold garlands">
+      <figcaption>Yogacharya Samir Rane teaching a group.</figcaption>
+    </figure>
     <ul class="ticks" role="list" data-edit="Teaching skills: one line each">
       <li>Preparing before you take a class</li>
       <li>Leading a class of 15 and a class of 50 or more, with timing for each asana</li>

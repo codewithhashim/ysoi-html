@@ -901,6 +901,26 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   .lin-orn__lotus{width:46px}
   .cmp{aspect-ratio:1/1}
 }
+/* "Join a daily yoga class": two photo boxes side by side instead of the drag slider (Sam, Google Doc) */
+.dcls{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,20px)}
+.dcls__i{position:relative;margin:0;border-radius:var(--r-img);overflow:hidden;background:var(--shade)}
+.dcls__i img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.dcls__lbl{position:absolute;left:12px;bottom:12px;background:rgba(36,36,36,.92);color:#fff;border-radius:var(--pill);
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px}
+/* reviews: the Google link sits under the reviews (Sam's marked-up screenshot) */
+.gr-all{display:flex;justify-content:center;margin-top:22px}
+/* founders: hover (or tap on phones) shows a short biography over the photo */
+.founders-full__media figure:focus{outline:none}
+.founders-full__media figure:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}
+.fnd-more{display:block;max-width:46ch;max-height:0;margin-top:0;opacity:0;overflow:hidden;font-size:.95rem;line-height:1.55;color:rgba(255,255,255,.92);
+  transition:max-height .35s ease,opacity .3s ease,margin-top .3s ease}
+.founders-full__media figure:hover .fnd-more,.founders-full__media figure:focus .fnd-more,.founders-full__media figure.is-open .fnd-more{max-height:14em;margin-top:12px;opacity:1}
+.founders-full__media figure:hover figcaption,.founders-full__media figure:focus figcaption,.founders-full__media figure.is-open figcaption{
+  background:linear-gradient(to top,rgba(18,12,6,.88) 0%,rgba(18,12,6,.62) 62%,rgba(18,12,6,0) 100%)}
+@media (max-width:720px){
+  .dcls{grid-template-columns:1fr}
+  .fnd-more{font-size:.8rem;line-height:1.45}
+}
 </style>
 
 </head>
@@ -1147,13 +1167,15 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
     </div>
     <div class="lin-class">
       <h3 class="lin-class__title">Join a daily yoga class</h3>
-      <div class="cmp" id="cmp" data-edit="Drag slider: two photos (online class, studio class) and their labels">
-        <img class="cmp__a" src="brand-assets/web/path-class.jpg" width="900" height="1121" loading="lazy" decoding="async" alt="A student following the class at home on Zoom">
-        <div class="cmp__clip"><img class="cmp__b" src="brand-assets/web/path-studio.webp" width="1290" height="718" loading="lazy" decoding="async" alt="Samir teaching a studio class"></div>
-        <span class="cmp__lbl cmp__lbl--l" aria-hidden="true">Online</span>
-        <span class="cmp__lbl cmp__lbl--r" aria-hidden="true">In studio</span>
-        <input class="cmp__range" id="cmpRange" type="range" min="0" max="100" value="50" aria-label="Slide between the online class and the studio class">
-        <span class="cmp__bar" aria-hidden="true"><span class="cmp__knob"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 6 3 10l4 4M13 6l4 4-4 4"/></svg></span></span>
+      <div class="dcls" data-edit="Daily class: two photos (online, in studio), each with a label">
+        <figure class="dcls__i">
+          <img src="brand-assets/web/class-online.webp" width="1100" height="817" loading="lazy" decoding="async" alt="A family at home following Samir Rane's live class on the TV">
+          <figcaption class="dcls__lbl">Online</figcaption>
+        </figure>
+        <figure class="dcls__i">
+          <img src="brand-assets/web/class-studio.webp" width="1290" height="718" loading="lazy" decoding="async" alt="Samir Rane teaching a studio class">
+          <figcaption class="dcls__lbl">In studio</figcaption>
+        </figure>
       </div>
       <div class="lin-class__text" data-edit="Daily class: heading, line, button">
         <p>At Oakleigh or McKinnon, or live and recorded on Zoom, Australia-wide. One pass covers everything.</p>
@@ -1354,18 +1376,18 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
     <!-- restore when the founders page exists -->
     <a href="#" class="btn btn--ghost" style="margin-top:12px" hidden>Read about Samir and Shilpa</a>
   </div>
-  <div class="founders-full__media" data-edit="Founder portraits: photo, name, role">
-    <figure>
+  <div class="founders-full__media" data-edit="Founder portraits: photo, name, role, text shown on hover">
+    <figure tabindex="0">
       <img src="brand-assets/web/founder-samir-1166.jpg"
            srcset="brand-assets/web/founder-samir.jpg 800w, brand-assets/web/founder-samir-1166.jpg 1166w"
            sizes="50vw" width="1166" height="1349" loading="lazy" decoding="async" alt="Yogacharya Samir Rane seated in padmasana">
-      <figcaption><b>Yogacharya Samir Rane</b>Principal Yoga Teacher</figcaption>
+      <figcaption><b>Yogacharya Samir Rane</b>Principal Yoga Teacher<span class="fnd-more">Third generation of a yogic family and a Registered Senior Teacher with Yoga Australia. Associated with yoga for 33 years; more than 20,000 students have attended his public classes in Melbourne.</span></figcaption>
     </figure>
-    <figure>
+    <figure tabindex="0">
       <img src="brand-assets/web/founder-shilpa-1076.jpg"
            srcset="brand-assets/web/founder-shilpa-800.jpg 800w, brand-assets/web/founder-shilpa-1076.jpg 1076w"
            sizes="50vw" width="1076" height="1462" loading="lazy" decoding="async" alt="Shilpa Rane demonstrating nadi shodhana pranayama">
-      <figcaption><b>Shilpa Rane</b>Director of Yoga Education</figcaption>
+      <figcaption><b>Shilpa Rane</b>Director of Yoga Education<span class="fnd-more">Senior teaching faculty, with a background in medical microbiology, human anatomy and genetics. Trained in Sanskrit mantras since childhood, and a qualified Ayurveda practitioner.</span></figcaption>
     </figure>
   </div>
 </section>
@@ -1416,7 +1438,6 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       <div class="gr-top">
         <svg class="gr-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
         <span class="gr-score"><b>4.9</b><span class="gr-stars" role="img" aria-label="Rated 4.9 out of 5">★★★★★</span></span>
-        <a class="btn btn--ghost btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=Yoga+and+Meditation+School+of+India+Melbourne" target="_blank" rel="noopener">See all on Google</a>
       </div>
       <div class="gr-wrap">
         <div class="gr-track" id="grTrack" tabindex="0" role="region" aria-label="Google reviews, scroll sideways for more">
@@ -1469,6 +1490,9 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
         <div class="gr-nav">
           <button class="gr-btn" id="grPrev" type="button" aria-label="Previous reviews"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
           <button class="gr-btn" id="grNext" type="button" aria-label="More reviews"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+        </div>
+        <div class="gr-all">
+          <a class="btn btn--ghost btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=Yoga+and+Meditation+School+of+India+Melbourne" target="_blank" rel="noopener">See all on Google</a>
         </div>
       </div>
     </div>
@@ -1909,14 +1933,12 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
     }, true);
   }
 
-  /* drag slider on the class card: drag or tap the photo, or use the arrow keys on the hidden range */
-  var cmp = document.getElementById('cmp'), cmpRange = document.getElementById('cmpRange'), cmpDrag = false;
-  function cmpSet(v){ v = Math.max(0, Math.min(100, v)); cmp.style.setProperty('--pos', v + '%'); cmpRange.value = Math.round(v); }
-  function cmpAt(x){ var r = cmp.getBoundingClientRect(); cmpSet((x - r.left) / r.width * 100); }
-  cmp.addEventListener('pointerdown', function(e){ cmpDrag = true; try { cmp.setPointerCapture(e.pointerId); } catch(err){} cmpAt(e.clientX); });
-  cmp.addEventListener('pointermove', function(e){ if (cmpDrag) cmpAt(e.clientX); });
-  ['pointerup','pointercancel','lostpointercapture'].forEach(function(t){ cmp.addEventListener(t, function(){ cmpDrag = false; }); });
-  cmpRange.addEventListener('input', function(){ cmpSet(+cmpRange.value); });
+  /* founders: phones have no hover, so a tap opens the biography */
+  if (window.matchMedia && window.matchMedia('(hover: none)').matches) {
+    document.querySelectorAll('.founders-full__media figure').forEach(function(f){
+      f.addEventListener('click', function(){ f.classList.toggle('is-open'); });
+    });
+  }
 
   /* video lightbox: plays in the page; focus moves in, the page behind goes inert, focus returns on close */
   var lb = document.getElementById('lb'), lbFrame = document.getElementById('lbFrame'),
