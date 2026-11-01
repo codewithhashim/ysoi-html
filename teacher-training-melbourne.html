@@ -920,6 +920,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
    graduates in two streams.
    ============================================================ */
 .hero--page .hero__title{max-width:22ch}
+.hero__vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 /* city map: states lift and turn orange under the pointer; pins pulse so it reads as clickable */
 .ausmap{max-width:720px;margin:0 auto}
@@ -1059,7 +1060,11 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
   .brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content}
   .brand img{width:min(270px,calc(100vw - 136px));max-width:none}
 
-  .hero__bg img.hero__bg--class{object-position:72% center}
+  /* phones: the video across the top at close to its real size, the wording on the dark floor below it, as on the homepage */
+  .hero--page{flex-direction:column;min-height:0;padding-top:0;background:#1E130B}
+  .hero--page .hero__bg{position:relative;inset:auto;flex:none;width:100%;aspect-ratio:16/9}
+  .hero--page::after{inset:auto 0 auto 0;top:0;height:calc(100vw * 9 / 16);background:linear-gradient(to top,#1E130B 0%,rgba(30,19,11,0) 34%)}
+  .hero--page .hero__in{padding-top:8px}
   .pin text{font-size:40px;stroke-width:9px}
   .pin__dot{r:11}
   .gen-cap b{font-size:1.06rem}
@@ -1196,11 +1201,11 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
 <main id="main">
 <!-- ============ HERO (one photo, editable; no slider on course pages) ============ -->
 <section class="hero hero--page" id="top">
-  <div class="hero__bg" aria-hidden="true" data-edit="Hero photo: change it any time in the admin">
-    <!-- the homepage's former second slide, the class with the senior student, as Sam asked -->
-    <img class="is-on hero__bg--class" src="brand-assets/photos/slider-image-2.webp"
-         srcset="brand-assets/web/slide-2-800.webp 800w, brand-assets/photos/slider-image-2.webp 1448w"
-         sizes="100vw" width="1448" height="1086" fetchpriority="high" decoding="async" alt="">
+  <div class="hero__bg" aria-hidden="true" data-edit="Banner: a silent video or a photo, changed any time in the admin">
+    <!-- Samir leading a class, from his Instagram reel C-t08WHIR8O: picture only, no sound, looped like moveyoga.com.au. -->
+    <video class="hero__vid" id="heroVid" poster="brand-assets/web/tt-hero-class-poster.webp" autoplay muted loop playsinline preload="auto" disablepictureinpicture>
+      <source src="brand-assets/web/tt-hero-class.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="hero__in">
     <div class="hero__slide is-on" data-edit="Hero: label, heading, line, button">
@@ -1502,7 +1507,7 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
       <li>Keeping your own practice going in a busy teaching week</li>
     </ul>
     <ul class="mods mods--sm" role="list" data-edit="Teaching modules: photo, title, text">
-      <li class="mod"><img class="mod__img" src="brand-assets/web/tt-mod-pregnancy.webp" width="640" height="480" loading="lazy" decoding="async" alt="A woman and a young girl doing tree pose together at home, with the class on a laptop"><div class="mod__in"><h3>Pre and post pregnancy</h3><p>The traditional methods used in these periods, with insight from our own teachers' case studies.</p></div></li>
+      <li class="mod"><img class="mod__img" src="brand-assets/web/tt-mod-pregnancy.webp" width="640" height="480" loading="lazy" decoding="async" alt="A pregnant woman seated on a yoga mat, hands together in prayer"><div class="mod__in"><h3>Pre and post pregnancy</h3><p>The traditional methods used in these periods, with insight from our own teachers' case studies.</p></div></li>
       <li class="mod"><img class="mod__img" src="brand-assets/web/tt-mod-special.webp" width="640" height="480" loading="lazy" decoding="async" alt="A student practising a backbend on a rug at home"><div class="mod__in"><h3>People with special needs</h3><p>How to take care of people with special needs in your classes.</p></div></li>
       <li class="mod"><img class="mod__img" src="brand-assets/web/tt-mod-kids.webp" width="640" height="480" loading="lazy" decoding="async" alt="Two children in warrior pose at home, following an online class"><div class="mod__in"><h3>Kids and teens</h3><p>How to teach school children and run a kids' class across age groups.</p></div></li>
       <li class="mod"><img class="mod__img" src="brand-assets/web/tt-mod-private.webp" width="640" height="480" loading="lazy" decoding="async" alt="A student in tree pose following her teacher on a TV at home"><div class="mod__in"><h3>Private classes</h3><p>A session of its own on one-to-one classes, face to face and online.</p></div></li>
@@ -2053,6 +2058,9 @@ main a,main button,main summary,main input,main select,main textarea,.ftr a{scro
     document.getElementById('enquiry').classList.add('is-sent');
     document.getElementById('sentHeading').focus();
   });
+
+  /* banner video: anyone who has asked for less motion sees the still frame */
+  if (reduced) { var heroVid = document.getElementById('heroVid'); heroVid.removeAttribute('autoplay'); heroVid.pause(); }
 
   /* read more: a quote or review shows four lines; the button appears only when there is more */
   var rmCards = Array.prototype.slice.call(document.querySelectorAll('[data-rm]'));
