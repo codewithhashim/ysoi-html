@@ -909,6 +909,10 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px}
 /* reviews: the Google link sits under the reviews (Sam's marked-up screenshot) */
 .gr-all{display:flex;justify-content:center;margin-top:22px}
+/* readers who came from the teacher training page get a way back (Sam, 1 Nov) */
+.back-pill{position:fixed;left:20px;bottom:calc(var(--cookie-h) + 20px);z-index:85;display:inline-flex;align-items:center;min-height:46px;padding:9px 20px;
+  border-radius:var(--pill);background:var(--ink);color:#fff;font-size:.88rem;font-weight:600;box-shadow:var(--shadow)}
+.back-pill:hover{background:#000}
 /* founders: hover (or tap on phones) shows a short biography over the photo */
 .founders-full__media figure:focus{outline:none}
 .founders-full__media figure:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}
@@ -919,6 +923,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
   background:linear-gradient(to top,rgba(18,12,6,.88) 0%,rgba(18,12,6,.62) 62%,rgba(18,12,6,0) 100%)}
 @media (max-width:720px){
   .dcls{grid-template-columns:1fr}
+  .back-pill{left:14px;bottom:calc(var(--cookie-h) + 76px)}   /* clear of the class pass pill */
   .fnd-more{font-size:.8rem;line-height:1.45}
 }
 </style>
@@ -1695,6 +1700,7 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
 
 
 <!-- ============ CLASS PASS POPUP (replaces the header button) ============ -->
+<a class="back-pill" id="backPill" href="teacher-training-melbourne.html" hidden>← Back to teacher training</a>
 <button class="pass-fab" id="passFab" type="button" data-pass-open aria-haspopup="dialog" aria-controls="passPop" aria-expanded="false">
   <span class="pass-fab__i"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5V5a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1v1.5a2 2 0 0 0 0 4V12a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1v-1.5a2 2 0 0 0 0-4z" transform="translate(0 1.5)"/><path d="M12.5 5.5v9" stroke-dasharray="1.6 1.8" /></svg></span>Buy a Class Pass
 </button>
@@ -1931,6 +1937,13 @@ body.show-edit .hero__bg[data-edit]::before{top:8px;left:8px;z-index:3}
       var a = e.target.closest && e.target.closest('a[href^="#"]'), t = a && a.hash && document.getElementById(a.hash.slice(1));
       if (t && t.classList.contains('rv')) { rvIO.unobserve(t); t.classList.remove('rv', 'is-in'); }
     }, true);
+  }
+
+  /* arrived from the teacher training page: the pill returns to the exact spot they left */
+  var backPill = document.getElementById('backPill');
+  if (document.referrer.indexOf('teacher-training-melbourne') > -1) {
+    backPill.hidden = false;
+    backPill.addEventListener('click', function(e){ e.preventDefault(); history.back(); });
   }
 
   /* founders: phones have no hover, so a tap opens the biography */
